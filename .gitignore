@@ -158,3 +158,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+# R file
+R.java
