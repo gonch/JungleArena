@@ -88,7 +88,7 @@ public class WorldRenderer {
 		float[] mapY = map.getMapY();
 		for(int i = 0; i < mapY.length; i++){
 			shapeRenderer.setColor(1, 1, 0, 1);
-			shapeRenderer.line(i, 0, i, mapY[i]);
+			shapeRenderer.line(i, 0, i, mapY[i]/3*2);
 //			shapeRenderer.rect(x, y, width, height);
 //			shapeRenderer.circle(x, y, radius);
 		}
