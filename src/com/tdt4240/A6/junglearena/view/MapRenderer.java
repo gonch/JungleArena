@@ -35,6 +35,7 @@ public class MapRenderer {
 			shapeRenderer.filledRect(i, 0, 3, mapY[i]);
 		}
 		shapeRenderer.end();
+//		 Gdx.graphics.setContinuousRendering(false); //for non continuous rendering
 
 	}
 }

@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.model.World;
+import com.tdt4240.A6.junglearena.view.GameInfoRenderer;
 import com.tdt4240.A6.junglearena.view.MapRenderer;
 import com.tdt4240.A6.junglearena.view.WorldRenderer;
 
@@ -21,7 +22,8 @@ public class GameScreen implements Screen, GestureListener {
 	private Game game;
 	private MapController mapController;
 	private MapRenderer mapRenderer;
-
+	private GameInfoRenderer gameInfoRenderer;
+	
 	private int width, height;
 
 	public GameScreen(Game game){
@@ -38,6 +40,7 @@ public class GameScreen implements Screen, GestureListener {
 		this.worldRenderer = new WorldRenderer(this.world);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
 		this.worldController.setCharacterStartingPositions();
+		this.gameInfoRenderer = new GameInfoRenderer(world);
 		Gdx.input.setInputProcessor(new GestureDetector(this));
 	}
 
@@ -57,8 +60,9 @@ public class GameScreen implements Screen, GestureListener {
 	public void render(float dt) {
 		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);// clear the screen with black
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		mapRenderer.render();
-		worldRenderer.render();
+		this.mapRenderer.render();
+		this.worldRenderer.render();
+		this.gameInfoRenderer.render();
 	}
 
 	/*
