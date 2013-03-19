@@ -48,10 +48,6 @@ public class MapController {
 		this.map = new GameMap(background, mapY);
 	}
 
-	/**
-	 * Initial noise function creates a seemingly random number(noise) that can
-	 * be repeated
-	 */
 	private static float noise(float x, float y) {
 		int n = (int) ((int) x + y * 57);
 		n = (n << 13) ^ n;
@@ -65,10 +61,6 @@ public class MapController {
 		return corners + center + sides;
 	}
 
-	/**
-	 * noise interpolation method used to generate a smoother output of the
-	 * noise
-	 */
 	private static float interpolatedNoise(float x, float y) {
 		int integer_X = (int) x;
 		float fractional_X = x - integer_X;
@@ -81,27 +73,22 @@ public class MapController {
 		float v3 = smoothNoise(integer_X, integer_Y + 1);
 		float v4 = smoothNoise(integer_X + 1, integer_Y + 1);
 
-		float i1 = interpolate(v1, v2, fractional_X);
-		float i2 = interpolate(v3, v4, fractional_X);
+		float i1 = cosInterpolate(v1, v2, fractional_X);
+		float i2 = cosInterpolate(v3, v4, fractional_X);
 
-		return interpolate(i1, i2, fractional_Y);
+		return cosInterpolate(i1, i2, fractional_Y);
 	}
 
-	/**
-	 * Cosine interpolation method used to smooth out the output curve
-	 */
-	private static float interpolate(float a, float b, float x) {
-		// cosine
+	private static float cosInterpolate(float a, float b, float x) {		
 		float ft = x * 3.1415927f;
 		float f = (float) ((1 - Math.cos(ft)) * 0.5f);
 		return a * (1 - f) + b * f;
-
 	}
 
 	/**
-	 * The starting function of the algorithm
+	 * The starting function of the Perline noise 2D algorithm
 	 * */
-	public static float perlinNoise_2D(float x, float z) {
+	private static float perlinNoise_2D(float x, float z) {
 		float height = 0;
 		float frequency;
 		float amplitude;
@@ -119,7 +106,10 @@ public class MapController {
 		}
 		return height * vScale;
 	}
-
+	
+	/**
+	 * Creates the map according to the perline noise algorithm
+	 * */
 	public void generateMap() {
 		float r = (float) (Math.random() * screenWidth);
 		System.out.println(screenWidth);

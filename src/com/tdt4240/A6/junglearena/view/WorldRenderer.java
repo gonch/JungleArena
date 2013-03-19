@@ -66,11 +66,7 @@ public class WorldRenderer {
 		Player player2 = world.getPlayer2();
 		Character ch1 = player1.getCharacter();
 		Character ch2 = player2.getCharacter();
-		// spriteBatch.draw(tankTexture, ch1.getPosition().x * ppuX,
-		// ch1.getPosition().y * ppuY, ppuX,
-		// ppuY);
-		// spriteBatch.draw(tankTexture, 100, 100, CAMERA_WIDTH, CAMERA_HEIGHT);
-		// //scale the img to fit the width and height
+
 		Sprite leftSprite = new Sprite(tankTexture); 
 		leftSprite.flip(true, false);//now the second tank faces to the left
 		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y);
