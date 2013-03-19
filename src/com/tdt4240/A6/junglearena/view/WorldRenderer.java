@@ -80,15 +80,16 @@ public class WorldRenderer {
 	private void drawMap(){
 		Map map = this.world.getMap();
 		String backgroundString = map.getBackground();
-		Texture backgroundTexture = new Texture(Gdx.files.internal(backgroundString + ".jpeg"));
-		spriteBatch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		spriteBatch.draw(backgroundTexture, 0, 0);
+//		Texture backgroundTexture = new Texture(Gdx.files.internal(backgroundString + ".png"));
+		Texture backgroundTexture = new Texture(Gdx.files.internal("desert.png"));
+//		spriteBatch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		spriteBatch.draw(backgroundTexture, 200, 200);
 
 		shapeRenderer.begin(ShapeType.Line);
 		float[] mapY = map.getMapY();
 		for(int i = 0; i < mapY.length; i++){
-			shapeRenderer.setColor(1, 1, 0, 1);
-			shapeRenderer.line(i, 0, i, mapY[i]/3*2);
+			shapeRenderer.setColor(1, 0, 0, 0.75f);
+			shapeRenderer.line(i, 0, i, mapY[i]);
 //			shapeRenderer.rect(x, y, width, height);
 //			shapeRenderer.circle(x, y, radius);
 		}
