@@ -7,8 +7,11 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
+import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.model.World;
+import com.tdt4240.A6.junglearena.view.GameInfoRenderer;
+import com.tdt4240.A6.junglearena.view.MapRenderer;
 import com.tdt4240.A6.junglearena.view.WorldRenderer;
 
 public class GameScreen implements Screen, GestureListener {
@@ -17,7 +20,10 @@ public class GameScreen implements Screen, GestureListener {
 	private WorldController worldController;
 	private WorldRenderer worldRenderer;
 	private Game game;
-
+	private MapController mapController;
+	private MapRenderer mapRenderer;
+	private GameInfoRenderer gameInfoRenderer;
+	
 	private int width, height;
 
 	public GameScreen(Game game){
@@ -27,8 +33,14 @@ public class GameScreen implements Screen, GestureListener {
 	@Override
 	public void show() {
 		this.world = new World();
+		this.mapController = new MapController("desert");
+		this.mapController.generateMap();
+		this.world.setMap(this.mapController.getMap());
 		this.worldController = new WorldController(this.world);
 		this.worldRenderer = new WorldRenderer(this.world);
+		this.mapRenderer = new MapRenderer(this.mapController.getMap());
+		this.worldController.setCharacterStartingPositions();
+		this.gameInfoRenderer = new GameInfoRenderer(world);
 		Gdx.input.setInputProcessor(new GestureDetector(this));
 	}
 
@@ -48,7 +60,9 @@ public class GameScreen implements Screen, GestureListener {
 	public void render(float dt) {
 		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);// clear the screen with black
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		worldRenderer.render();
+		this.mapRenderer.render();
+		this.worldRenderer.render();
+		this.gameInfoRenderer.render();
 	}
 
 	/*
@@ -67,6 +81,7 @@ public class GameScreen implements Screen, GestureListener {
 
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
+		this.worldController.screenTouched(x,y);
 		return true;
 	}
 
@@ -82,13 +97,13 @@ public class GameScreen implements Screen, GestureListener {
 
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
-		return false;
+		this.worldController.screenWithFling(velocityX,velocityY);
+		return true;
 	}
 
 	@Override
-	public boolean pan(float x, float y, float deltaX, float deltaY) {
-		this.worldController.screenTouched(x,y);
-		return true;
+	public boolean pan(float x, float y, float deltaX, float deltaY) {		
+		return false;
 	}
 
 	@Override
