@@ -12,26 +12,29 @@ public class MapRenderer {
 	private Map map;
 	private SpriteBatch spriteBatch;
 	private ShapeRenderer shapeRenderer;
+	private Texture backgroundTexture;
 
-	public MapRenderer(Map map, SpriteBatch spriteBatch) {
+	public MapRenderer(Map map) {
 		this.map = map;
-		this.spriteBatch = spriteBatch;
+		this.spriteBatch = new SpriteBatch();
 		this.shapeRenderer = new ShapeRenderer();
+		String backgroundString = map.getBackground();	
+		this.backgroundTexture = new Texture(Gdx.files.internal(backgroundString + ".jpeg"));
 	}
 
-	public void render() {
-		String backgroundString = this.map.getBackground();
-		Texture backgroundTexture = new Texture(Gdx.files.internal(backgroundString + ".jpeg"));
-		spriteBatch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	public void render(){
+		this.spriteBatch.begin();
 
-		shapeRenderer.begin(ShapeType.Line);
+		spriteBatch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		spriteBatch.end();
+		shapeRenderer.begin(ShapeType.FilledRectangle);
 		float[] mapY = map.getMapY();
-		for(int i = 0; i < mapY.length; i++){
-			shapeRenderer.setColor(1, 1, 0, 1);
-			shapeRenderer.line(i, 0, i, mapY[i]);
-//			shapeRenderer.rect(x, y, width, height);
-//			shapeRenderer.circle(x, y, radius);
+		for(int i = 0; i < mapY.length; i+=3){
+			shapeRenderer.setColor(1, 0, 0, 1);
+//			shapeRenderer.line(i, 0, i, mapY[i]);
+			shapeRenderer.filledRect(i, 0, 3, mapY[i]);
 		}
 		shapeRenderer.end();
+
 	}
 }

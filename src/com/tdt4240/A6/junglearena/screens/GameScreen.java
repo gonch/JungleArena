@@ -37,6 +37,8 @@ public class GameScreen implements Screen, GestureListener {
 //		this.mapRenderer = new MapRenderer();
 		this.worldController = new WorldController(this.world);
 		this.worldRenderer = new WorldRenderer(this.world);
+		this.mapRenderer = new MapRenderer(this.mapController.getMap());
+		this.worldController.setCharacterStartingPositions();
 		Gdx.input.setInputProcessor(new GestureDetector(this));
 	}
 
@@ -56,8 +58,8 @@ public class GameScreen implements Screen, GestureListener {
 	public void render(float dt) {
 		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);// clear the screen with black
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		mapRenderer.render();
 		worldRenderer.render();
-//		mapController;
 	}
 
 	/*
