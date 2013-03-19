@@ -5,14 +5,14 @@ import com.badlogic.gdx.math.Vector2;
 public class Character {
 	private int health;
 	private String name;
-	private Vector2 pos;
+	private Vector2 position;
 	private String skin;
 
 	public Character(int health, String name, Vector2 pos, String skin) {
 		super();
 		this.health = health;
 		this.name = name;
-		this.pos = pos;
+		this.position = pos;
 		this.skin = skin;
 	}
 
@@ -32,12 +32,12 @@ public class Character {
 		this.name = name;
 	}
 
-	public Vector2 getPos() {
-		return pos;
+	public Vector2 getPosition() {
+		return position;
 	}
 
-	public void setPos(Vector2 pos) {
-		this.pos = pos;
+	public void setPosition(Vector2 pos) {
+		this.position = pos;
 	}
 
 	public String getSkin() {

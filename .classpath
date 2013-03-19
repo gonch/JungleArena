@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-    <classpathentry kind="src" path="src"/>
-    <classpathentry kind="src" path="gen"/>
-    <classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-    <classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-    <classpathentry kind="output" path="bin/classes"/>
-    <classpathentry exported="true" kind="lib" path="libs/gdx-backend-android.jar" sourcepath="libs/gdx-backend-android-sources.jar"/>
-    <classpathentry exported="true" kind="lib" path="/JungleArena/libs/bodyeditor-loader.jar" sourcepath="/JungleArena/libs/bodyeditor-loader-sources.jar"/>
-    <classpathentry exported="true" kind="lib" path="/JungleArena/libs/gdx.jar" sourcepath="/JungleArena/libs/gdx-sources.jar"/>
-    <classpathentry exported="true" kind="lib" path="/JungleArena/libs/tween-engine-api.jar" sourcepath="/JungleArena/libs/tween-engine-api-sources.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" exported="true" path="libs/gdx.jar" sourcepath="libs/gdx-sources.jar"/>
+	<classpathentry kind="lib" exported="true" path="libs/bodyeditor-loader.jar" sourcepath="libs/bodyeditor-loader-sources.jar"/>
+	<classpathentry kind="lib" exported="true" path="libs/tween-engine-api.jar" sourcepath="libs/tween-engine-api-sources.jar"/>
 </classpath>
