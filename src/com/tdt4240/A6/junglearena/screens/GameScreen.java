@@ -7,8 +7,10 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
+import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.model.World;
+import com.tdt4240.A6.junglearena.view.MapRenderer;
 import com.tdt4240.A6.junglearena.view.WorldRenderer;
 
 public class GameScreen implements Screen, GestureListener {
@@ -17,6 +19,8 @@ public class GameScreen implements Screen, GestureListener {
 	private WorldController worldController;
 	private WorldRenderer worldRenderer;
 	private Game game;
+	private MapController mapController;
+	private MapRenderer mapRenderer;
 
 	private int width, height;
 
@@ -27,6 +31,10 @@ public class GameScreen implements Screen, GestureListener {
 	@Override
 	public void show() {
 		this.world = new World();
+		this.mapController = new MapController("desert");
+		this.mapController.generateMap();
+		this.world.setMap(this.mapController.getMap());
+//		this.mapRenderer = new MapRenderer();
 		this.worldController = new WorldController(this.world);
 		this.worldRenderer = new WorldRenderer(this.world);
 		Gdx.input.setInputProcessor(new GestureDetector(this));
@@ -49,6 +57,7 @@ public class GameScreen implements Screen, GestureListener {
 		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);// clear the screen with black
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		worldRenderer.render();
+//		mapController;
 	}
 
 	/*

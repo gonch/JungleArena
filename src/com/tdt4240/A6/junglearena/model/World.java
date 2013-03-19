@@ -6,13 +6,14 @@ import com.badlogic.gdx.math.Vector2;
 
 public class World {
 	Player player1,player2;
-	List <Map> maps;
+	Map map;
 	
 	public World(){
 		Character lion = new Character(100,"lion",new Vector2(10,10),"lion");
 		Character lion2 = new Character(100,"lion",new Vector2(300,300),"lion");
 		this.player1 = new Player("alessio", 1, lion);
 		this.player2 = new Player("gonzalo", 2, lion2);
+		this.map = null;
 	}
 
 	public Player getPlayer1() {
@@ -23,8 +24,12 @@ public class World {
 		return player2;
 	}
 
-	public List<Map> getMaps() {
-		return maps;
+	public Map getMap() {
+		return this.map;
+	}
+	
+	public void setMap(Map map){
+		this.map = map;
 	}
 	
 	

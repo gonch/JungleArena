@@ -1,18 +1,28 @@
 package com.tdt4240.A6.junglearena.model;
 
 public class Map {
-	private String Name;
+	private String background;
+	private float[] mapY;
 
-	public Map(String name) {
-		Name = name;
+	public Map(String background,float[] mapY) {
+		this.setBackground(background);
+		this.setMapY(mapY);
 	}
 
-	public String getName() {
-		return Name;
+	public float[] getMapY() {
+		return mapY;
 	}
 
-	public void setName(String name) {
-		Name = name;
+	public void setMapY(float[] mapY) {
+		this.mapY = mapY;
+	}
+
+	public String getBackground() {
+		return background;
+	}
+
+	public void setBackground(String background) {
+		this.background = background;
 	}
 
 }

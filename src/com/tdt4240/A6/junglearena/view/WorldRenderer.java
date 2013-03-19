@@ -5,7 +5,9 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.tdt4240.A6.junglearena.model.Character;
+import com.tdt4240.A6.junglearena.model.Map;
 import com.tdt4240.A6.junglearena.model.Player;
 import com.tdt4240.A6.junglearena.model.World;
 
@@ -19,6 +21,7 @@ public class WorldRenderer {
 
 	/** for debug rendering **/
 	ShapeRenderer debugRenderer = new ShapeRenderer();
+	private ShapeRenderer shapeRenderer;
 
 	/** Textures **/
 	private Texture tankTexture;
@@ -37,6 +40,7 @@ public class WorldRenderer {
 		this.ppuX = 10/ CAMERA_WIDTH;
 		this.ppuY = 10/ CAMERA_WIDTH;
 		spriteBatch = new SpriteBatch();
+		this.shapeRenderer = new ShapeRenderer();
 		loadTextures();
 	}
 
@@ -57,6 +61,7 @@ public class WorldRenderer {
 	public void render() {
 		spriteBatch.begin();
 		drawTank();
+		drawMap();
 		spriteBatch.end();
 	}
 
@@ -70,5 +75,23 @@ public class WorldRenderer {
 //		spriteBatch.draw(tankTexture, 100, 100, CAMERA_WIDTH, CAMERA_HEIGHT); //scale the img to fit the width and height
 		spriteBatch.draw(tankTexture,  ch1.getPosition().x,  ch1.getPosition().y);	
 		spriteBatch.draw(tankTexture,  ch2.getPosition().x,  ch2.getPosition().y);	
+	}
+	
+	private void drawMap(){
+		Map map = this.world.getMap();
+		String backgroundString = map.getBackground();
+		Texture backgroundTexture = new Texture(Gdx.files.internal(backgroundString + ".jpeg"));
+		spriteBatch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		spriteBatch.draw(backgroundTexture, 0, 0);
+
+		shapeRenderer.begin(ShapeType.Line);
+		float[] mapY = map.getMapY();
+		for(int i = 0; i < mapY.length; i++){
+			shapeRenderer.setColor(1, 1, 0, 1);
+			shapeRenderer.line(i, 0, i, mapY[i]);
+//			shapeRenderer.rect(x, y, width, height);
+//			shapeRenderer.circle(x, y, radius);
+		}
+		shapeRenderer.end();
 	}
 }
