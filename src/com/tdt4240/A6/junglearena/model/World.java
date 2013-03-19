@@ -6,7 +6,8 @@ import com.badlogic.gdx.math.Vector2;
 
 public class World {
 	Player player1,player2;
-	Map map;
+	List players;
+	GameMap map;
 	
 	public World(){
 		Character lion = new Character(100,"lion",new Vector2(10,10),"lion");
@@ -24,11 +25,11 @@ public class World {
 		return player2;
 	}
 
-	public Map getMap() {
+	public GameMap getMap() {
 		return this.map;
 	}
 	
-	public void setMap(Map map){
+	public void setMap(GameMap map){
 		this.map = map;
 	}
 	

@@ -3,11 +3,10 @@ package com.tdt4240.A6.junglearena.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.tdt4240.A6.junglearena.model.Character;
-import com.tdt4240.A6.junglearena.model.Map;
 import com.tdt4240.A6.junglearena.model.Player;
 import com.tdt4240.A6.junglearena.model.World;
 
@@ -19,8 +18,6 @@ public class WorldRenderer {
 	private World world;
 	private OrthographicCamera cam;
 
-	/** for debug rendering **/
-	ShapeRenderer debugRenderer = new ShapeRenderer();
 	private ShapeRenderer shapeRenderer;
 
 	/** Textures **/
@@ -60,11 +57,11 @@ public class WorldRenderer {
 
 	public void render() {
 		spriteBatch.begin();
-		drawTank();
+		drawTanks();
 		spriteBatch.end();
 	}
 
-	private void drawTank() {
+	private void drawTanks() {
 		Player player1 = world.getPlayer1();
 		Player player2 = world.getPlayer2();
 		Character ch1 = player1.getCharacter();
@@ -74,8 +71,10 @@ public class WorldRenderer {
 		// ppuY);
 		// spriteBatch.draw(tankTexture, 100, 100, CAMERA_WIDTH, CAMERA_HEIGHT);
 		// //scale the img to fit the width and height
+		Sprite leftSprite = new Sprite(tankTexture); 
+		leftSprite.flip(true, false);//now the second tank faces to the left
 		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y);
-		spriteBatch.draw(tankTexture, ch2.getPosition().x, ch2.getPosition().y);
+		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y);
 	}	
 
 }

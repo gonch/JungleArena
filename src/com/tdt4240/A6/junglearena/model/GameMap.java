@@ -1,10 +1,10 @@
 package com.tdt4240.A6.junglearena.model;
 
-public class Map {
+public class GameMap {
 	private String background;
 	private float[] mapY;
 
-	public Map(String background,float[] mapY) {
+	public GameMap(String background,float[] mapY) {
 		this.setBackground(background);
 		this.setMapY(mapY);
 	}

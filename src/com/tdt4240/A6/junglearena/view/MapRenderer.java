@@ -5,16 +5,16 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.tdt4240.A6.junglearena.model.Map;
+import com.tdt4240.A6.junglearena.model.GameMap;
 
 public class MapRenderer {
 
-	private Map map;
+	private GameMap map;
 	private SpriteBatch spriteBatch;
 	private ShapeRenderer shapeRenderer;
 	private Texture backgroundTexture;
 
-	public MapRenderer(Map map) {
+	public MapRenderer(GameMap map) {
 		this.map = map;
 		this.spriteBatch = new SpriteBatch();
 		this.shapeRenderer = new ShapeRenderer();

@@ -1,7 +1,7 @@
 package com.tdt4240.A6.junglearena.controller;
 
 import com.badlogic.gdx.Gdx;
-import com.tdt4240.A6.junglearena.model.Map;
+import com.tdt4240.A6.junglearena.model.GameMap;
 
 /**
  * Java implementation of Perlin Noise algorithm taken by
@@ -11,15 +11,15 @@ public class MapController {
 	private String background;
 	private float[] mapY;
 	private int screenWidth, screenHeight;
-	private Map map;
+	private GameMap map;
 
 	// TODO REMEMBER TO refactor names!!!
 
-	public Map getMap() {
+	public GameMap getMap() {
 		return map;
 	}
 
-	public void setMap(Map map) {
+	public void setMap(GameMap map) {
 		this.map = map;
 	}
 
@@ -45,7 +45,7 @@ public class MapController {
 		this.screenWidth = Gdx.graphics.getWidth();
 		this.screenHeight = Gdx.graphics.getHeight();
 		this.mapY = new float[screenWidth];
-		this.map = new Map(background, mapY);
+		this.map = new GameMap(background, mapY);
 	}
 
 	/**
@@ -98,6 +98,9 @@ public class MapController {
 
 	}
 
+	/**
+	 * The starting function of the algorithm
+	 * */
 	public static float perlinNoise_2D(float x, float z) {
 		float height = 0;
 		float frequency;

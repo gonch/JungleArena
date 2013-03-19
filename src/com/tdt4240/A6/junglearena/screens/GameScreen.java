@@ -34,7 +34,6 @@ public class GameScreen implements Screen, GestureListener {
 		this.mapController = new MapController("desert");
 		this.mapController.generateMap();
 		this.world.setMap(this.mapController.getMap());
-//		this.mapRenderer = new MapRenderer();
 		this.worldController = new WorldController(this.world);
 		this.worldRenderer = new WorldRenderer(this.world);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
