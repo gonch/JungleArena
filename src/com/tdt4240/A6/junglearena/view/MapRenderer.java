@@ -27,12 +27,12 @@ public class MapRenderer {
 
 		spriteBatch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		spriteBatch.end();
-		shapeRenderer.begin(ShapeType.FilledRectangle);
+		shapeRenderer.begin(ShapeType.Line);
 		float[] mapY = map.getMapY();
-		for(int i = 0; i < mapY.length; i+=3){
+		for(int i = 0; i < mapY.length; i+=1){
 			shapeRenderer.setColor(1, 0, 0, 1);
-//			shapeRenderer.line(i, 0, i, mapY[i]);
-			shapeRenderer.filledRect(i, 0, 3, mapY[i]);
+			shapeRenderer.line(i, 0, i, mapY[i]);
+//			shapeRenderer.filledRect(i, 0, 3, mapY[i]);
 		}
 		shapeRenderer.end();
 //		 Gdx.graphics.setContinuousRendering(false); //for non continuous rendering

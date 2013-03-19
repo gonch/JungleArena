@@ -81,6 +81,7 @@ public class GameScreen implements Screen, GestureListener {
 
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
+		this.worldController.screenTouched(x,y);
 		return true;
 	}
 
@@ -96,13 +97,13 @@ public class GameScreen implements Screen, GestureListener {
 
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
-		return false;
+		this.worldController.screenWithFling(velocityX,velocityY);
+		return true;
 	}
 
 	@Override
-	public boolean pan(float x, float y, float deltaX, float deltaY) {
-		this.worldController.screenTouched(x,y);
-		return true;
+	public boolean pan(float x, float y, float deltaX, float deltaY) {		
+		return false;
 	}
 
 	@Override

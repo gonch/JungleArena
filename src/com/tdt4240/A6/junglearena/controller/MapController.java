@@ -24,19 +24,20 @@ public class MapController {
 	}
 
 	/**
-	 * persistance is the amplitude for each frequency
+	 * amplitude for each frequency
 	 */
 	static float persistence = 0.03f;
+//	static float persistence = (float) (1f/Math.sqrt(new Double(2)));
 	/**
-	 * numberOfOctaves - number of noise functions added together
+	 * number of noise functions that perlin adds together
 	 */
 	static int numberOfOctaves = 6;
 	/**
-	 * hScale - custom defined horizontal scale
+	 * horizontal scale
 	 */
 	static float hScale = 0.012f;
 	/**
-	 * vScale - custom defined vertical scale
+	 * vertical scale
 	 */
 	static float vScale = 0.35f;
 
@@ -116,7 +117,7 @@ public class MapController {
 		System.out.println(r);
 		for (int i = 0; i < screenWidth; i++) {
 			float realSize = screenHeight - perlinNoise_2D(i, r) * screenHeight - screenHeight / 2;
-			float scaledSize = realSize - 100;
+			float scaledSize = realSize-100;
 			mapY[i] = scaledSize;
 		}
 		this.map.setMapY(mapY);

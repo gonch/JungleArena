@@ -36,4 +36,8 @@ public class WorldController {
 		y = this.world.getMap().getMapY()[randomX];
 		rigthChar.setPosition(new Vector2(randomX, y));
 	}
+
+	public void screenWithFling(float velocityX, float velocityY) {
+		
+	}
 }
