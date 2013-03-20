@@ -50,6 +50,7 @@ public class TitleScreen implements Screen, InputProcessor{
 
 	@Override
 	public void dispose() {
+		this.titleScreenRenderer.dispose();
 	}
 	
 	/**
