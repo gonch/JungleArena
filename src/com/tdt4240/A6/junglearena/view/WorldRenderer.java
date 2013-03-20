@@ -3,6 +3,7 @@ package com.tdt4240.A6.junglearena.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.tdt4240.A6.junglearena.model.Character;
@@ -17,8 +18,7 @@ public class WorldRenderer {
 	private World world;
 	private OrthographicCamera cam;
 
-	/** for debug rendering **/
-	ShapeRenderer debugRenderer = new ShapeRenderer();
+	private ShapeRenderer shapeRenderer;
 
 	/** Textures **/
 	private Texture tankTexture;
@@ -28,21 +28,22 @@ public class WorldRenderer {
 	private int height;
 	private float ppuX; // pixels per unit on the X axis
 	private float ppuY; // pixels per unit on the Y axis
-	
+
 	public WorldRenderer(World world) {
 		this.world = world;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		this.cam.position.set(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f, 0);
 		this.cam.update();
-		this.ppuX = 10/ CAMERA_WIDTH;
-		this.ppuY = 10/ CAMERA_WIDTH;
+		this.ppuX = 10 / CAMERA_WIDTH;
+		this.ppuY = 10 / CAMERA_WIDTH;
 		spriteBatch = new SpriteBatch();
+		this.shapeRenderer = new ShapeRenderer();
 		loadTextures();
 	}
 
 	/*
-	 * Converts from world coordinates to screen coordinates
-	 * **/
+	 * Converts from world coordinates to screen coordinates *
+	 */
 	public void setSize(int w, int h) {
 		this.width = w;
 		this.height = h;
@@ -51,24 +52,25 @@ public class WorldRenderer {
 	}
 
 	private void loadTextures() {
-		tankTexture = new Texture(Gdx.files.internal("tank.png"));	
+		tankTexture = new Texture(Gdx.files.internal("tank.png"));
 	}
 
 	public void render() {
 		spriteBatch.begin();
-		drawTank();
+		drawTanks();
 		spriteBatch.end();
 	}
 
-	private void drawTank() {
+	private void drawTanks() {
 		Player player1 = world.getPlayer1();
 		Player player2 = world.getPlayer2();
 		Character ch1 = player1.getCharacter();
 		Character ch2 = player2.getCharacter();
-//		spriteBatch.draw(tankTexture, ch1.getPosition().x * ppuX, ch1.getPosition().y * ppuY, ppuX,
-//				ppuY);
-//		spriteBatch.draw(tankTexture, 100, 100, CAMERA_WIDTH, CAMERA_HEIGHT); //scale the img to fit the width and height
-		spriteBatch.draw(tankTexture,  ch1.getPosition().x,  ch1.getPosition().y);	
-		spriteBatch.draw(tankTexture,  ch2.getPosition().x,  ch2.getPosition().y);	
-	}
+
+		Sprite leftSprite = new Sprite(tankTexture); 
+		leftSprite.flip(true, false);//now the second tank faces to the left
+		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y);
+		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y);
+	}	
+
 }

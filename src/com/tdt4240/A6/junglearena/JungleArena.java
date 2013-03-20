@@ -1,7 +1,6 @@
 package com.tdt4240.A6.junglearena;
 
 import com.badlogic.gdx.Game;
-import com.tdt4240.A6.junglearena.screens.GameScreen;
 import com.tdt4240.A6.junglearena.screens.TitleScreen;
 
 
