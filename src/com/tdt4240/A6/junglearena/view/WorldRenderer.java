@@ -6,31 +6,34 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.tdt4240.A6.junglearena.model.Character;
 import com.tdt4240.A6.junglearena.model.Player;
-import com.tdt4240.A6.junglearena.model.World;
+import com.tdt4240.A6.junglearena.model.JungleWorld;
 
 public class WorldRenderer {
 
-	private static final float CAMERA_WIDTH = 10f;
-	private static final float CAMERA_HEIGHT = 7f;
+	private static final float CAMERA_WIDTH = 320f;
+	private static final float CAMERA_HEIGHT = 480f;
 
-	private World world;
+	private JungleWorld jungleWorld;
 	private OrthographicCamera cam;
 
 	private ShapeRenderer shapeRenderer;
+	private Box2DDebugRenderer debugRenderer;
+	
 
 	/** Textures **/
 	private Texture tankTexture;
-
+	
 	private SpriteBatch spriteBatch;
 	private int width;
 	private int height;
 	private float ppuX; // pixels per unit on the X axis
 	private float ppuY; // pixels per unit on the Y axis
 
-	public WorldRenderer(World world) {
-		this.world = world;
+	public WorldRenderer(JungleWorld world) {
+		this.jungleWorld = world;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		this.cam.position.set(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f, 0);
 		this.cam.update();
@@ -39,6 +42,7 @@ public class WorldRenderer {
 		spriteBatch = new SpriteBatch();
 		this.shapeRenderer = new ShapeRenderer();
 		loadTextures();
+		this.debugRenderer = new Box2DDebugRenderer();
 	}
 
 	/*
@@ -56,14 +60,15 @@ public class WorldRenderer {
 	}
 
 	public void render() {
+		debugRenderer.render(jungleWorld.getWorld(), cam.combined);
 		spriteBatch.begin();
 		drawTanks();
 		spriteBatch.end();
 	}
 
 	private void drawTanks() {
-		Player player1 = world.getPlayer1();
-		Player player2 = world.getPlayer2();
+		Player player1 = jungleWorld.getPlayer1();
+		Player player2 = jungleWorld.getPlayer2();
 		Character ch1 = player1.getCharacter();
 		Character ch2 = player2.getCharacter();
 
