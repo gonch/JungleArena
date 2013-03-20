@@ -56,12 +56,12 @@ public class WorldController {
 		// Create a body from the defintion and add it to the world
 
 		List<PolygonShape> polygons = this.jungleWorld.getMap().getPolygons();
+		int i =0;
 		for (PolygonShape groundBox : polygons) {
 			// Create our body definition
 			BodyDef groundBodyDef = new BodyDef();
 			// Set its world position
-			groundBodyDef.position.set(new Vector2(0, 0)); // TODO hardcoded
-			groundBox.setAsBox((1) * 2, 10.0f);	
+			groundBodyDef.position.set(new Vector2(i+=3,0)); // TODO hardcoded
 			// Create a polygon shape
 			Body groundBody = world.createBody(groundBodyDef);
 			// Create a fixture from our polygon shape and add it to our ground
@@ -70,7 +70,7 @@ public class WorldController {
 		}
 		// Clean up after ourselves
 		// groundBox.dispose();
-		
+
 		// BodyDef groundBodyDef =new BodyDef();
 		// groundBodyDef.position.set(new Vector2(0, 100));
 		// Body groundBody = world.createBody(groundBodyDef);
@@ -79,7 +79,8 @@ public class WorldController {
 		// groundBody.createFixture(groundBox, 0.0f);
 		// First we create a body definition
 		BodyDef bodyDef = new BodyDef();
-		// We set our body to dynamic, for something like ground which doesnt move we would set it to StaticBody
+		// We set our body to dynamic, for something like ground which doesnt
+		// move we would set it to StaticBody
 		bodyDef.type = BodyType.DynamicBody;
 		// Set our body's starting position in the world
 		bodyDef.position.set(101, 301);
@@ -94,7 +95,7 @@ public class WorldController {
 		// Create a fixture definition to apply our shape to
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = circle;
-		fixtureDef.density = 0.5f; 
+		fixtureDef.density = 0.5f;
 		fixtureDef.friction = 0.4f;
 		fixtureDef.restitution = 1f; // Make it bounce a little bit
 
@@ -107,9 +108,9 @@ public class WorldController {
 		this.jungleWorld.setWorld(world);
 		return world;
 	}
-	
-	public void update(float dt){
+
+	public void update(float dt) {
 		World world = this.jungleWorld.getWorld();
-		world.step(1/60f,6,2);
+		world.step(1 / 60f, 6, 2);
 	}
 }

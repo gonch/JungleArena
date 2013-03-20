@@ -127,24 +127,14 @@ public class MapController {
 			mapY[i] = scaledSize;
 		}
 		this.map.setMapY(mapY);
-		convertMapIntoListPolygon(3);//TODO: hardcoded
+		convertMapIntoListPolygon(3);// TODO: hardcoded
 	}
 
-	// public void convertMapIntoPolygon() {
-	// Vector2 vertices[] = new Vector2[5];
-	//
-	// vertices[0] = new Vector2(0, 0);
-	// for (int i = 0; i < mapY.length; i++) {
-	// vertices[i + 1] = new Vector2(i, mapY[i]);
-	// }
-	// vertices[vertices.length - 1] = new Vector2(mapY.length - 1, 0);
-	// PolygonShape polygon = new PolygonShape();
-	// polygon.set(vertices);
-	// this.map.setPolygonShape(polygon);
-	//
-	// this.map.setPolygonShape(polygon);
-	// }numberOfPointsnumberOfPoints
-
+	/**
+	 * The map is converted into Box2D polygon. We must use a list of polygon since box2d
+	 * allows a max of 8 vertices and only convex polygon.
+	 * The map is splitted into parts and each part is a trapezoid.
+	 * **/
 	public void convertMapIntoListPolygon(int numberOfPoints) {
 		// numberOfPoints skipped to build the rectangle
 		List<PolygonShape> polygons = new ArrayList<PolygonShape>();
@@ -152,23 +142,28 @@ public class MapController {
 		int temp;
 		for (int j = 0; j < mapY.length; j += numberOfPoints) {
 			if (j + numberOfPoints > mapY.length) {
-				temp = mapY.length - 1; //for the last step, avoid out of bounds 
+				temp = mapY.length - 1; // for the last step, avoid out of
+										// bounds
 			} else {
 				temp = j + numberOfPoints;
 			}
-			vertices[0] = new Vector2(j, 0);
-			if(j>0){
 			
-			vertices[1] = new Vector2(j-1, mapY[j-1]);
-			}else{
+			if (j > 0) {
+				vertices[1] = new Vector2(j - 1, mapY[j - 1]);
+				vertices[0] = new Vector2(j-1, 0);
+			} else {
 				vertices[1] = new Vector2(j, mapY[j]);
+				vertices[0] = new Vector2(j, 0);
 			}
-			
+
 			vertices[2] = new Vector2(temp, mapY[temp]);
 			vertices[3] = new Vector2(temp, 0);
 			PolygonShape polygon = new PolygonShape();
 			polygon.set(vertices);
+			polygon.setAsBox((vertices[3].x-vertices[0].x), (vertices[2].y-vertices[3].y));//for collision detection
+			
 			polygons.add(polygon);
+
 		}
 
 		this.map.setPolygons(polygons);
