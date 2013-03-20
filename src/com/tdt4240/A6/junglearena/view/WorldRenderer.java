@@ -13,8 +13,9 @@ import com.tdt4240.A6.junglearena.model.JungleWorld;
 
 public class WorldRenderer {
 
-	private static final float CAMERA_WIDTH = 320f;
-	private static final float CAMERA_HEIGHT = 480f;
+	//TODO be
+	private static final float CAMERA_WIDTH = Gdx.graphics.getWidth();
+	private static final float CAMERA_HEIGHT = Gdx.graphics.getHeight();
 
 	private JungleWorld jungleWorld;
 	private OrthographicCamera cam;
@@ -74,7 +75,7 @@ public class WorldRenderer {
 
 		Sprite leftSprite = new Sprite(tankTexture); 
 		leftSprite.flip(true, false);//now the second tank faces to the left
-		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y);
+		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
 		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y);
 	}	
 

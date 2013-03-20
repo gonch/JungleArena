@@ -127,7 +127,7 @@ public class MapController {
 			mapY[i] = scaledSize;
 		}
 		this.map.setMapY(mapY);
-		convertMapIntoListPolygon(3);
+		convertMapIntoListPolygon(3);//TODO: hardcoded
 	}
 
 	// public void convertMapIntoPolygon() {
@@ -152,12 +152,18 @@ public class MapController {
 		int temp;
 		for (int j = 0; j < mapY.length; j += numberOfPoints) {
 			if (j + numberOfPoints > mapY.length) {
-				temp = mapY.length - 1;
+				temp = mapY.length - 1; //for the last step, avoid out of bounds 
 			} else {
 				temp = j + numberOfPoints;
 			}
 			vertices[0] = new Vector2(j, 0);
-			vertices[1] = new Vector2(j, mapY[j]);
+			if(j>0){
+			
+			vertices[1] = new Vector2(j-1, mapY[j-1]);
+			}else{
+				vertices[1] = new Vector2(j, mapY[j]);
+			}
+			
 			vertices[2] = new Vector2(temp, mapY[temp]);
 			vertices[3] = new Vector2(temp, 0);
 			PolygonShape polygon = new PolygonShape();

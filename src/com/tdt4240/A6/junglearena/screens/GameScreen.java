@@ -62,6 +62,7 @@ public class GameScreen implements Screen, GestureListener {
 //		Gdx.gl.glClearColor(0.56f, 0.165f, 0.1f, 1);// clear the screen with black
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 //		this.mapRenderer.render();
+		this.worldController.update(dt);
 		this.worldRenderer.render();
 //		this.gameInfoRenderer.render();
 	}
