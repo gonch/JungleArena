@@ -127,7 +127,7 @@ public class MapController {
 			mapY[i] = scaledSize;
 		}
 		this.map.setMapY(mapY);
-		convertMapIntoListPolygon(3);// TODO: hardcoded
+		convertMapIntoListPolygon(1);// TODO: hardcoded
 	}
 
 	/**
