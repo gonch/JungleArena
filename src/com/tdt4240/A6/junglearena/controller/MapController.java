@@ -127,13 +127,13 @@ public class MapController {
 			mapY[i] = scaledSize;
 		}
 		this.map.setMapY(mapY);
-		convertMapIntoListPolygon(3);// TODO: hardcoded
+		convertMapIntoListPolygon(1);// TODO: hardcoded
 	}
 
 	/**
 	 * The map is converted into Box2D polygon. We must use a list of polygon since box2d
 	 * allows a max of 8 vertices and only convex polygon.
-	 * The map is splitted into parts and each part is a trapezoid.
+	 * The map is split into parts and each part is a trapezoid.
 	 * **/
 	public void convertMapIntoListPolygon(int numberOfPoints) {
 		// numberOfPoints skipped to build the rectangle
@@ -141,21 +141,14 @@ public class MapController {
 		Vector2 vertices[] = new Vector2[4];
 		int temp;
 		for (int j = 0; j < mapY.length; j += numberOfPoints) {
-			if (j + numberOfPoints > mapY.length) {
+			if (j + numberOfPoints >= mapY.length) {
 				temp = mapY.length - 1; // for the last step, avoid out of
 										// bounds
 			} else {
 				temp = j + numberOfPoints;
 			}
-			
-			if (j > 0) {
-				vertices[1] = new Vector2(j - 1, mapY[j - 1]);
-				vertices[0] = new Vector2(j-1, 0);
-			} else {
-				vertices[1] = new Vector2(j, mapY[j]);
-				vertices[0] = new Vector2(j, 0);
-			}
-
+			vertices[0] = new Vector2(j, 0);
+			vertices[1] = new Vector2(j, mapY[j]);
 			vertices[2] = new Vector2(temp, mapY[temp]);
 			vertices[3] = new Vector2(temp, 0);
 			PolygonShape polygon = new PolygonShape();
