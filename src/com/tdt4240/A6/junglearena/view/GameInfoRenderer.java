@@ -5,15 +5,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.tdt4240.A6.junglearena.model.Player;
-import com.tdt4240.A6.junglearena.model.World;
+import com.tdt4240.A6.junglearena.model.JungleWorld;
 
 public class GameInfoRenderer {
 	private SpriteBatch spriteBatch;
 	private BitmapFont font;
 	private Texture backgroundTexture;
-	private World world;
+	private JungleWorld world;
 
-	public GameInfoRenderer(World world) {
+	public GameInfoRenderer(JungleWorld world) {
 		this.spriteBatch = new SpriteBatch();
 		this.font = new BitmapFont();
 		this.world = world;

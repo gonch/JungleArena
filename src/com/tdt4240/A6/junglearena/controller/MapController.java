@@ -1,6 +1,12 @@
 package com.tdt4240.A6.junglearena.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 import com.tdt4240.A6.junglearena.model.GameMap;
 
 /**
@@ -27,7 +33,7 @@ public class MapController {
 	 * amplitude for each frequency
 	 */
 	static float persistence = 0.03f;
-//	static float persistence = (float) (1f/Math.sqrt(new Double(2)));
+	// static float persistence = (float) (1f/Math.sqrt(new Double(2)));
 	/**
 	 * number of noise functions that perlin adds together
 	 */
@@ -80,7 +86,7 @@ public class MapController {
 		return cosInterpolate(i1, i2, fractional_Y);
 	}
 
-	private static float cosInterpolate(float a, float b, float x) {		
+	private static float cosInterpolate(float a, float b, float x) {
 		float ft = x * 3.1415927f;
 		float f = (float) ((1 - Math.cos(ft)) * 0.5f);
 		return a * (1 - f) + b * f;
@@ -107,7 +113,7 @@ public class MapController {
 		}
 		return height * vScale;
 	}
-	
+
 	/**
 	 * Creates the map according to the perline noise algorithm
 	 * */
@@ -117,9 +123,49 @@ public class MapController {
 		System.out.println(r);
 		for (int i = 0; i < screenWidth; i++) {
 			float realSize = screenHeight - perlinNoise_2D(i, r) * screenHeight - screenHeight / 2;
-			float scaledSize = realSize-100;
+			float scaledSize = realSize - 100;
 			mapY[i] = scaledSize;
 		}
 		this.map.setMapY(mapY);
+		convertMapIntoListPolygon(3);// TODO: hardcoded
+	}
+
+	/**
+	 * The map is converted into Box2D polygon. We must use a list of polygon since box2d
+	 * allows a max of 8 vertices and only convex polygon.
+	 * The map is splitted into parts and each part is a trapezoid.
+	 * **/
+	public void convertMapIntoListPolygon(int numberOfPoints) {
+		// numberOfPoints skipped to build the rectangle
+		List<PolygonShape> polygons = new ArrayList<PolygonShape>();
+		Vector2 vertices[] = new Vector2[4];
+		int temp;
+		for (int j = 0; j < mapY.length; j += numberOfPoints) {
+			if (j + numberOfPoints > mapY.length) {
+				temp = mapY.length - 1; // for the last step, avoid out of
+										// bounds
+			} else {
+				temp = j + numberOfPoints;
+			}
+			
+			if (j > 0) {
+				vertices[1] = new Vector2(j - 1, mapY[j - 1]);
+				vertices[0] = new Vector2(j-1, 0);
+			} else {
+				vertices[1] = new Vector2(j, mapY[j]);
+				vertices[0] = new Vector2(j, 0);
+			}
+
+			vertices[2] = new Vector2(temp, mapY[temp]);
+			vertices[3] = new Vector2(temp, 0);
+			PolygonShape polygon = new PolygonShape();
+			polygon.set(vertices);
+			polygon.setAsBox((vertices[3].x-vertices[0].x), (vertices[2].y-vertices[3].y));//for collision detection
+			
+			polygons.add(polygon);
+
+		}
+
+		this.map.setPolygons(polygons);
 	}
 }
