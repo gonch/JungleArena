@@ -7,6 +7,7 @@ public class Character {
 	private String name;
 	private Vector2 position;
 	private String skin;
+	private Vector2 size;
 
 	public Character(int health, String name, Vector2 pos, String skin) {
 		super();
@@ -14,6 +15,7 @@ public class Character {
 		this.name = name;
 		this.position = pos;
 		this.skin = skin;
+		this.setSize(new Vector2(50,50));
 	}
 
 	public int getHealth() {
@@ -46,6 +48,14 @@ public class Character {
 
 	public void setSkin(String skin) {
 		this.skin = skin;
+	}
+
+	public Vector2 getSize() {
+		return size;
+	}
+
+	public void setSize(Vector2 size) {
+		this.size = size;
 	}
 
 }
