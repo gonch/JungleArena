@@ -19,6 +19,7 @@ public class JungleWorld{
 	private List<Player> players;
 	private GameMap map;
 	private World world;
+	private Weapon currentWeapon; //TODO: for collision testing, may be removed after
 	
 	public JungleWorld() {
 		Character lion = new Character(100, "lion", new Vector2(10, 10), "lion");
@@ -30,6 +31,7 @@ public class JungleWorld{
 		this.players.add(player2);
 		this.map = null;
 		this.setWorld(new World(new Vector2(0,-10), true));		
+		this.currentWeapon = null;
 	}
 
 	public Player getPlayer1() {
@@ -65,6 +67,14 @@ public class JungleWorld{
 
 	public void setWorld(World world) {
 		this.world = world;
+	}
+
+	public Weapon getCurrentWeapon() {
+		return currentWeapon;
+	}
+
+	public void setCurrentWeapon(Weapon currentWeapon) {
+		this.currentWeapon = currentWeapon;
 	}
 	
 //	public void setWorldParameters(){

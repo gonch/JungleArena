@@ -1,5 +1,6 @@
 package com.tdt4240.A6.junglearena.controller;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -15,8 +16,10 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.tdt4240.A6.junglearena.listeners.CollisionListener;
 import com.tdt4240.A6.junglearena.model.Character;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
+import com.tdt4240.A6.junglearena.model.Weapon;
 
 public class WorldController {
 	private JungleWorld jungleWorld;
@@ -54,9 +57,9 @@ public class WorldController {
 
 	public World generateBox2DWorld() {
 		World world = new World(new Vector2(0, -100), true);
-
+		world.setContactListener(new CollisionListener()); //for collision detection
+		
 		// Create a body from the defintion and add it to the world
-
 		List<PolygonShape> polygons = this.jungleWorld.getMap().getPolygons();
 		int i =0;
 		for (PolygonShape groundBox : polygons) {
@@ -89,7 +92,11 @@ public class WorldController {
 
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
-
+		
+		Weapon currentWeapon = new Weapon(1,"","",1);
+		currentWeapon.setBody(body);		
+		this.jungleWorld.setCurrentWeapon(currentWeapon);
+		body.setUserData(currentWeapon);
 		// Create a circle shape and set its radius to 6
 		CircleShape circle = new CircleShape();
 		circle.setRadius(6f);
@@ -112,6 +119,15 @@ public class WorldController {
 
 	public void update(float dt) {
 		World world = this.jungleWorld.getWorld();
+		handleWeaponExplosion(world,dt);
 		world.step(1 / 60f, 6, 2);
+	}
+	
+	private void handleWeaponExplosion(World world, float dt){
+		Weapon currentWeapon = this.jungleWorld.getCurrentWeapon();
+		currentWeapon.update(dt);
+		if(currentWeapon.isExploded()){
+			world.destroyBody(currentWeapon.getBody());
+		}
 	}
 }
