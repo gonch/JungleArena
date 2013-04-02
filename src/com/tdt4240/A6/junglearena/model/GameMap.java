@@ -3,6 +3,7 @@ package com.tdt4240.A6.junglearena.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 
 public class GameMap {
@@ -10,6 +11,7 @@ public class GameMap {
 	private float[] mapY;
 	private PolygonShape polygonShape;
 	private List<PolygonShape> polygons;
+	private ChainShape chainShape;
 	public PolygonShape getPolygonShape() {
 		return polygonShape;
 	}
@@ -19,6 +21,7 @@ public class GameMap {
 		this.setMapY(mapY);
 		this.polygonShape = new PolygonShape();
 		this.setPolygons(new ArrayList<PolygonShape>());
+		this.chainShape = new ChainShape();		
 	}
 
 	public float[] getMapY() {
@@ -47,6 +50,14 @@ public class GameMap {
 
 	public void setPolygons(List<PolygonShape> polygons) {
 		this.polygons = polygons;
+	}
+
+	public ChainShape getChainShape() {
+		return chainShape;
+	}
+
+	public void setChainShape(ChainShape chainShape) {
+		this.chainShape = chainShape;
 	}
 
 }
