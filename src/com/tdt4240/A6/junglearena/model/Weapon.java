@@ -25,7 +25,7 @@ public class Weapon extends Entity{
 		this.setCollided(false);
 		this.setExploded(false);
 		this.body = null;
-		this.timeBeforeExplosion = 0f;
+		this.timeBeforeExplosion = 3f;
 	}
 
 	public int getDamage() {
