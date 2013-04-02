@@ -78,16 +78,10 @@ public class WorldController {
 		mapBodyDef.position.set(0, 0);
 		Body mapBody = world.createBody(mapBodyDef);
 		mapBody.createFixture(chainShape, 0.0f);
+		this.jungleWorld.getMap().setBody(mapBody);
 		
-		// Clean up after ourselves
-		// groundBox.dispose();
-
-		// BodyDef groundBodyDef =new BodyDef();
-		// groundBodyDef.position.set(new Vector2(0, 100));
-		// Body groundBody = world.createBody(groundBodyDef);
-		// PolygonShape groundBox = new PolygonShape();
-		// groundBox.setAsBox((480) , 10.0f);
-		// groundBody.createFixture(groundBox, 0.0f);
+		chainShape.dispose();
+		
 		// First we create a body definition
 		BodyDef bodyDef = new BodyDef();
 		// We set our body to dynamic, for something like ground which doesnt

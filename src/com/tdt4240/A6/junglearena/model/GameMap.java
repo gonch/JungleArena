@@ -6,20 +6,15 @@ import java.util.List;
 import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 
-public class GameMap {
+public class GameMap extends Entity{
 	private String background;
 	private float[] mapY;
-	private PolygonShape polygonShape;
 	private List<PolygonShape> polygons;
 	private ChainShape chainShape;
-	public PolygonShape getPolygonShape() {
-		return polygonShape;
-	}
 
 	public GameMap(String background,float[] mapY) {
 		this.setBackground(background);
 		this.setMapY(mapY);
-		this.polygonShape = new PolygonShape();
 		this.setPolygons(new ArrayList<PolygonShape>());
 		this.chainShape = new ChainShape();		
 	}
@@ -38,10 +33,6 @@ public class GameMap {
 
 	public void setBackground(String background) {
 		this.background = background;
-	}
-
-	public void setPolygonShape(PolygonShape polygonShape) {
-		this.polygonShape = polygonShape;
 	}
 
 	public List<PolygonShape> getPolygons() {

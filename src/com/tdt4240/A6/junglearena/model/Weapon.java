@@ -68,14 +68,6 @@ public class Weapon extends Entity{
 		this.isExploded = isExploded;
 	}
 
-	public Body getBody() {
-		return body;
-	}
-
-	public void setBody(Body body) {
-		this.body = body;
-	}
-
 	public boolean isCollided() {
 		return isCollided;
 	}
