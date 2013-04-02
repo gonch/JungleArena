@@ -2,7 +2,7 @@ package com.tdt4240.A6.junglearena.model;
 
 import com.badlogic.gdx.physics.box2d.Body;
 
-public class Weapon {
+public class Weapon extends Entity{
 	private int damage;
 	private String name;
 	private String skin;
