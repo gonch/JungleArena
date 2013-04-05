@@ -25,11 +25,62 @@ public class WorldController {
 	public WorldController(JungleWorld world) {
 		this.jungleWorld = world;
 	}
+	
+	private void scale(){
+		
+	}
 
 	public void screenTouched(float x, float y) {
 		Character tank1 = this.jungleWorld.getPlayer1().getCharacter();
 		// tank1.setPosition(new Vector2(x, y));
-		setCharacterStartingPositions();
+//		 setCharacterStartingPositions();
+		World world = this.jungleWorld.getWorld();
+		// First we create a body definition
+		BodyDef bodyDef = new BodyDef();
+		// We set our body to dynamic, for something like ground which doesnt
+		// move we would set it to StaticBody
+		bodyDef.type = BodyType.DynamicBody;
+		// Set our body's starting position in the world
+		bodyDef.position.set(tank1.getPosition().x+tank1.getSize().x, tank1.getPosition().y+tank1.getSize().y);
+		bodyDef.position.set(0,200);
+
+		System.out.println("BODY DEF " + bodyDef.position.x + "," 
+		+ bodyDef.position.y);
+		// Create our body in the world using our body definition
+		Body body = world.createBody(bodyDef);
+
+		Weapon currentWeapon = new Weapon(1, "", "", 1);
+		currentWeapon.setBody(body);
+		this.jungleWorld.setCurrentWeapon(currentWeapon);
+		body.setUserData(currentWeapon);
+//		body.applyForceToCenter(0, 100);
+		//(65,65) is the max
+		float power = 45; 
+		double angle = 45;
+		float vx = (float) (power*Math.cos(angle))*100*600;
+		System.out.println();
+		float vy = (float)(power*Math.sin(angle))*100*600;
+		body.applyLinearImpulse(new Vector2((vx/65),vy/65),body.getLocalCenter());
+		
+		bodyDef.linearVelocity.x = 5000;
+		bodyDef.linearVelocity.y = 5000;
+		
+		// Create a circle shape and set its radius to 6
+		CircleShape circle = new CircleShape();
+		circle.setRadius(6f);
+
+		// Create a fixture definition to apply our shape to
+		FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = circle;
+		fixtureDef.density = 0.5f;
+		fixtureDef.friction = 0.4f;
+		fixtureDef.restitution = 1f; // Make it bounce a little bit
+
+		// Create our fixture and attach it to the body
+		Fixture fixture = body.createFixture(fixtureDef);
+		// Remember to dispose of any shapes after you're done with them!2
+		// BodyDef and FixtureDef don't need disposing, but shapes do.
+		circle.dispose();
 	}
 
 	/**
@@ -54,80 +105,53 @@ public class WorldController {
 	}
 
 	public World generateBox2DWorld() {
-		World world = new World(new Vector2(0, -100), true);
-		world.setContactListener(new CollisionListener()); //for collision detection
-		
+		World world = new World(new Vector2(0, -1), true);
+		world.setContactListener(new CollisionListener()); // for collision
+															// detection
+
 		// Create a body from the defintion and add it to the world
-//		List<PolygonShape> polygons = this.jungleWorld.getMap().getPolygons();
-//		int i =0;
-//		for (PolygonShape groundBox : polygons) {
-//			// Create our body definition
-//			BodyDef groundBodyDef = new BodyDef();
-//			// Set its world position
-//			groundBodyDef.position.set(new Vector2(i+=3,0)); // TODO hardcoded
-//			// Create a polygon shape
-//			Body groundBody = world.createBody(groundBodyDef);
-//			// Create a fixture from our polygon shape and add it to our ground
-//			// body
-//			groundBody.createFixture(groundBox, 0.0f);
-//		}
-		
+		// List<PolygonShape> polygons =
+		// this.jungleWorld.getMap().getPolygons();
+		// int i =0;
+		// for (PolygonShape groundBox : polygons) {
+		// // Create our body definition
+		// BodyDef groundBodyDef = new BodyDef();
+		// // Set its world position
+		// groundBodyDef.position.set(new Vector2(i+=3,0)); // TODO hardcoded
+		// // Create a polygon shape
+		// Body groundBody = world.createBody(groundBodyDef);
+		// // Create a fixture from our polygon shape and add it to our ground
+		// // body
+		// groundBody.createFixture(groundBox, 0.0f);
+		// }
+
 		ChainShape chainShape = this.jungleWorld.getMap().getChainShape();
-		
+
 		BodyDef mapBodyDef = new BodyDef();
 		mapBodyDef.position.set(0, 0);
 		Body mapBody = world.createBody(mapBodyDef);
-		mapBody.createFixture(chainShape, 0.0f);
+		mapBody.createFixture(chainShape, 0.0f); 
 		this.jungleWorld.getMap().setBody(mapBody);
-		
+
 		chainShape.dispose();
-		
-		// First we create a body definition
-		BodyDef bodyDef = new BodyDef();
-		// We set our body to dynamic, for something like ground which doesnt
-		// move we would set it to StaticBody
-		bodyDef.type = BodyType.DynamicBody;
-		// Set our body's starting position in the world
-		bodyDef.position.set(101, 301);
-
-		// Create our body in the world using our body definition
-		Body body = world.createBody(bodyDef);
-		
-		Weapon currentWeapon = new Weapon(1,"","",1);
-		currentWeapon.setBody(body);		
-		this.jungleWorld.setCurrentWeapon(currentWeapon);
-		body.setUserData(currentWeapon);
-		// Create a circle shape and set its radius to 6
-		CircleShape circle = new CircleShape();
-		circle.setRadius(6f);
-
-		// Create a fixture definition to apply our shape to
-		FixtureDef fixtureDef = new FixtureDef();
-		fixtureDef.shape = circle;
-		fixtureDef.density = 0.5f;
-		fixtureDef.friction = 0.4f;
-		fixtureDef.restitution = 1f; // Make it bounce a little bit
-
-		// Create our fixture and attach it to the body
-		Fixture fixture = body.createFixture(fixtureDef);
-		// Remember to dispose of any shapes after you're done with them!
-		// BodyDef and FixtureDef don't need disposing, but shapes do.
-		circle.dispose();
 		this.jungleWorld.setWorld(world);
 		return world;
 	}
 
 	public void update(float dt) {
 		World world = this.jungleWorld.getWorld();
-		handleWeaponExplosion(world,dt);
-		world.step(1 / 60f, 6, 2);
+		handleWeaponExplosion(world, dt);
+//		world.step(1 / 60f, 6, 2);
+		world.step(1/10f, 6, 2);
 	}
-	
-	private void handleWeaponExplosion(World world, float dt){
+
+	private void handleWeaponExplosion(World world, float dt) {
 		Weapon currentWeapon = this.jungleWorld.getCurrentWeapon();
-		currentWeapon.update(dt);
-		if(currentWeapon.isExploded()){
-			world.destroyBody(currentWeapon.getBody());
+		if (currentWeapon != null) {
+			currentWeapon.update(dt);
+			if (currentWeapon.isExploded()) {
+				world.destroyBody(currentWeapon.getBody());
+			}
 		}
 	}
 }
