@@ -7,7 +7,6 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.tdt4240.A6.junglearena.model.Entity;
-import com.tdt4240.A6.junglearena.model.Weapon;
 
 public class CollisionListener implements ContactListener {
 

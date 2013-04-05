@@ -9,9 +9,9 @@ public class WeaponFactory {
 		case "bomb": return new Bomb(damage, name, skin, areaOfEffect);
 		case "gun":  return new Gun(damage, name, skin, areaOfEffect);
 		case "bazuka": return new Bazuka(damage, name, skin, areaOfEffect);
-		// Add more Weapons here !
-		default: System.err.print("invalid Weapon. Can not create \""+type+"\"!");
-				return null;
+		// Add more Weapons here, if needed.
+		default: System.err.print("invalid Weapon. Can not create \""+type+"\"!Created default instead.");
+			return new Bomb(damage, name, skin, areaOfEffect);
 		}
 	}
 }

@@ -4,15 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
 import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
+import com.tdt4240.A6.junglearena.model.characters.Character;
 
 
 public class JungleWorld{
@@ -23,7 +18,8 @@ public class JungleWorld{
 	private Weapon currentWeapon; //TODO: for collision testing, may be removed after
 	
 	public JungleWorld() {
-		Character lion = new Character(100, "lion", new Vector2(10, 10), "lion");
+		CharacterFactory characterFactory=new CharacterFactory();
+		Character lion = characterFactory.createCharacter("monkey",100, "lion", new Vector2(10, 10), "lion");
 		Character lion2 = new Character(100, "lion", new Vector2(300, 300), "lion");
 		this.player1 = new Player("alessio", 1, lion);
 		this.player2 = new Player("gonzalo", 2, lion2);

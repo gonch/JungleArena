@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.tdt4240.A6.junglearena.model.Character;
+import com.tdt4240.A6.junglearena.model.characters.Character;
 import com.tdt4240.A6.junglearena.model.Player;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 
