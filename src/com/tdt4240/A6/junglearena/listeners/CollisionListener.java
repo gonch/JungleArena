@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.tdt4240.A6.junglearena.model.Entity;
 import com.tdt4240.A6.junglearena.model.Weapon;
 
 public class CollisionListener implements ContactListener {
@@ -21,15 +22,17 @@ public class CollisionListener implements ContactListener {
 		Fixture fixB = contact.getFixtureB();
 		Body bodyA = fixA.getBody();
 		Body bodyB = fixB.getBody();
-		Weapon weapon = null;
-		if (bodyA.getUserData() != null && bodyA.getUserData().getClass().equals(Weapon.class)) {
-			weapon = (Weapon) bodyA.getUserData();
-			weapon.setCollided(true);
+		Entity entity = null;
+		//checks if the userdata is a class that extends Entity. Is not really needed, is just for lazy programmers :)
+		if (bodyA.getUserData() != null && Entity.class.isAssignableFrom(bodyA.getUserData().getClass())) { 
+			entity = (Entity) bodyA.getUserData();
+			entity.collisionHappened();
 		}
-		if (bodyB.getUserData() != null && bodyB.getUserData().getClass().equals(Weapon.class)) {
-			weapon = (Weapon) bodyB.getUserData();
-			weapon.setCollided(true);
+		if (bodyB.getUserData() != null && Entity.class.isAssignableFrom(bodyB.getUserData().getClass())) { //not really needed, is just for lazy programmers :)
+			entity = (Entity) bodyB.getUserData();
+			entity.collisionHappened();
 		}
+		
 	}
 
 	/**

@@ -1,7 +1,5 @@
 package com.tdt4240.A6.junglearena.model;
 
-import com.badlogic.gdx.physics.box2d.Body;
-
 public class Weapon extends Entity{
 	private int damage;
 	private String name;
@@ -13,7 +11,6 @@ public class Weapon extends Entity{
 	 * */
 	private boolean isExploded;
 	private boolean isCollided;
-	private Body body;
 	private float timeBeforeExplosion;//seconds before the weapon explodes, after the collision. Set to zero for explosion right after the collision
 
 	public Weapon(int damage, String name, String skin, int areaOfEffect) {
@@ -24,8 +21,7 @@ public class Weapon extends Entity{
 		this.areaOfEffect = areaOfEffect;
 		this.setCollided(false);
 		this.setExploded(false);
-		this.body = null;
-		this.timeBeforeExplosion = 3f;
+		this.timeBeforeExplosion = 1f;
 	}
 
 	public int getDamage() {
@@ -96,5 +92,10 @@ public class Weapon extends Entity{
 		if(timeBeforeExplosion < 0){
 			this.isExploded = true;
 		}
+	}
+
+	@Override
+	public void collisionHappened() {
+		this.setCollided(true);
 	}
 }

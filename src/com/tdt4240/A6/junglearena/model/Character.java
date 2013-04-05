@@ -2,7 +2,7 @@ package com.tdt4240.A6.junglearena.model;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Character {
+public class Character extends Entity{
 	private int health;
 	private String name;
 	private Vector2 position;
@@ -56,6 +56,11 @@ public class Character {
 
 	public void setSize(Vector2 size) {
 		this.size = size;
+	}
+
+	@Override
+	public void collisionHappened() {
+		
 	}
 
 }

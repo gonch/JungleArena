@@ -51,4 +51,10 @@ public class GameMap extends Entity{
 		this.chainShape = chainShape;
 	}
 
+	@Override
+	public void collisionHappened() {
+		/*at the moment nothing happens to the ground if something collides on it.* 
+		 * */
+	}
+
 }
