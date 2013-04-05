@@ -4,19 +4,20 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.tdt4240.A6.junglearena.listeners.CollisionListener;
 import com.tdt4240.A6.junglearena.model.Character;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
+import com.tdt4240.A6.junglearena.model.Weapon;
 
 public class WorldController {
 	private JungleWorld jungleWorld;
@@ -54,31 +55,33 @@ public class WorldController {
 
 	public World generateBox2DWorld() {
 		World world = new World(new Vector2(0, -100), true);
-
+		world.setContactListener(new CollisionListener()); //for collision detection
+		
 		// Create a body from the defintion and add it to the world
-
-		List<PolygonShape> polygons = this.jungleWorld.getMap().getPolygons();
-		int i =0;
-		for (PolygonShape groundBox : polygons) {
-			// Create our body definition
-			BodyDef groundBodyDef = new BodyDef();
-			// Set its world position
-			groundBodyDef.position.set(new Vector2(i+=3,0)); // TODO hardcoded
-			// Create a polygon shape
-			Body groundBody = world.createBody(groundBodyDef);
-			// Create a fixture from our polygon shape and add it to our ground
-			// body
-			groundBody.createFixture(groundBox, 0.0f);
-		}
-		// Clean up after ourselves
-		// groundBox.dispose();
-
-		// BodyDef groundBodyDef =new BodyDef();
-		// groundBodyDef.position.set(new Vector2(0, 100));
-		// Body groundBody = world.createBody(groundBodyDef);
-		// PolygonShape groundBox = new PolygonShape();
-		// groundBox.setAsBox((480) , 10.0f);
-		// groundBody.createFixture(groundBox, 0.0f);
+//		List<PolygonShape> polygons = this.jungleWorld.getMap().getPolygons();
+//		int i =0;
+//		for (PolygonShape groundBox : polygons) {
+//			// Create our body definition
+//			BodyDef groundBodyDef = new BodyDef();
+//			// Set its world position
+//			groundBodyDef.position.set(new Vector2(i+=3,0)); // TODO hardcoded
+//			// Create a polygon shape
+//			Body groundBody = world.createBody(groundBodyDef);
+//			// Create a fixture from our polygon shape and add it to our ground
+//			// body
+//			groundBody.createFixture(groundBox, 0.0f);
+//		}
+		
+		ChainShape chainShape = this.jungleWorld.getMap().getChainShape();
+		
+		BodyDef mapBodyDef = new BodyDef();
+		mapBodyDef.position.set(0, 0);
+		Body mapBody = world.createBody(mapBodyDef);
+		mapBody.createFixture(chainShape, 0.0f);
+		this.jungleWorld.getMap().setBody(mapBody);
+		
+		chainShape.dispose();
+		
 		// First we create a body definition
 		BodyDef bodyDef = new BodyDef();
 		// We set our body to dynamic, for something like ground which doesnt
@@ -89,7 +92,11 @@ public class WorldController {
 
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
-
+		
+		Weapon currentWeapon = new Weapon(1,"","",1);
+		currentWeapon.setBody(body);		
+		this.jungleWorld.setCurrentWeapon(currentWeapon);
+		body.setUserData(currentWeapon);
 		// Create a circle shape and set its radius to 6
 		CircleShape circle = new CircleShape();
 		circle.setRadius(6f);
@@ -112,6 +119,15 @@ public class WorldController {
 
 	public void update(float dt) {
 		World world = this.jungleWorld.getWorld();
+		handleWeaponExplosion(world,dt);
 		world.step(1 / 60f, 6, 2);
+	}
+	
+	private void handleWeaponExplosion(World world, float dt){
+		Weapon currentWeapon = this.jungleWorld.getCurrentWeapon();
+		currentWeapon.update(dt);
+		if(currentWeapon.isExploded()){
+			world.destroyBody(currentWeapon.getBody());
+		}
 	}
 }
