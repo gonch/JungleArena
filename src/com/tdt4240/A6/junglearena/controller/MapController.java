@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 import com.tdt4240.A6.junglearena.model.GameMap;
 
 /**
@@ -127,13 +127,24 @@ public class MapController {
 			mapY[i] = scaledSize;
 		}
 		this.map.setMapY(mapY);
-		convertMapIntoListPolygon(3);// TODO: hardcoded
+		// convertMapIntoListPolygon(3);// TODO: hardcoded
+		convertMapIntoChainShape();
+	}
+
+	public void convertMapIntoChainShape() {
+		ChainShape chainShape = new ChainShape();
+		Vector2 vertices[] = new Vector2[mapY.length];
+		for (int i = 0; i < mapY.length; i++) {
+			vertices[i] = new Vector2(i, mapY[i]);
+		}
+		chainShape.createChain(vertices);
+		this.map.setChainShape(chainShape);
 	}
 
 	/**
-	 * The map is converted into Box2D polygon. We must use a list of polygon since box2d
-	 * allows a max of 8 vertices and only convex polygon.
-	 * The map is split into parts and each part is a trapezoid.
+	 * The map is converted into Box2D polygon. We must use a list of polygon
+	 * since box2d allows a max of 8 vertices and only convex polygon. The map
+	 * is split into parts and each part is a trapezoid.
 	 * **/
 	public void convertMapIntoListPolygon(int numberOfPoints) {
 		// numberOfPoints skipped to build the rectangle
@@ -153,8 +164,9 @@ public class MapController {
 			vertices[3] = new Vector2(temp, 0);
 			PolygonShape polygon = new PolygonShape();
 			polygon.set(vertices);
-			polygon.setAsBox((vertices[3].x-vertices[0].x), (vertices[2].y-vertices[3].y));//for collision detection
-			
+			polygon.setAsBox((vertices[3].x - vertices[0].x), (vertices[2].y - vertices[3].y));// for
+																								// collision
+																								// detection
 			polygons.add(polygon);
 
 		}
