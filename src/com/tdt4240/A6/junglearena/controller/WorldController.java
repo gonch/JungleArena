@@ -40,8 +40,6 @@ public class WorldController {
 		// Set our body's starting position in the world
 		bodyDef.position.set(tank1.getPosition().x + tank1.getSize().x, tank1.getPosition().y + tank1.getSize().y);
 		bodyDef.position.set(0, 100);
-//		bodyDef.linearVelocity.x = 10000000;
-//		bodyDef.linearVelocity.y = 10000000;
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
 
@@ -49,21 +47,12 @@ public class WorldController {
 		currentWeapon.setBody(body);
 		this.jungleWorld.setCurrentWeapon(currentWeapon);
 		body.setUserData(currentWeapon);
-//		 body.applyForceToCenter(10000000000000000.0f, 10000000000000000.0f);
-		// (65,65) is the max
 		float power = 40f;
-//		power = 10f;
 		double angle = Math.PI/4;
 		float vx = (float) (power * Math.cos((float)angle)) * 100f;
 		float vy = (float) (power * Math.sin((float)angle)) * 100f;
-		System.out.println("Vx " + vx + ",Vy " + vy);
 		 body.applyLinearImpulse(new
 		 Vector2((vx/65),vy/65),body.getLocalCenter());
-
-//		body.setAwake(true);
-//		 body.setLinearVelocity( vx,vy);
-//		 body.linearVelocity.y = vy;
-//		 body.angle = (float)angle;
 
 		// Create a circle shape and set its radius to 6
 		CircleShape circle = new CircleShape();

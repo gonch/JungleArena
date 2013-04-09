@@ -140,7 +140,6 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
 		this.worldController.screenTouched(screenX,screenY);
 		return false;
 	}
