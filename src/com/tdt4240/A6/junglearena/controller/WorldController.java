@@ -1,6 +1,5 @@
 package com.tdt4240.A6.junglearena.controller;
 
-import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
@@ -12,12 +11,12 @@ import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
 import com.tdt4240.A6.junglearena.listeners.CollisionListener;
-import com.tdt4240.A6.junglearena.model.Character;
+import com.tdt4240.A6.junglearena.model.characters.Character;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
-import com.tdt4240.A6.junglearena.model.Weapon;
+import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
 
 public class WorldController {
 	private JungleWorld jungleWorld;
@@ -92,8 +91,8 @@ public class WorldController {
 
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
-		
-		Weapon currentWeapon = new Weapon(1,"","",1);
+		WeaponFactory weaponFactory= new WeaponFactory();
+		Weapon currentWeapon = weaponFactory.createWeapon("bomb",10,"The Bombz","bombskin",1);
 		currentWeapon.setBody(body);		
 		this.jungleWorld.setCurrentWeapon(currentWeapon);
 		body.setUserData(currentWeapon);

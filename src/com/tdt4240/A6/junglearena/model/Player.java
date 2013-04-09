@@ -1,5 +1,7 @@
 package com.tdt4240.A6.junglearena.model;
 
+import com.tdt4240.A6.junglearena.model.characters.Character;
+
 public class Player {
 	private String name;
 	private int id;
@@ -29,10 +31,10 @@ public class Player {
 		this.character = character;
 	}
 
-	public Player(String name, int id, Character character) {
+	public Player(String name, int id, Character lion) {
 		super();
 		this.name = name;
 		this.id = id;
-		this.character = character;
+		this.character = lion;
 	}
 }
