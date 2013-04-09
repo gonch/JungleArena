@@ -91,7 +91,6 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		this.worldController.screenTouched(x,Gdx.graphics.getHeight()-y);
-		System.out.println(x+", "+y);
 		return true;
 	}
 

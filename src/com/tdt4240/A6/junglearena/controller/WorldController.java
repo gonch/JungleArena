@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -25,15 +26,11 @@ public class WorldController {
 	public WorldController(JungleWorld world) {
 		this.jungleWorld = world;
 	}
-	
-	private void scale(){
-		
-	}
 
 	public void screenTouched(float x, float y) {
 		Character tank1 = this.jungleWorld.getPlayer1().getCharacter();
 		// tank1.setPosition(new Vector2(x, y));
-//		 setCharacterStartingPositions();
+		// setCharacterStartingPositions();
 		World world = this.jungleWorld.getWorld();
 		// First we create a body definition
 		BodyDef bodyDef = new BodyDef();
@@ -41,11 +38,10 @@ public class WorldController {
 		// move we would set it to StaticBody
 		bodyDef.type = BodyType.DynamicBody;
 		// Set our body's starting position in the world
-		bodyDef.position.set(tank1.getPosition().x+tank1.getSize().x, tank1.getPosition().y+tank1.getSize().y);
-		bodyDef.position.set(0,200);
-
-		System.out.println("BODY DEF " + bodyDef.position.x + "," 
-		+ bodyDef.position.y);
+		bodyDef.position.set(tank1.getPosition().x + tank1.getSize().x, tank1.getPosition().y + tank1.getSize().y);
+		bodyDef.position.set(0, 100);
+//		bodyDef.linearVelocity.x = 10000000;
+//		bodyDef.linearVelocity.y = 10000000;
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
 
@@ -53,18 +49,22 @@ public class WorldController {
 		currentWeapon.setBody(body);
 		this.jungleWorld.setCurrentWeapon(currentWeapon);
 		body.setUserData(currentWeapon);
-//		body.applyForceToCenter(0, 100);
-		//(65,65) is the max
-		float power = 45; 
-		double angle = 45;
-		float vx = (float) (power*Math.cos(angle))*100*600;
-		System.out.println();
-		float vy = (float)(power*Math.sin(angle))*100*600;
-		body.applyLinearImpulse(new Vector2((vx/65),vy/65),body.getLocalCenter());
-		
-		bodyDef.linearVelocity.x = 5000;
-		bodyDef.linearVelocity.y = 5000;
-		
+//		 body.applyForceToCenter(10000000000000000.0f, 10000000000000000.0f);
+		// (65,65) is the max
+		float power = 40f;
+//		power = 10f;
+		double angle = Math.PI/4;
+		float vx = (float) (power * Math.cos((float)angle)) * 100f;
+		float vy = (float) (power * Math.sin((float)angle)) * 100f;
+		System.out.println("Vx " + vx + ",Vy " + vy);
+		 body.applyLinearImpulse(new
+		 Vector2((vx/65),vy/65),body.getLocalCenter());
+
+//		body.setAwake(true);
+//		 body.setLinearVelocity( vx,vy);
+//		 body.linearVelocity.y = vy;
+//		 body.angle = (float)angle;
+
 		// Create a circle shape and set its radius to 6
 		CircleShape circle = new CircleShape();
 		circle.setRadius(6f);
@@ -97,7 +97,7 @@ public class WorldController {
 		leftChar.setPosition(new Vector2(randomX, y));
 		randomX = random.nextInt(Gdx.graphics.getWidth() / 3) + Gdx.graphics.getWidth() * 2 / 3;
 		y = this.jungleWorld.getMap().getMapY()[randomX];
-		rigthChar.setPosition(new Vector2(randomX, y));
+		rigthChar.setPosition(new Vector2(randomX, y));		
 	}
 
 	public void screenWithFling(float velocityX, float velocityY) {
@@ -105,35 +105,23 @@ public class WorldController {
 	}
 
 	public World generateBox2DWorld() {
-		World world = new World(new Vector2(0, -1), true);
+		World world = new World(new Vector2(0, -10f), true);
 		world.setContactListener(new CollisionListener()); // for collision
 															// detection
-
-		// Create a body from the defintion and add it to the world
-		// List<PolygonShape> polygons =
-		// this.jungleWorld.getMap().getPolygons();
-		// int i =0;
-		// for (PolygonShape groundBox : polygons) {
-		// // Create our body definition
-		// BodyDef groundBodyDef = new BodyDef();
-		// // Set its world position
-		// groundBodyDef.position.set(new Vector2(i+=3,0)); // TODO hardcoded
-		// // Create a polygon shape
-		// Body groundBody = world.createBody(groundBodyDef);
-		// // Create a fixture from our polygon shape and add it to our ground
-		// // body
-		// groundBody.createFixture(groundBox, 0.0f);
-		// }
-
+		/**
+		 * Map
+		 * */
 		ChainShape chainShape = this.jungleWorld.getMap().getChainShape();
 
 		BodyDef mapBodyDef = new BodyDef();
 		mapBodyDef.position.set(0, 0);
 		Body mapBody = world.createBody(mapBodyDef);
-		mapBody.createFixture(chainShape, 0.0f); 
+		mapBody.createFixture(chainShape, 0.0f);
 		this.jungleWorld.getMap().setBody(mapBody);
 
 		chainShape.dispose();
+		
+		
 		this.jungleWorld.setWorld(world);
 		return world;
 	}
@@ -141,8 +129,14 @@ public class WorldController {
 	public void update(float dt) {
 		World world = this.jungleWorld.getWorld();
 		handleWeaponExplosion(world, dt);
-//		world.step(1 / 60f, 6, 2);
-		world.step(1/10f, 6, 2);
+		// world.step(1 / 60f, 6, 2);
+//		Weapon weapon = this.jungleWorld.getCurrentWeapon();
+//		if (weapon != null) {
+//			updateWeapon(weapon, dt);
+//		}
+//		updateWeapon(weapon, dt);		
+		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
+		world.clearForces();
 	}
 
 	private void handleWeaponExplosion(World world, float dt) {

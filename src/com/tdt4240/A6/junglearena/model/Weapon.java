@@ -88,7 +88,6 @@ public class Weapon extends Entity{
 		if(this.isCollided){
 			this.timeBeforeExplosion -= dt;
 		}
-		System.out.println(timeBeforeExplosion);
 		if(timeBeforeExplosion < 0){
 			this.isExploded = true;
 		}
