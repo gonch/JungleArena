@@ -1,4 +1,6 @@
-package com.tdt4240.A6.junglearena.model;
+package com.tdt4240.A6.junglearena.model.Weapons;
+
+import com.tdt4240.A6.junglearena.model.Entity;
 
 public class Weapon extends Entity{
 	private int damage;

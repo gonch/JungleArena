@@ -1,6 +1,7 @@
-package com.tdt4240.A6.junglearena.model;
+package com.tdt4240.A6.junglearena.model.characters;
 
 import com.badlogic.gdx.math.Vector2;
+import com.tdt4240.A6.junglearena.model.Entity;
 
 public class Character extends Entity{
 	private int health;
