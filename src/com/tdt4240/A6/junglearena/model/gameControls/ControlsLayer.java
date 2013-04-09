@@ -12,7 +12,7 @@ public class ControlsLayer {
 	public ControlsLayer() {
 		super();
 		this.buttons = new ArrayList<GameButton>();
-		this.target = null;
+		this.target = new GameButton(null, null, null);
 	}
 
 	public List<GameButton> getButtons() {

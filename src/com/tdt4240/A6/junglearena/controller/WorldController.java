@@ -27,7 +27,7 @@ public class WorldController {
 	
 	public WorldController(JungleWorld world) {
 		this.jungleWorld = world;
-		this.controls = new ControlsLayer();
+		this.controls = new ControlsLayer();		
 	}
 
 	public void screenTouched(float x, float y) {
@@ -74,8 +74,7 @@ public class WorldController {
 		// BodyDef and FixtureDef don't need disposing, but shapes do.
 		circle.dispose();
 		
-		setCharacterStartingPositions();
-		
+		setCharacterStartingPositions();			
 	}
 	
 	public void angleTouched(float screenX, float screenY){
@@ -96,10 +95,7 @@ public class WorldController {
 		leftChar.setPosition(new Vector2(randomX, y));
 		randomX = random.nextInt(Gdx.graphics.getWidth() / 3) + Gdx.graphics.getWidth() * 2 / 3;
 		y = this.jungleWorld.getMap().getMapY()[randomX];
-		rigthChar.setPosition(new Vector2(randomX, y));		
-		
-		initializeControls();
-		
+		rigthChar.setPosition(new Vector2(randomX, y));				
 	}
 
 	public void screenWithFling(float velocityX, float velocityY) {
@@ -157,6 +153,9 @@ public class WorldController {
 		circle.dispose();
 
 		this.jungleWorld.setWorld(world);
+		
+		initializeControls();	
+		
 		return world;
 	}
 
