@@ -168,6 +168,7 @@ public class WorldController {
 //			updateWeapon(weapon, dt);
 //		}
 //		updateWeapon(weapon, dt);		
+		this.controls.getTarget().update(dt);
 		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
 		world.clearForces();
 	}

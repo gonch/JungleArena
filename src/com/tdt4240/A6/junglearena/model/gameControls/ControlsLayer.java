@@ -3,6 +3,8 @@ package com.tdt4240.A6.junglearena.model.gameControls;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.math.Vector2;
+
 
 public class ControlsLayer {
 
@@ -12,7 +14,7 @@ public class ControlsLayer {
 	public ControlsLayer() {
 		super();
 		this.buttons = new ArrayList<GameButton>();
-		this.target = new GameButton(null, null, null);
+		this.target = new GameButton("target", new Vector2(50,50), new Vector2(30,30));
 	}
 
 	public List<GameButton> getButtons() {
