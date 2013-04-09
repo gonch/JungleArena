@@ -119,8 +119,8 @@ public class MapController {
 	 * */
 	public void generateMap() {
 		float r = (float) (Math.random() * screenWidth);
-		System.out.println(screenWidth);
-		System.out.println(r);
+//		System.out.println(screenWidth);
+//		System.out.println(r);
 		for (int i = 0; i < screenWidth; i++) {
 			float realSize = screenHeight - perlinNoise_2D(i, r) * screenHeight - screenHeight / 2;
 			float scaledSize = realSize - 100;

@@ -2,6 +2,7 @@ package com.tdt4240.A6.junglearena.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.input.GestureDetector;
@@ -14,7 +15,7 @@ import com.tdt4240.A6.junglearena.view.GameInfoRenderer;
 import com.tdt4240.A6.junglearena.view.MapRenderer;
 import com.tdt4240.A6.junglearena.view.WorldRenderer;
 
-public class GameScreen implements Screen, GestureListener {
+public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	private JungleWorld world;
 	private WorldController worldController;
@@ -78,18 +79,19 @@ public class GameScreen implements Screen, GestureListener {
 	}
 
 	@Override
-	public void resume() {
+	public void resume() { 
 	}
 
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
-		this.worldController.screenTouched(x,y);
-		return true;
+//		this.worldController.screenTouched(x,y);
+		return false;
 	}
 
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
-		return false;
+		this.worldController.screenTouched(x,Gdx.graphics.getHeight()-y);
+		return true;
 	}
 
 	@Override
@@ -115,6 +117,55 @@ public class GameScreen implements Screen, GestureListener {
 
 	@Override
 	public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2, Vector2 pointer1, Vector2 pointer2) {
+		return false;
+	}
+
+	@Override
+	public boolean keyDown(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyUp(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char character) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		this.worldController.screenTouched(screenX,screenY);
+		return false;
+	}
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		
+		return true;
+	}
+
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		// TODO Auto-generated method stub
+		this.worldController.screenTouched(screenX,screenY);
+		return true;
+	}
+
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(int amount) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

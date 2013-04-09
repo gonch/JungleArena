@@ -11,6 +11,7 @@ public class TitleScreen implements Screen, InputProcessor{
 	
 	private TitleScreenRenderer titleScreenRenderer;
 	private Game game;
+	
 	public TitleScreen(Game game){
 		this.game = game;
 	}
