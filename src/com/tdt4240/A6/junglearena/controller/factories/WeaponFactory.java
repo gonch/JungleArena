@@ -1,7 +1,6 @@
 package com.tdt4240.A6.junglearena.controller.factories;
 
 import com.tdt4240.A6.junglearena.model.Weapons.*;
-import com.tdt4240.A6.junglearena.model.characters.Elephant;
 
 public class WeaponFactory {
 

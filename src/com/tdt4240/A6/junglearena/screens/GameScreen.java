@@ -11,6 +11,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
+import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
+import com.tdt4240.A6.junglearena.view.ControlsRenderer;
 import com.tdt4240.A6.junglearena.view.GameInfoRenderer;
 import com.tdt4240.A6.junglearena.view.MapRenderer;
 import com.tdt4240.A6.junglearena.view.WorldRenderer;
@@ -24,6 +26,8 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	private MapController mapController;
 	private MapRenderer mapRenderer;
 	private GameInfoRenderer gameInfoRenderer;
+	private ControlsLayer controls;
+	private ControlsRenderer controlsRenderer;
 	
 	private int width, height;
 
@@ -40,10 +44,12 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		this.worldController = new WorldController(this.world);
 		this.worldRenderer = new WorldRenderer(this.world);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
-		this.worldController.setCharacterStartingPositions();
+		this.worldController.setCharacterStartingPositions();		
 		this.worldController.generateBox2DWorld();
 		this.gameInfoRenderer = new GameInfoRenderer(world);
 		Gdx.input.setInputProcessor(new GestureDetector(this));
+		this.controls = this.worldController.getControls();
+		this.controlsRenderer = new ControlsRenderer(controls);
 	}
 
 	@Override
@@ -65,7 +71,8 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 //		this.mapRenderer.render();
 		this.worldController.update(dt);
 		this.worldRenderer.render();
-//		this.gameInfoRenderer.render();
+		this.gameInfoRenderer.render();
+		this.controlsRenderer.render();
 	}
 
 	/*
@@ -85,12 +92,13 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
 //		this.worldController.screenTouched(x,y);
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		this.worldController.screenTouched(x,Gdx.graphics.getHeight()-y);
+		this.worldController.angleTouched(x,Gdx.graphics.getHeight()-y);
 		return true;
 	}
 
@@ -102,6 +110,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
 		this.worldController.screenWithFling(velocityX,velocityY);
+		this.worldController.angleTouched(velocityX,Gdx.graphics.getHeight()-velocityY);
 		return true;
 	}
 
@@ -141,7 +150,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		this.worldController.screenTouched(screenX,screenY);
-		return false;
+		return true;
 	}
 
 	@Override
@@ -152,15 +161,14 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		// TODO Auto-generated method stub
-		this.worldController.screenTouched(screenX,screenY);
+		this.worldController.angleTouched(screenX,Gdx.graphics.getHeight()-screenY);
 		return true;
 	}
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
-		return false;
+		this.worldController.angleTouched(screenX,Gdx.graphics.getHeight()-screenY);
+		return true;
 	}
 
 	@Override
