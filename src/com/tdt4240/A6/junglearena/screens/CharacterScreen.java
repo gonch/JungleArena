@@ -4,31 +4,30 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Pixmap.Format;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class TitleScreen implements Screen, InputProcessor{
+public class CharacterScreen implements Screen, InputProcessor{
 	
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
 	
-	public TitleScreen(final Game game){
+	public CharacterScreen(final Game game){
 		this.game = game;
 		stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -36,29 +35,64 @@ public class TitleScreen implements Screen, InputProcessor{
         Table table = new Table();
         table.setFillParent(true);
         Skin skin = mySkin.getHugeButtonSkin();
+        Skin mediumSkin = mySkin.getMediumButtonSkin();
 		
 		// Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-		final TextButton singlePlayerButton = new TextButton("Single Player", skin);
-		final TextButton twoPlayerButton = new TextButton("Two Players", skin);
+		final TextButton singlePlayerButton = new TextButton("P1", skin);
+		final TextButton twoPlayerButton = new TextButton("P2", skin);
+		final TextButton char11 = new TextButton("CHAR 1", skin);
+		final TextButton char12 = new TextButton("CHAR 2", skin);
+		final TextButton char13 = new TextButton("CHaR 3", skin);
+		final TextButton char21 = new TextButton("CHAR 1", skin);
+		final TextButton char22 = new TextButton("CHAR 2", skin);
+		final TextButton char23 = new TextButton("CHaR 3", skin);
+		
+		final TextButton next = new TextButton("NEXT", mediumSkin);
 		
 		singlePlayerButton.pad(25);
 		twoPlayerButton.pad(25);
+		//labels
 		table.add(singlePlayerButton);
-		table.row();
 		table.add(twoPlayerButton);
 		table.row();
-        stage.addActor(table);
+		//animal 1
+		table.add(char11);
+		table.add(char21);
+		table.row();
+		//animal 2
+		table.add(char12);
+		table.add(char22);
+		table.row();
+		//animal 3
+		table.add(char13);
+		table.add(char23);
+		table.row();
+		//next button
+		table.align(Align.center);
+		table.add(next);
+		table.row();
+		
+		stage.addActor(table);
         
-		singlePlayerButton.addListener(new ClickListener() {
+		char11.addListener(new ClickListener() {
 			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new SkillScreen(game));
+			public boolean touchDown(InputEvent event, float x, float y,int pointer, int button)
+			{
+				return true;
+				
+				
 			}
 		});
 		twoPlayerButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				//game.setScreen(new CharacterScreen(game));
+			}
+		});
+		next.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				game.setScreen(new MapSelectionScreen(game));
 			}
 		});
 	}

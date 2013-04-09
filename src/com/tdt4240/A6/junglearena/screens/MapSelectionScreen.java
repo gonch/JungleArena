@@ -22,13 +22,13 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class TitleScreen implements Screen, InputProcessor{
+public class MapSelectionScreen implements Screen, InputProcessor{
 	
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
 	
-	public TitleScreen(final Game game){
+	public MapSelectionScreen(final Game game){
 		this.game = game;
 		stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -38,27 +38,27 @@ public class TitleScreen implements Screen, InputProcessor{
         Skin skin = mySkin.getHugeButtonSkin();
 		
 		// Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-		final TextButton singlePlayerButton = new TextButton("Single Player", skin);
-		final TextButton twoPlayerButton = new TextButton("Two Players", skin);
+		final TextButton mapOneButton = new TextButton("Jungle", skin);
+		final TextButton mapTwoButton = new TextButton("Desert", skin);
 		
-		singlePlayerButton.pad(25);
-		twoPlayerButton.pad(25);
-		table.add(singlePlayerButton);
+		mapOneButton.pad(25);
+		mapTwoButton.pad(25);
+		table.add(mapOneButton);
 		table.row();
-		table.add(twoPlayerButton);
+		table.add(mapTwoButton);
 		table.row();
         stage.addActor(table);
         
-		singlePlayerButton.addListener(new ClickListener() {
+		mapOneButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new SkillScreen(game));
+				game.setScreen(new GameScreen(game));
 			}
 		});
-		twoPlayerButton.addListener(new ClickListener() {
+		mapTwoButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				//game.setScreen(new CharacterScreen(game));
+				game.setScreen(new GameScreen(game));
 			}
 		});
 	}
