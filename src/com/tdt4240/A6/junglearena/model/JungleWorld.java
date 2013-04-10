@@ -73,4 +73,8 @@ public class JungleWorld{
 	public void setCurrentWeapon(Weapon currentWeapon) {
 		this.currentWeapon = currentWeapon;
 	}
+	
+	public Player getCurrentPlayer(){
+		return this.players.get(0);
+	}
 }

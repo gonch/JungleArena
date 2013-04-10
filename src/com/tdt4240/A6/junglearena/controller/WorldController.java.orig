@@ -3,6 +3,7 @@ package com.tdt4240.A6.junglearena.controller;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -14,20 +15,15 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
 import com.tdt4240.A6.junglearena.listeners.CollisionListener;
-import com.tdt4240.A6.junglearena.model.JungleWorld;
-import com.tdt4240.A6.junglearena.model.Player;
-import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
 import com.tdt4240.A6.junglearena.model.characters.Character;
-import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
-import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
+import com.tdt4240.A6.junglearena.model.JungleWorld;
+import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
 
 public class WorldController {
 	private JungleWorld jungleWorld;
-	private ControlsLayer controls;
-	
+
 	public WorldController(JungleWorld world) {
 		this.jungleWorld = world;
-		this.controls = new ControlsLayer();		
 	}
 
 	public void screenTouched(float x, float y) {
@@ -73,12 +69,6 @@ public class WorldController {
 		// Remember to dispose of any shapes after you're done with them!2
 		// BodyDef and FixtureDef don't need disposing, but shapes do.
 		circle.dispose();
-		
-		setCharacterStartingPositions();			
-	}
-	
-	public void angleTouched(float screenX, float screenY){
-		this.controls.getTarget().setPosition(new Vector2(screenX,screenY));
 	}
 
 	/**
@@ -95,7 +85,7 @@ public class WorldController {
 		leftChar.setPosition(new Vector2(randomX, y));
 		randomX = random.nextInt(Gdx.graphics.getWidth() / 3) + Gdx.graphics.getWidth() * 2 / 3;
 		y = this.jungleWorld.getMap().getMapY()[randomX];
-		rigthChar.setPosition(new Vector2(randomX, y));				
+		rigthChar.setPosition(new Vector2(randomX, y));		
 	}
 
 	public void screenWithFling(float velocityX, float velocityY) {
@@ -119,7 +109,7 @@ public class WorldController {
 
 		chainShape.dispose();
 		
-
+<<<<<<< HEAD
 		// First we create a body definition
 		BodyDef bodyDef = new BodyDef();
 		// We set our body to dynamic, for something like ground which doesnt
@@ -151,11 +141,10 @@ public class WorldController {
 		// Remember to dispose of any shapes after you're done with them!
 		// BodyDef and FixtureDef don't need disposing, but shapes do.
 		circle.dispose();
-
+=======
+		
+>>>>>>> ad_parabole
 		this.jungleWorld.setWorld(world);
-		
-		initializeControls();	
-		
 		return world;
 	}
 
@@ -168,7 +157,6 @@ public class WorldController {
 //			updateWeapon(weapon, dt);
 //		}
 //		updateWeapon(weapon, dt);		
-		this.controls.getTarget().update(dt);
 		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
 		world.clearForces();
 	}
@@ -181,18 +169,5 @@ public class WorldController {
 				world.destroyBody(currentWeapon.getBody());
 			}
 		}
-	}
-	
-	private void initializeControls(){
-		Player currentPlayer = this.jungleWorld.getCurrentPlayer();
-		Character currentCharacter = currentPlayer.getCharacter();
-		Vector2 characterCentre = currentCharacter.getCentre();
-		GameButton target = new GameButton("target", characterCentre.add(0, 30), new Vector2(30, 30));
-		this.controls.addButton(target);
-		this.controls.setTarget(target);
-	}
-	
-	public ControlsLayer getControls(){
-		return this.controls;
 	}
 }
