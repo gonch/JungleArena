@@ -188,7 +188,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		if (this.worldController.getControls().getTarget().isSelected()) {
+		if (this.worldController.getControls().getTarget().isSelected() && pointer == 0 ) {
 			this.worldController.angleTouched(screenX, Gdx.graphics.getHeight() - screenY);
 		}
 		return true;

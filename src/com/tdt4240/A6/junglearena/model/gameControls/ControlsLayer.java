@@ -10,11 +10,13 @@ public class ControlsLayer {
 
 	private List<GameButton> buttons;
 	private GameButton target;
+	private GameButton power;
 	
 	public ControlsLayer() {
 		super();
 		this.buttons = new ArrayList<GameButton>();
 		this.target = new GameButton("target", new Vector2(50,50), new Vector2(30,30));
+		this.power = new GameButton("power",new Vector2(10,10),new Vector2(30,30));
 	}
 
 	public List<GameButton> getButtons() {
