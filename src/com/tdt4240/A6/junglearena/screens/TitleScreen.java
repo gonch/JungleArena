@@ -24,10 +24,17 @@ import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
 public class TitleScreen implements Screen, InputProcessor {
+	protected static final String PLAYER1 = "Player 1";
+	protected static final String AUTO_PLAYER = "C_Player";
+	protected static final String PLAYER2 = "Player 2";
+	private final String SINGLE_PLAY = "Single Player";
+	private final String TWO_PLAY = "Two Player";
 
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
+	private TextButton singlePlayerButton;
+	private TextButton twoPlayerButton;
 
 	public TitleScreen(final Game game) {
 		this.game = game;
@@ -40,9 +47,8 @@ public class TitleScreen implements Screen, InputProcessor {
 
 		// Create a button with the "default" TextButtonStyle. A 3rd parameter
 		// can be used to specify a name other than "default".
-		final TextButton singlePlayerButton = new TextButton("Single Player",
-				skin);
-		final TextButton twoPlayerButton = new TextButton("Two Players", skin);
+		singlePlayerButton = new TextButton(SINGLE_PLAY, skin);
+		twoPlayerButton = new TextButton(TWO_PLAY, skin);
 
 		singlePlayerButton.pad(25);
 		twoPlayerButton.pad(25);
@@ -55,13 +61,13 @@ public class TitleScreen implements Screen, InputProcessor {
 		singlePlayerButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new SkillScreen(game, new Context(true)));
+				game.setScreen(new SkillScreen(game, new Context(true,PLAYER1,AUTO_PLAYER)));
 			}
 		});
 		twoPlayerButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new CharacterScreen(game, new Context(false)));
+				game.setScreen(new CharacterScreen(game, new Context(false,PLAYER1,PLAYER2)));
 			}
 		});
 	}
