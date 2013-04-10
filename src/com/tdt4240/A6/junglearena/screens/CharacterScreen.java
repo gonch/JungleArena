@@ -57,7 +57,8 @@ public class CharacterScreen implements Screen, InputProcessor {
 		// table.add(button2);
 		table.row();
 		for (int i = 0; i < charactersNames.length; i++) {
-
+			buttonsP1[i].padRight(25);
+			buttonsP2[i].padLeft(25);
 			table.add(buttonsP1[i]);
 			// table.add(buttonsP1[i]).align(Align.right);
 			table.add(buttonsP2[i]);
@@ -98,10 +99,12 @@ public class CharacterScreen implements Screen, InputProcessor {
 							selected1 = j;
 							buttonsP1[j].setStyle(mySkin.getHugeRedButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP1[j].padRight(25);
 						} else// is not the buttons !select
 						{
 							buttonsP1[j].setStyle(mySkin.getHugeButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP1[j].padRight(25);
 						}
 					}
 				}
@@ -126,10 +129,12 @@ public class CharacterScreen implements Screen, InputProcessor {
 							selected2 = i;
 							buttonsP2[i].setStyle(mySkin.getHugeRedButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP2[i].padLeft(25);
 						} else// is not the buttons !select
 						{
 							buttonsP2[i].setStyle(mySkin.getHugeButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP2[i].padLeft(25);
 						}
 					}
 				}
