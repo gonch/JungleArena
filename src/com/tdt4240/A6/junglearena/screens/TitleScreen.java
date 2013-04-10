@@ -19,63 +19,66 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class TitleScreen implements Screen, InputProcessor{
-	
+public class TitleScreen implements Screen, InputProcessor {
+
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
-	
-	public TitleScreen(final Game game){
+
+	public TitleScreen(final Game game) {
 		this.game = game;
 		stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
+		Gdx.input.setInputProcessor(stage);
 
-        Table table = new Table();
-        table.setFillParent(true);
-        Skin skin = mySkin.getHugeButtonSkin();
-		
-		// Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-		final TextButton singlePlayerButton = new TextButton("Single Player", skin);
+		Table table = new Table();
+		table.setFillParent(true);
+		Skin skin = mySkin.getHugeButtonSkin();
+
+		// Create a button with the "default" TextButtonStyle. A 3rd parameter
+		// can be used to specify a name other than "default".
+		final TextButton singlePlayerButton = new TextButton("Single Player",
+				skin);
 		final TextButton twoPlayerButton = new TextButton("Two Players", skin);
-		
+
 		singlePlayerButton.pad(25);
 		twoPlayerButton.pad(25);
 		table.add(singlePlayerButton);
 		table.row();
 		table.add(twoPlayerButton);
 		table.row();
-        stage.addActor(table);
-        
+		stage.addActor(table);
+
 		singlePlayerButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new SkillScreen(game));
+				game.setScreen(new SkillScreen(game, new Context(true)));
 			}
 		});
 		twoPlayerButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				//game.setScreen(new CharacterScreen(game));
+				game.setScreen(new CharacterScreen(game, new Context(false)));
 			}
 		});
 	}
-	
+
 	@Override
 	public void show() {
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
-//		Gdx.input.setInputProcessor(this);
+		// Gdx.input.setInputProcessor(this);
 	}
-	
+
 	@Override
 	public void render(float delta) {
 		this.screenRenderer.render(stage);
-//		if(Gdx.input.justTouched()){
-//			game.setScreen(new GameScreen(game));
-//		}
+		// if(Gdx.input.justTouched()){
+		// game.setScreen(new GameScreen(game));
+		// }
 	}
 
 	@Override
@@ -100,7 +103,7 @@ public class TitleScreen implements Screen, InputProcessor{
 		stage.dispose();
 		this.screenRenderer.dispose();
 	}
-	
+
 	/**
 	 * Called when a finger went down on the screen or a mouse button was
 	 * pressed. Reports the coordinates as well as the pointer index and mouse

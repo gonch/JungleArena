@@ -17,64 +17,72 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class SkillScreen implements Screen, InputProcessor{
-	
+public class SkillScreen implements Screen, InputProcessor {
+
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
-	
-	public SkillScreen(final Game game){
+	private Context context;
+	private TextButton easyButton;
+	private TextButton hardButton;
+	private final String LAVEL_EASY ="Easy";
+	private final String LAVEL_HARD ="Hard";
+
+	public SkillScreen(final Game game, Context context) {
 		this.game = game;
 		stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
+		this.context = context;
+		Gdx.input.setInputProcessor(stage);
 
-        Table table = new Table();
-        table.setFillParent(true);
-        Skin skin = mySkin.getHugeButtonSkin();
-		
-		// Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-		final TextButton easyButton = new TextButton("Easy", skin);
-		final TextButton hardButton = new TextButton("Hard", skin);
-		
+		Table table = new Table();
+		table.setFillParent(true);
+		Skin skin = mySkin.getHugeButtonSkin();
+
+		// Create a button with the "default" TextButtonStyle. A 3rd parameter
+		// can be used to specify a name other than "default".
+		easyButton = new TextButton(LAVEL_EASY, skin);
+		hardButton = new TextButton(LAVEL_HARD, skin);
+
 		easyButton.pad(25);
 		hardButton.pad(25);
 		table.add(easyButton);
 		table.row();
 		table.add(hardButton);
 		table.row();
-        stage.addActor(table);
-        
+		stage.addActor(table);
+	}
+
+	@Override
+	public void show() {
+		this.screenRenderer = new ScreenRenderer();
+		Gdx.input.setInputProcessor(stage);
 		easyButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				//TODO pass the parameters to the game
-				game.setScreen(new CharacterScreen(game));
+				context.setDifficulty(LAVEL_EASY);
+				game.setScreen(new CharacterScreen(game, context));
 			}
 		});
 		hardButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new CharacterScreen(game));
+				context.setDifficulty(LAVEL_HARD);
+				game.setScreen(new CharacterScreen(game, context));
 			}
 		});
+		// Gdx.input.setInputProcessor(this);
 	}
-	
-	@Override
-	public void show() {
-		this.screenRenderer = new ScreenRenderer();
-		Gdx.input.setInputProcessor(stage);
-//		Gdx.input.setInputProcessor(this);
-	}
-	
+
 	@Override
 	public void render(float delta) {
 		this.screenRenderer.render(stage);
-//		if(Gdx.input.justTouched()){
-//			game.setScreen(new GameScreen(game));
-//		}
+		// if(Gdx.input.justTouched()){
+		// game.setScreen(new GameScreen(game));
+		// }
 	}
 
 	@Override
@@ -99,7 +107,7 @@ public class SkillScreen implements Screen, InputProcessor{
 		stage.dispose();
 		this.screenRenderer.dispose();
 	}
-	
+
 	/**
 	 * Called when a finger went down on the screen or a mouse button was
 	 * pressed. Reports the coordinates as well as the pointer index and mouse
