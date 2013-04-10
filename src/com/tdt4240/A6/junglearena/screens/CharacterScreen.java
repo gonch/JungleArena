@@ -6,7 +6,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
@@ -48,16 +48,16 @@ public class CharacterScreen implements Screen, InputProcessor {
 		Table table = new Table();
 		table.setFillParent(true);
 		// table.setWidth(500);// TODO HARD CODED
-
-		// if (bchange) {
-		// table.add(button2);
-		// } else {
-		// table.add(button1);
-		// }
-		// table.add(button2);
+		TextButton player1 = new TextButton(context.getNamePlayer2(), mySkin.getBigButtonSkin());
+		TextButton player2 = new TextButton(context.getNamePlayer2(), mySkin.getBigButtonSkin());
+		player1.padBottom(25);
+		player2.padBottom(25);
+		table.add(player1);
+		table.add(player2);
 		table.row();
 		for (int i = 0; i < charactersNames.length; i++) {
-
+			buttonsP1[i].padRight(25);
+			buttonsP2[i].padLeft(25);
 			table.add(buttonsP1[i]);
 			// table.add(buttonsP1[i]).align(Align.right);
 			table.add(buttonsP2[i]);
@@ -98,10 +98,12 @@ public class CharacterScreen implements Screen, InputProcessor {
 							selected1 = j;
 							buttonsP1[j].setStyle(mySkin.getHugeRedButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP1[j].padRight(25);
 						} else// is not the buttons !select
 						{
 							buttonsP1[j].setStyle(mySkin.getHugeButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP1[j].padRight(25);
 						}
 					}
 				}
@@ -126,10 +128,12 @@ public class CharacterScreen implements Screen, InputProcessor {
 							selected2 = i;
 							buttonsP2[i].setStyle(mySkin.getHugeRedButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP2[i].padLeft(25);
 						} else// is not the buttons !select
 						{
 							buttonsP2[i].setStyle(mySkin.getHugeButtonSkin()
 									.get("default", TextButtonStyle.class));
+							buttonsP2[i].padLeft(25);
 						}
 					}
 				}
