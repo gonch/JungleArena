@@ -23,62 +23,64 @@ import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class MapSelectionScreen implements Screen, InputProcessor{
-	
+public class MapSelectionScreen implements Screen, InputProcessor {
+
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
 	private Context context;
-	
-	public MapSelectionScreen(final Game game, Context context){
+	private TextButton buttonMaps[];
+	private String environments [];
+
+	public MapSelectionScreen(final Game game, Context context) {
 		this.game = game;
 		this.context = context;
-		stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
-
-        Table table = new Table();
-        table.setFillParent(true);
-        Skin skin = mySkin.getHugeButtonSkin();
-		
-		// Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-		final TextButton mapOneButton = new TextButton("Jungle", skin);
-		final TextButton mapTwoButton = new TextButton("Desert", skin);
-		
-		mapOneButton.pad(25);
-		mapTwoButton.pad(25);
-		table.add(mapOneButton);
-		table.row();
-		table.add(mapTwoButton);
-		table.row();
-        stage.addActor(table);
-        
-		mapOneButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new GameScreen(game));
-			}
-		});
-		mapTwoButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new GameScreen(game));
-			}
-		});
+		buttonMaps = new TextButton[2];
+		environments = new String []{"Jungle","Desert"};// TODO Hard coded, waiting for MARTIN
+		buttonMaps[0] = new TextButton(environments[0], mySkin.getHugeButtonSkin());
+		buttonMaps[1] = new TextButton(environments[1], mySkin.getHugeButtonSkin());
 	}
-	
+
 	@Override
 	public void show() {
+		buttonMaps[0].addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				context.setEnvironment(((TextButton)event.getListenerActor()).getLabel().getText().toString());
+				game.setScreen(new GameScreen(game, context));
+			}
+		});
+		buttonMaps[1].addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				context.setEnvironment(((TextButton)event.getListenerActor()).getLabel().getText().toString());
+				game.setScreen(new GameScreen(game, context));
+			}
+		});
+		stage = new Stage();
+		Gdx.input.setInputProcessor(stage);
+
+		Table table = new Table();
+		table.setFillParent(true);
+
+		buttonMaps[0].pad(25);
+		buttonMaps[1].pad(25);
+		table.add(buttonMaps[0]);
+		table.row();
+		table.add(buttonMaps[1]);
+		table.row();
+		stage.addActor(table);
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
-//		Gdx.input.setInputProcessor(this);
+		// Gdx.input.setInputProcessor(this);
 	}
-	
+
 	@Override
 	public void render(float delta) {
 		this.screenRenderer.render(stage);
-//		if(Gdx.input.justTouched()){
-//			game.setScreen(new GameScreen(game));
-//		}
+		// if(Gdx.input.justTouched()){
+		// game.setScreen(new GameScreen(game));
+		// }
 	}
 
 	@Override
@@ -103,7 +105,7 @@ public class MapSelectionScreen implements Screen, InputProcessor{
 		stage.dispose();
 		this.screenRenderer.dispose();
 	}
-	
+
 	/**
 	 * Called when a finger went down on the screen or a mouse button was
 	 * pressed. Reports the coordinates as well as the pointer index and mouse
