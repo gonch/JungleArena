@@ -8,6 +8,9 @@ public class Context {
 	private String difficulty = "";
 	private String nameChar1;
 	private String nameChar2;
+	private String namePlayer1;
+	private String namePlayer2;
+	
 	private String environment;
 	public Context(boolean single)
 	{
@@ -51,6 +54,30 @@ public class Context {
 	}
 	public void setEnvironment(String environment) {
 		this.environment = environment;
+	}
+	/**
+	 * @return the namePlayer1
+	 */
+	public String getNamePlayer1() {
+		return namePlayer1;
+	}
+	/**
+	 * @param namePlayer1 the namePlayer1 to set
+	 */
+	public void setNamePlayer1(String namePlayer1) {
+		this.namePlayer1 = namePlayer1;
+	}
+	/**
+	 * @return the namePlayer2
+	 */
+	public String getNamePlayer2() {
+		return namePlayer2;
+	}
+	/**
+	 * @param namePlayer2 the namePlayer2 to set
+	 */
+	public void setNamePlayer2(String namePlayer2) {
+		this.namePlayer2 = namePlayer2;
 	}
 	
 	
