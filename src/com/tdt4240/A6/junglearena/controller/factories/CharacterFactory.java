@@ -49,6 +49,7 @@ public class CharacterFactory {
 	}
 	
 	public static void main(String[] args) {
+		// test driver
 		CharacterFactory cf = new CharacterFactory();
 		String[]ss = cf.getCharacters();
 		for (String s: ss){
