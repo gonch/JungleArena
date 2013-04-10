@@ -30,8 +30,7 @@ public class WeaponFactory {
 					Class<Weapon> weapon = (Class<Weapon>) Class.forName(className);
 					Weapon newInstanceOfWeapon = weapon.getConstructor(Integer.TYPE,String.class,String.class,Integer.TYPE).newInstance(damage, name, skin,areaOfEffect);
 					return newInstanceOfWeapon;
-				} catch (IllegalArgumentException | SecurityException | InstantiationException | IllegalAccessException
-						| InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
