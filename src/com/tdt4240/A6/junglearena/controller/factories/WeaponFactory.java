@@ -1,5 +1,6 @@
 package com.tdt4240.A6.junglearena.controller.factories;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,8 +22,19 @@ public class WeaponFactory {
 	}
 
 	public Weapon createWeapon(String type, int damage, String name, String skin, int areaOfEffect) {
+		String className = pkgPath + type;
 		for (String s : weapons) {
 			if (s.equals(type.toLowerCase())) {
+
+				try {
+					Class weapon = Class.forName(className);
+					Object newInstanceOfWeapon = weapon.getConstructor(Integer.TYPE,String.class,String.class,Integer.TYPE).newInstance(damage, name, skin,areaOfEffect);
+					return (Weapon)newInstanceOfWeapon;
+				} catch (IllegalArgumentException | SecurityException | InstantiationException | IllegalAccessException
+						| InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+
 				// ClassLoader WeaponClassLoader =
 				// ClassLoader.getSystemClassLoader();
 				// String className = pkgPath + type;
@@ -34,6 +46,8 @@ public class WeaponFactory {
 				// areaOfEffect)
 			}
 		}
+		System.err.print("Invalid Weapon! Can not create \""+className+"\"!Created default instead.");
+		return new Bomb(damage, name, skin, areaOfEffect);
 
 		// switch(type){
 		// case "bomb": return new Bomb(damage, name, skin, areaOfEffect);
