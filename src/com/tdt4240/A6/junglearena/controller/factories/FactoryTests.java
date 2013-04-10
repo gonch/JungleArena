@@ -1,7 +1,5 @@
 package com.tdt4240.A6.junglearena.controller.factories;
 
-import static org.junit.Assert.*;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
