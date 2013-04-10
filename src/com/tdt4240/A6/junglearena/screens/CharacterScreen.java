@@ -35,7 +35,7 @@ public class CharacterScreen implements Screen, InputProcessor {
 
 		this.context = context;
 		next = new TextButton("NEXT", mySkin.getMediumButtonSkin());
-		next.align(Align.center);// TODO why is the opposite
+		next.align(Align.right);// TODO why is the opposite
 		CharacterFactory f = new CharacterFactory(); // TODO implementation of
 														// singleton
 		charactersNames = f.getCharacters();
@@ -46,12 +46,13 @@ public class CharacterScreen implements Screen, InputProcessor {
 
 	public Table generateTable() {
 		Table table = new Table();
-		table.setFillParent(true);
+		//table.setFillParent(true);
+		table.pad(0);
 		// table.setWidth(500);// TODO HARD CODED
-		TextButton player1 = new TextButton(context.getNamePlayer2(), mySkin.getBigButtonSkin());
-		TextButton player2 = new TextButton(context.getNamePlayer2(), mySkin.getBigButtonSkin());
-		player1.padBottom(25);
-		player2.padBottom(25);
+		TextButton player1 = new TextButton(context.getNamePlayer1(), mySkin.getMediumButtonSkin());
+		TextButton player2 = new TextButton(context.getNamePlayer2(), mySkin.getMediumButtonSkin());
+		player1.padBottom(20);
+		player2.padBottom(20);
 		table.add(player1);
 		table.add(player2);
 		table.row();
@@ -140,9 +141,13 @@ public class CharacterScreen implements Screen, InputProcessor {
 			});
 		}
 		stage = new Stage();
-		stage.addActor(generateTable());
+		Table superTable = new Table();
+		superTable.setFillParent(true);
+		superTable.add(generateTable());
+		superTable.row();
 		next.align(Align.right);
-		stage.addActor(next);
+		superTable.add(next);
+		stage.addActor(superTable);
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
 		// Gdx.input.setInputProcessor(this);
