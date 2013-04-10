@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
 import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
@@ -24,6 +25,7 @@ public class CharacterScreen implements Screen, InputProcessor {
 	private TextButton buttonsP1[] = new TextButton[3];
 	private TextButton buttonsP2[] = new TextButton[3];
 	private int selected1, selected2;
+	private String[] charactersNames;
 	Context context;
 	TextButton next;
 	boolean enter = true, bchange = false;
@@ -33,14 +35,19 @@ public class CharacterScreen implements Screen, InputProcessor {
 
 		this.context = context;
 		next = new TextButton("NEXT", mySkin.getMediumButtonSkin());
-		next.align(Align.right);// TODO why is the opposite
+		next.align(Align.center);// TODO why is the opposite
+		CharacterFactory f = new CharacterFactory(); // TODO implementation of
+														// singleton
+		charactersNames = f.getCharacters();
+		buttonsP1 = new TextButton[charactersNames.length];
+		buttonsP2 = new TextButton[charactersNames.length];
 
 	}
 
 	public Table generateTable() {
 		Table table = new Table();
 		table.setFillParent(true);
-		table.setWidth(500);// TODO HARD CODED
+		// table.setWidth(500);// TODO HARD CODED
 
 		// if (bchange) {
 		// table.add(button2);
@@ -49,15 +56,13 @@ public class CharacterScreen implements Screen, InputProcessor {
 		// }
 		// table.add(button2);
 		table.row();
+		for (int i = 0; i < charactersNames.length; i++) {
 
-		if (buttonsP1.length == buttonsP2.length)// always true TODO
-			for (int i = 0; i < buttonsP1.length; i++) {
-
-				table.add(buttonsP1[i]);
-				table.add(buttonsP1[i]).align(Align.right);
-				table.add(buttonsP2[i]);
-				table.row();
-			}
+			table.add(buttonsP1[i]);
+			// table.add(buttonsP1[i]).align(Align.right);
+			table.add(buttonsP2[i]);
+			table.row();
+		}
 
 		table.align(Align.center);
 		return table;
@@ -68,19 +73,19 @@ public class CharacterScreen implements Screen, InputProcessor {
 		next.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				context.setNameChar1("");// TODO
-				context.setNameChar2("");// TODO
+				context.setNameChar1(charactersNames[selected1]);
+				context.setNameChar2(charactersNames[selected2]);
 				game.setScreen(new MapSelectionScreen(game, context));
 			}
 		});
 
-		for (int i = 0; i < buttonsP1.length; i++) {
+		for (int i = 0; i < charactersNames.length; i++) {
 
 			if (i == 0) {
-				buttonsP1[i] = new TextButton("P" + 0,
+				buttonsP1[i] = new TextButton(charactersNames[i],
 						mySkin.getHugeRedButtonSkin());
 			} else {
-				buttonsP1[i] = new TextButton("P" + i,
+				buttonsP1[i] = new TextButton(charactersNames[i],
 						mySkin.getHugeButtonSkin());
 			}
 			buttonsP1[i].addListener(new ClickListener() {
@@ -103,12 +108,12 @@ public class CharacterScreen implements Screen, InputProcessor {
 			});
 		}
 
-		for (int i = 0; i < buttonsP2.length; i++) {
+		for (int i = 0; i < charactersNames.length; i++) {
 			if (i == 0) {
-				buttonsP2[i] = new TextButton("P" + 0,
+				buttonsP2[i] = new TextButton(charactersNames[i],
 						mySkin.getHugeRedButtonSkin());
 			} else {
-				buttonsP2[i] = new TextButton("P" + i,
+				buttonsP2[i] = new TextButton(charactersNames[i],
 						mySkin.getHugeButtonSkin());
 			}
 			buttonsP2[i].addListener(new ClickListener() {
@@ -132,6 +137,7 @@ public class CharacterScreen implements Screen, InputProcessor {
 		}
 		stage = new Stage();
 		stage.addActor(generateTable());
+		next.align(Align.right);
 		stage.addActor(next);
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
