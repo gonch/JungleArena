@@ -4,112 +4,147 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Pixmap.Format;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class CharacterScreen implements Screen, InputProcessor{
-	
+public class CharacterScreen implements Screen, InputProcessor {
+
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
-	
-	public CharacterScreen(final Game game){
-		this.game = game;
-		stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
+	private TextButton buttonsP1[] = new TextButton[3];
+	private TextButton buttonsP2[] = new TextButton[3];
+	private int selected1, selected2;
+	Context context;
+	TextButton next;
+	boolean enter = true, bchange = false;
 
-        Table table = new Table();
-        table.setFillParent(true);
-        Skin skin = mySkin.getHugeButtonSkin();
-        Skin mediumSkin = mySkin.getMediumButtonSkin();
-		
-		// Create a button with the "default" TextButtonStyle. A 3rd parameter can be used to specify a name other than "default".
-		final TextButton singlePlayerButton = new TextButton("P1", skin);
-		final TextButton twoPlayerButton = new TextButton("P2", skin);
-		final TextButton char11 = new TextButton("CHAR 1", skin);
-		final TextButton char12 = new TextButton("CHAR 2", skin);
-		final TextButton char13 = new TextButton("CHaR 3", skin);
-		final TextButton char21 = new TextButton("CHAR 1", skin);
-		final TextButton char22 = new TextButton("CHAR 2", skin);
-		final TextButton char23 = new TextButton("CHaR 3", skin);
-		
-		final TextButton next = new TextButton("NEXT", mediumSkin);
-		
-		singlePlayerButton.pad(25);
-		twoPlayerButton.pad(25);
-		//labels
-		table.add(singlePlayerButton);
-		table.add(twoPlayerButton);
-		table.row();
-		//animal 1
-		table.add(char11);
-		table.add(char21);
-		table.row();
-		//animal 2
-		table.add(char12);
-		table.add(char22);
-		table.row();
-		//animal 3
-		table.add(char13);
-		table.add(char23);
-		table.row();
-		//next button
-		table.align(Align.center);
-		table.add(next);
-		table.row();
-		
-		stage.addActor(table);
-        
-		char11.addListener(new ClickListener() {
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y,int pointer, int button)
-			{
-				return true;
-				
-				
-			}
-		});
-		twoPlayerButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				//game.setScreen(new CharacterScreen(game));
-			}
-		});
-		next.addListener(new ClickListener(){
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new MapSelectionScreen(game));
-			}
-		});
+	public CharacterScreen(final Game game, Context context) {
+		this.game = game;
+
+		this.context = context;
+		next = new TextButton("NEXT", mySkin.getMediumButtonSkin());
+		next.align(Align.right);// TODO why is the opposite
+
 	}
-	
+
+	public Table generateTable() {
+		Table table = new Table();
+		table.setFillParent(true);
+		table.setWidth(500);// TODO HARD CODED
+
+		// if (bchange) {
+		// table.add(button2);
+		// } else {
+		// table.add(button1);
+		// }
+		// table.add(button2);
+		table.row();
+
+		if (buttonsP1.length == buttonsP2.length)// always true TODO
+			for (int i = 0; i < buttonsP1.length; i++) {
+
+				table.add(buttonsP1[i]);
+				table.add(buttonsP1[i]).align(Align.right);
+				table.add(buttonsP2[i]);
+				table.row();
+			}
+
+		table.align(Align.center);
+		return table;
+	}
+
 	@Override
 	public void show() {
+		next.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				context.setNameChar1("");// TODO
+				context.setNameChar2("");// TODO
+				game.setScreen(new MapSelectionScreen(game, context));
+			}
+		});
+
+		for (int i = 0; i < buttonsP1.length; i++) {
+
+			if (i == 0) {
+				buttonsP1[i] = new TextButton("P" + 0,
+						mySkin.getHugeRedButtonSkin());
+			} else {
+				buttonsP1[i] = new TextButton("P" + i,
+						mySkin.getHugeButtonSkin());
+			}
+			buttonsP1[i].addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+
+					for (int j = 0; j < buttonsP1.length; j++) { // the button
+																	// selected
+						if (event.getListenerActor().equals(buttonsP1[j])) {
+							selected1 = j;
+							buttonsP1[j].setStyle(mySkin.getHugeRedButtonSkin()
+									.get("default", TextButtonStyle.class));
+						} else// is not the buttons !select
+						{
+							buttonsP1[j].setStyle(mySkin.getHugeButtonSkin()
+									.get("default", TextButtonStyle.class));
+						}
+					}
+				}
+			});
+		}
+
+		for (int i = 0; i < buttonsP2.length; i++) {
+			if (i == 0) {
+				buttonsP2[i] = new TextButton("P" + 0,
+						mySkin.getHugeRedButtonSkin());
+			} else {
+				buttonsP2[i] = new TextButton("P" + i,
+						mySkin.getHugeButtonSkin());
+			}
+			buttonsP2[i].addListener(new ClickListener() {
+				@Override
+				public void clicked(InputEvent event, float x, float y) {
+
+					for (int i = 0; i < buttonsP2.length; i++) {
+						// the button selected
+						if (event.getListenerActor().equals(buttonsP2[i])) {
+							selected2 = i;
+							buttonsP2[i].setStyle(mySkin.getHugeRedButtonSkin()
+									.get("default", TextButtonStyle.class));
+						} else// is not the buttons !select
+						{
+							buttonsP2[i].setStyle(mySkin.getHugeButtonSkin()
+									.get("default", TextButtonStyle.class));
+						}
+					}
+				}
+			});
+		}
+		stage = new Stage();
+		stage.addActor(generateTable());
+		stage.addActor(next);
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
-//		Gdx.input.setInputProcessor(this);
+		// Gdx.input.setInputProcessor(this);
 	}
-	
+
 	@Override
 	public void render(float delta) {
+
 		this.screenRenderer.render(stage);
-//		if(Gdx.input.justTouched()){
-//			game.setScreen(new GameScreen(game));
-//		}
+		// if(Gdx.input.justTouched()){
+		// game.setScreen(new GameScreen(game));
+		// }
 	}
 
 	@Override
@@ -134,7 +169,7 @@ public class CharacterScreen implements Screen, InputProcessor{
 		stage.dispose();
 		this.screenRenderer.dispose();
 	}
-	
+
 	/**
 	 * Called when a finger went down on the screen or a mouse button was
 	 * pressed. Reports the coordinates as well as the pointer index and mouse

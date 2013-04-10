@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.mySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
@@ -27,9 +28,11 @@ public class MapSelectionScreen implements Screen, InputProcessor{
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
+	private Context context;
 	
-	public MapSelectionScreen(final Game game){
+	public MapSelectionScreen(final Game game, Context context){
 		this.game = game;
+		this.context = context;
 		stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
