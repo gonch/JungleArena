@@ -16,6 +16,7 @@ import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
+import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
 import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
@@ -38,9 +39,11 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	private ControlsRenderer controlsRenderer;
 	private TweenManager tweenManager;
 	private int width, height;
+	private Context context;
 
-	public GameScreen(Game game) {
+	public GameScreen(Game game, Context context) {
 		this.game = game;
+		this.context = context;
 	}
 
 	@Override
