@@ -1,4 +1,6 @@
-package com.tdt4240.A6.junglearena.model;
+package com.tdt4240.A6.junglearena.model.Weapons;
+
+import com.tdt4240.A6.junglearena.model.Entity;
 
 public class Weapon extends Entity{
 	private int damage;
@@ -21,7 +23,7 @@ public class Weapon extends Entity{
 		this.areaOfEffect = areaOfEffect;
 		this.setCollided(false);
 		this.setExploded(false);
-		this.timeBeforeExplosion = 1f;
+		this.timeBeforeExplosion = 10f;
 	}
 
 	public int getDamage() {
@@ -88,7 +90,6 @@ public class Weapon extends Entity{
 		if(this.isCollided){
 			this.timeBeforeExplosion -= dt;
 		}
-		System.out.println(timeBeforeExplosion);
 		if(timeBeforeExplosion < 0){
 			this.isExploded = true;
 		}
