@@ -65,7 +65,6 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 		/* For the tween engin */
 		Tween.registerAccessor(GameButton.class, new TargetAccessor());
-
 		this.tweenManager = new TweenManager();
 	}
 
@@ -133,8 +132,6 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public boolean fling(float velocityX, float velocityY, int button) {
-		// this.worldController.screenWithFling(velocityX,velocityY);
-		// this.worldController.angleTouched(velocityX,Gdx.graphics.getHeight()-velocityY);
 		return false;
 	}
 
@@ -155,19 +152,16 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
