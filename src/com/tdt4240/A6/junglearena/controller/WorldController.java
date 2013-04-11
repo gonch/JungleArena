@@ -20,6 +20,7 @@ import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
 import com.tdt4240.A6.junglearena.model.characters.Character;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
 import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
+import com.tdt4240.A6.junglearena.utils.MathPhysicsUtils;
 
 public class WorldController {
 	private JungleWorld jungleWorld;
@@ -78,7 +79,13 @@ public class WorldController {
 	}
 	
 	public void angleTouched(float screenX, float screenY){
-		this.controls.getTarget().setPosition(new Vector2(screenX,screenY));
+		Vector2 origin = this.jungleWorld.getCurrentPlayer().getCharacter().getCentre();
+		float radius = 100; //hardcoded
+		float targetCircleX = MathPhysicsUtils.calculateXCircleInterpolationGivenY(origin.x, origin.y, screenY, radius, screenX);
+//		if(origin.x >= screenX){
+//			targetCircleX *= -1;
+//		}
+		this.controls.getTarget().setPosition(new Vector2(targetCircleX,screenY));
 	}
 
 	/**
@@ -90,10 +97,10 @@ public class WorldController {
 		Character leftChar = this.jungleWorld.getPlayer1().getCharacter();
 		Character rigthChar = this.jungleWorld.getPlayer2().getCharacter();
 		Random random = new Random();
-		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3);
+		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3 + 150);//50 for not having it close to the borders
 		float y = this.jungleWorld.getMap().getMapY()[randomX];
 		leftChar.setPosition(new Vector2(randomX, y));
-		randomX = random.nextInt(Gdx.graphics.getWidth() / 3) + Gdx.graphics.getWidth() * 2 / 3;
+		randomX = random.nextInt(Gdx.graphics.getWidth() / 3) + Gdx.graphics.getWidth() * 2 / 3 - 50;
 		y = this.jungleWorld.getMap().getMapY()[randomX];
 		rigthChar.setPosition(new Vector2(randomX, y));				
 	}
@@ -169,7 +176,8 @@ public class WorldController {
 //		}
 //		updateWeapon(weapon, dt);		
 		this.controls.getTarget().update(dt);
-		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
+//		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
+		world.step(1/10f, 5, 5);
 		world.clearForces();
 	}
 
