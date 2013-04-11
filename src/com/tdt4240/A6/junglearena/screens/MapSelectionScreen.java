@@ -20,7 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.tdt4240.A6.junglearena.model.Context;
-import com.tdt4240.A6.junglearena.screens.skins.mySkin;
+import com.tdt4240.A6.junglearena.screens.skins.MySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
 public class MapSelectionScreen implements Screen, InputProcessor {
@@ -37,8 +37,8 @@ public class MapSelectionScreen implements Screen, InputProcessor {
 		this.context = context;
 		buttonMaps = new TextButton[2];
 		environments = new String []{"Jungle","Desert"};// TODO Hard coded, waiting for MARTIN
-		buttonMaps[0] = new TextButton(environments[0], mySkin.getHugeButtonSkin());
-		buttonMaps[1] = new TextButton(environments[1], mySkin.getHugeButtonSkin());
+		buttonMaps[0] = new TextButton(environments[0], MySkin.getHugeButtonSkin());
+		buttonMaps[1] = new TextButton(environments[1], MySkin.getHugeButtonSkin());
 	}
 
 	@Override

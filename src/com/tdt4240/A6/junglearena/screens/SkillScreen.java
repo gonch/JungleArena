@@ -18,7 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.tdt4240.A6.junglearena.model.Context;
-import com.tdt4240.A6.junglearena.screens.skins.mySkin;
+import com.tdt4240.A6.junglearena.screens.skins.MySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
 public class SkillScreen implements Screen, InputProcessor {
@@ -40,7 +40,7 @@ public class SkillScreen implements Screen, InputProcessor {
 
 		Table table = new Table();
 		table.setFillParent(true);
-		Skin skin = mySkin.getHugeButtonSkin();
+		Skin skin = MySkin.getHugeButtonSkin();
 
 		// Create a button with the "default" TextButtonStyle. A 3rd parameter
 		// can be used to specify a name other than "default".

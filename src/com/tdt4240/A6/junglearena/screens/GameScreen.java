@@ -49,7 +49,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	@Override
 	public void show() {
 		this.world = new JungleWorld();
-		this.mapController = new MapController("desert");
+		this.mapController = new MapController("jungle");
 		this.mapController.generateMap();
 		this.world.setMap(this.mapController.getMap());
 		this.worldController = new WorldController(this.world);
