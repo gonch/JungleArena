@@ -58,7 +58,7 @@ public class WorldRenderer {
 	}
 
 	private void loadTextures() {
-		tankTexture = new Texture(Gdx.files.internal("tank.png"));
+		tankTexture = new Texture(Gdx.files.internal("models/elephant.png"));
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
 	}
 
