@@ -1,10 +1,7 @@
 package com.tdt4240.A6.junglearena.screens;
 
-import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
-import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
-import aurelienribon.tweenengine.equations.Bounce;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -41,6 +38,11 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	private int width, height;
 	private Context context;
 
+	public static final int GAME_RUNNING = 0;
+    public static final int GAME_PAUSED = 1;
+
+    private int gamestatus;
+    
 	public GameScreen(Game game, Context context) {
 		this.game = game;
 		this.context = context;
@@ -48,6 +50,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public void show() {
+		pauseGame(); //START PAUSED FOR TESTING PURPOSES
 		this.world = new JungleWorld();
 		this.mapController = new MapController("jungle");
 		this.mapController.generateMap();
@@ -78,6 +81,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public void pause() {
+		pauseGame();
 	}
 
 	@Override
@@ -91,6 +95,24 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		this.worldRenderer.render();
 		this.gameInfoRenderer.render();
 		this.controlsRenderer.render();
+		//TODO this code has to be run when the pause button is pressed
+//		if (pausebutton is pressed) {
+//            pauseGame();
+//        }
+
+        //if (gamestatus == GAME_PAUSED) {
+        if(gamestatus == GAME_PAUSED){    
+        	PauseScreen pause = new PauseScreen(game,this);
+            pause.render(Gdx.graphics.getDeltaTime());
+        }
+	}
+	
+	public void pauseGame() {
+        gamestatus = GAME_PAUSED;
+    }
+
+	public void resumeGame() {
+		gamestatus = GAME_RUNNING;
 	}
 
 	/*

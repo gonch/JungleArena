@@ -25,7 +25,6 @@ public class ScreenRenderer {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
-
         Table.drawDebug(stage); // This is optional, but enables debug lines for tables.
 	}
 	
