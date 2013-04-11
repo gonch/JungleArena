@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 
-public class mySkin {
+public class MySkin {
 
 	public static Skin getHugeButtonSkin() {
 		Skin skin = new Skin();
@@ -24,8 +24,6 @@ public class mySkin {
 		BitmapFont bitmap = new BitmapFont(
 				Gdx.files.internal("fonts/cracked-94.fnt"), false);
 		skin.add("default", bitmap);
-		bitmap = new BitmapFont(
-				Gdx.files.internal("fonts/cracked-red-94.fnt"), false);
 		skin.add("default", createTextButtonStyle(skin));
 		return skin;
 
@@ -48,7 +46,61 @@ public class mySkin {
 		skin.add("default", createTextButtonStyle(skin));
 		return skin;
 	}
+	
+	public static Skin getBigRedButtonSkin() {
+		Skin skin = new Skin();
+		// Generate a 1x1 white texture and store it in the skin named "white".
+		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
+		pixmap.setColor(Color.WHITE);
+		pixmap.fill();
+		skin.add("white", new Texture(pixmap));
 
+		BitmapFont bitmap = new BitmapFont(
+				Gdx.files.internal("fonts/cracked-red-72.fnt"), false);
+		skin.add("default", bitmap);
+
+		// Configure a TextButtonStyle and name it "default". Skin resources are
+		// stored by type, so this doesn't overwrite the font.
+		skin.add("default", createTextButtonStyle(skin));
+		return skin;
+	}
+	
+	public static Skin getMediumRedButtonSkin() {
+		Skin skin = new Skin();
+		// Generate a 1x1 white texture and store it in the skin named "white".
+		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
+		pixmap.setColor(Color.WHITE);
+		pixmap.fill();
+		skin.add("white", new Texture(pixmap));
+
+		BitmapFont bitmap = new BitmapFont(
+				Gdx.files.internal("fonts/cracked-red-50.fnt"), false);
+		skin.add("default", bitmap);
+
+		// Configure a TextButtonStyle and name it "default". Skin resources are
+		// stored by type, so this doesn't overwrite the font.
+		skin.add("default", createTextButtonStyle(skin));
+		return skin;
+	}
+
+	public static Skin getSmallRedButtonSkin() {
+		Skin skin = new Skin();
+		// Generate a 1x1 white texture and store it in the skin named "white".
+		Pixmap pixmap = new Pixmap(1, 1, Format.RGBA8888);
+		pixmap.setColor(Color.WHITE);
+		pixmap.fill();
+		skin.add("white", new Texture(pixmap));
+
+		BitmapFont bitmap = new BitmapFont(
+				Gdx.files.internal("fonts/cracked-red-32.fnt"), false);
+		skin.add("default", bitmap);
+
+		// Configure a TextButtonStyle and name it "default". Skin resources are
+		// stored by type, so this doesn't overwrite the font.
+		skin.add("default", createTextButtonStyle(skin));
+		return skin;
+	}
+	
 	public static Skin getBigButtonSkin() {
 		Skin skin = new Skin();
 
@@ -69,7 +121,7 @@ public class mySkin {
 		return skin;
 	}
 
-	public static TextButtonStyle createTextButtonStyle(Skin skin)
+	private static TextButtonStyle createTextButtonStyle(Skin skin)
 	{
 		TextButtonStyle textButtonStyle = new TextButtonStyle();
 		textButtonStyle.up = skin.newDrawable("white", Color.CLEAR);
@@ -78,6 +130,7 @@ public class mySkin {
 		textButtonStyle.font = skin.getFont("default");
 		return textButtonStyle;
 	}
+	
 	public static Skin getMediumButtonSkin() {
 		Skin skin = new Skin();
 

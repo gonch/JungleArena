@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
 import com.tdt4240.A6.junglearena.model.Context;
-import com.tdt4240.A6.junglearena.screens.skins.mySkin;
+import com.tdt4240.A6.junglearena.screens.skins.MySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
 public class CharacterScreen implements Screen, InputProcessor {
@@ -34,7 +34,7 @@ public class CharacterScreen implements Screen, InputProcessor {
 		this.game = game;
 
 		this.context = context;
-		next = new TextButton("NEXT", mySkin.getMediumButtonSkin());
+		next = new TextButton("NEXT", MySkin.getMediumButtonSkin());
 		next.align(Align.right);// TODO why is the opposite
 		CharacterFactory f = new CharacterFactory(); // TODO implementation of
 														// singleton
@@ -49,8 +49,8 @@ public class CharacterScreen implements Screen, InputProcessor {
 		//table.setFillParent(true);
 		table.pad(0);
 		// table.setWidth(500);// TODO HARD CODED
-		TextButton player1 = new TextButton(context.getNamePlayer1(), mySkin.getMediumButtonSkin());
-		TextButton player2 = new TextButton(context.getNamePlayer2(), mySkin.getMediumButtonSkin());
+		TextButton player1 = new TextButton(context.getNamePlayer1(), MySkin.getMediumButtonSkin());
+		TextButton player2 = new TextButton(context.getNamePlayer2(), MySkin.getMediumButtonSkin());
 		player1.padBottom(20);
 		player2.padBottom(20);
 		table.add(player1);
@@ -84,10 +84,10 @@ public class CharacterScreen implements Screen, InputProcessor {
 
 			if (i == 0) {
 				buttonsP1[i] = new TextButton(charactersNames[i],
-						mySkin.getHugeRedButtonSkin());
+						MySkin.getHugeRedButtonSkin());
 			} else {
 				buttonsP1[i] = new TextButton(charactersNames[i],
-						mySkin.getHugeButtonSkin());
+						MySkin.getHugeButtonSkin());
 			}
 			buttonsP1[i].addListener(new ClickListener() {
 				@Override
@@ -97,12 +97,12 @@ public class CharacterScreen implements Screen, InputProcessor {
 																	// selected
 						if (event.getListenerActor().equals(buttonsP1[j])) {
 							selected1 = j;
-							buttonsP1[j].setStyle(mySkin.getHugeRedButtonSkin()
+							buttonsP1[j].setStyle(MySkin.getHugeRedButtonSkin()
 									.get("default", TextButtonStyle.class));
 							buttonsP1[j].padRight(25);
 						} else// is not the buttons !select
 						{
-							buttonsP1[j].setStyle(mySkin.getHugeButtonSkin()
+							buttonsP1[j].setStyle(MySkin.getHugeButtonSkin()
 									.get("default", TextButtonStyle.class));
 							buttonsP1[j].padRight(25);
 						}
@@ -114,10 +114,10 @@ public class CharacterScreen implements Screen, InputProcessor {
 		for (int i = 0; i < charactersNames.length; i++) {
 			if (i == 0) {
 				buttonsP2[i] = new TextButton(charactersNames[i],
-						mySkin.getHugeRedButtonSkin());
+						MySkin.getHugeRedButtonSkin());
 			} else {
 				buttonsP2[i] = new TextButton(charactersNames[i],
-						mySkin.getHugeButtonSkin());
+						MySkin.getHugeButtonSkin());
 			}
 			buttonsP2[i].addListener(new ClickListener() {
 				@Override
@@ -127,12 +127,12 @@ public class CharacterScreen implements Screen, InputProcessor {
 						// the button selected
 						if (event.getListenerActor().equals(buttonsP2[i])) {
 							selected2 = i;
-							buttonsP2[i].setStyle(mySkin.getHugeRedButtonSkin()
+							buttonsP2[i].setStyle(MySkin.getHugeRedButtonSkin()
 									.get("default", TextButtonStyle.class));
 							buttonsP2[i].padLeft(25);
 						} else// is not the buttons !select
 						{
-							buttonsP2[i].setStyle(mySkin.getHugeButtonSkin()
+							buttonsP2[i].setStyle(MySkin.getHugeButtonSkin()
 									.get("default", TextButtonStyle.class));
 							buttonsP2[i].padLeft(25);
 						}
