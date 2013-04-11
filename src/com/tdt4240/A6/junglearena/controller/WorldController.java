@@ -81,11 +81,13 @@ public class WorldController {
 	public void angleTouched(float screenX, float screenY){
 		Vector2 origin = this.jungleWorld.getCurrentPlayer().getCharacter().getCentre();
 		float radius = 100; //hardcoded
-		float targetCircleX = MathPhysicsUtils.calculateXCircleInterpolationGivenY(origin.x, origin.y, screenY, radius, screenX);
+//		float targetCircleX = MathPhysicsUtils.calculateXCircleInterpolationGivenY(origin.x, origin.y, screenY, radius, screenX).x;
+		Vector2 pos = MathPhysicsUtils.calculateXCircleInterpolation(origin.x, origin.y, screenX, screenY, radius);
+
 //		if(origin.x >= screenX){
 //			targetCircleX *= -1;
 //		}
-		this.controls.getTarget().setPosition(new Vector2(targetCircleX,screenY));
+		this.controls.getTarget().setPosition(pos);
 	}
 
 	/**
