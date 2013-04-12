@@ -26,6 +26,7 @@ import com.tdt4240.A6.junglearena.utils.MathPhysicsUtils;
 public class WorldController {
 	private JungleWorld jungleWorld;
 	private ControlsLayer controls;
+	private World box2Dworld;
 
 	public WorldController(JungleWorld world) {
 		this.jungleWorld = world;
@@ -142,42 +143,7 @@ public class WorldController {
 		this.jungleWorld.getMap().setBody(mapBody);
 
 		chainShape.dispose();
-
-		// First we create a body definition
-		BodyDef bodyDef = new BodyDef();
-		// We set our body to dynamic, for something like ground which doesnt
-		// move we would set it to StaticBody
-		bodyDef.type = BodyType.DynamicBody;
-		// Set our body's starting position in the world
-		bodyDef.position.set(101, 301);
-
-		// Create our body in the world using our body definition
-		Body body = world.createBody(bodyDef);
-		WeaponFactory weaponFactory = new WeaponFactory();
-		Weapon currentWeapon = weaponFactory.createWeapon("bomb", 10,
-				"The Bombz", "bombskin", 1);
-		currentWeapon.setBody(body);
-		this.jungleWorld.setCurrentWeapon(currentWeapon);
-		body.setUserData(currentWeapon);
-		// Create a circle shape and set its radius to 6
-		CircleShape circle = new CircleShape();
-		circle.setRadius(6f);
-
-		// Create a fixture definition to apply our shape to
-		FixtureDef fixtureDef = new FixtureDef();
-		fixtureDef.shape = circle;
-		fixtureDef.density = 0.5f;
-		fixtureDef.friction = 0.4f;
-		fixtureDef.restitution = 1f; // Make it bounce a little bit
-
-		// Create our fixture and attach it to the body
-		Fixture fixture = body.createFixture(fixtureDef);
-		// Remember to dispose of any shapes after you're done with them!
-		// BodyDef and FixtureDef don't need disposing, but shapes do.
-		circle.dispose();
-
-		this.jungleWorld.setWorld(world);
-
+		this.box2Dworld = world;
 		initializeControls();
 
 		return world;
@@ -195,8 +161,8 @@ public class WorldController {
 		this.controls.getTarget().update(dt);
 		this.controls.getPowerBar().update(dt);
 
-		// world.step(Gdx.graphics.getDeltaTime(), 5, 5);
-		world.step(1 / 10f, 5, 5);
+		 world.step(Gdx.graphics.getDeltaTime(), 5, 5);
+//		world.step(1 / 10f, 5, 5);
 		world.clearForces();
 	}
 
@@ -219,7 +185,7 @@ public class WorldController {
 		this.controls.addButton(target);
 		this.controls.setTarget(target);
 
-		GameButton powerBar = new PowerBar("powerBar", new Vector2(10, 10),
+		PowerBar powerBar = new PowerBar("powerBar", new Vector2(10, 10),
 				new Vector2(200, 100));
 		powerBar.setScale(0, 0);
 		this.controls.setPowerBar(powerBar);
@@ -232,5 +198,61 @@ public class WorldController {
 
 	public ControlsLayer getControls() {
 		return this.controls;
+	}
+	
+	/**
+	 * CREATES A NEW WEAPON AND SHOTS IT
+	 * */
+	public void shot(){
+		float power = this.controls.getPowerBar().getPower();
+		Character character = this.jungleWorld.getCurrentPlayer().getCharacter();
+		Vector2 charCentre = character.getCentre();
+		Vector2 targetCentre = this.controls.getTarget().getCentre();
+		Vector2 charPosition = character.getPosition();
+		Vector2 charSize = character.getSize();
+		double angle = Math.atan((charCentre.y-targetCentre.y)/(charCentre.x-targetCentre.x));
+		
+		World world = this.jungleWorld.getWorld();
+		world = this.box2Dworld;
+		// First we create a body definition
+		BodyDef bodyDef = new BodyDef();
+		// We set our body to dynamic, for something like ground which doesnt
+		// move we would set it to StaticBody
+		bodyDef.type = BodyType.DynamicBody;
+		// Set our body's starting position in the world
+		bodyDef.position.set(charPosition.cpy().add(charSize));
+
+		// Create our body in the world using our body definition
+		Body body = world.createBody(bodyDef);
+		WeaponFactory weaponFactory = new WeaponFactory();
+		Weapon currentWeapon = weaponFactory.createWeapon("bomb", 10,
+				"The Bombz", "bombskin", 1);
+		currentWeapon.setBody(body);
+		this.jungleWorld.setCurrentWeapon(currentWeapon);
+		body.setUserData(currentWeapon);
+//		angle = 3*Math.PI/4;
+		float scaleFactor = 100000000000000000000f;
+		float vx = (float) (power * Math.cos((float) angle)) * scaleFactor ;
+		float vy = (float) (power * Math.sin((float) angle)) * scaleFactor;
+		body.applyLinearImpulse(new Vector2((vx), vy),
+				body.getLocalCenter());
+		
+		// Create a circle shape and set its radius to 6
+		CircleShape circle = new CircleShape();
+		circle.setRadius(6f);
+
+		// Create a fixture definition to apply our shape to
+		FixtureDef fixtureDef = new FixtureDef();
+		fixtureDef.shape = circle;
+		fixtureDef.density = 0.5f;
+		fixtureDef.friction = 0.4f;
+		fixtureDef.restitution = 1f; // Make it bounce a little bit
+
+		// Create our fixture and attach it to the body
+		Fixture fixture = body.createFixture(fixtureDef);
+		// Remember to dispose of any shapes after you're done with them!
+		// BodyDef and FixtureDef don't need disposing, but shapes do.
+		circle.dispose();
+		this.jungleWorld.setWorld(world);
 	}
 }

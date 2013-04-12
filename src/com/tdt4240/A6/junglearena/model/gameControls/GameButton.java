@@ -22,8 +22,8 @@ public class GameButton extends Sprite {
 		this.size = size;
 		this.setSelected(false);
 		this.setBounds(position.x, position.y, size.x, size.y);
-		this.centre = new Vector2((position.x + size.x) / 2f,
-				(position.y + size.y) / 2);
+		this.centre = new Vector2(position.x + size.x/ 2f,
+				position.y + size.y / 2);
 		this.released = true;
 	}
 
@@ -69,6 +69,8 @@ public class GameButton extends Sprite {
 
 	public void update(float dt) {
 		this.setBounds(position.x, position.y, size.x, size.y);
+		this.centre =  new Vector2(position.x + size.x/ 2f,
+				position.y + size.y / 2);
 	}
 
 	public boolean isReleased() {
