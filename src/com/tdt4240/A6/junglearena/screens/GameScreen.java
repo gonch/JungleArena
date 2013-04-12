@@ -212,7 +212,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 			this.worldController.getControls().getTarget().setSelected(false);
 		}
 		if(this.worldController.getControls().getFireButton().isSelected()){
-//			shot();
+			this.worldController.shot();
 			this.worldController.getControls().getFireButton().setSelected(false);
 			this.worldController.getControls().getPowerBar().setSelected(false);
 		}
