@@ -10,14 +10,14 @@ public class ControlsLayer {
 
 	private List<GameButton> buttons;
 	private GameButton target;
-	private GameButton powerBar;
+	private PowerBar powerBar;
 	private GameButton fireButton;
 	
 	public ControlsLayer() {
 		super();
 		this.buttons = new ArrayList<GameButton>();
 		this.target = new GameButton();
-		this.powerBar = new GameButton();
+		this.powerBar = new PowerBar();
 		this.fireButton = new GameButton();
 //		this.target = new GameButton("target", new Vector2(50,50), new Vector2(30,30));
 	}
@@ -30,11 +30,11 @@ public class ControlsLayer {
 		this.fireButton = fireButton;
 	}
 
-	public GameButton getPowerBar() {
+	public PowerBar getPowerBar() {
 		return powerBar;
 	}
 
-	public void setPowerBar(GameButton powerBar) {
+	public void setPowerBar(PowerBar powerBar) {
 		this.powerBar = powerBar;
 	}
 
