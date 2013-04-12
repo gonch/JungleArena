@@ -219,7 +219,7 @@ public class WorldController {
 		this.controls.addButton(target);
 		this.controls.setTarget(target);
 
-		GameButton powerBar = new PowerBar("powerBar", new Vector2(10, 10),
+		PowerBar powerBar = new PowerBar("powerBar", new Vector2(10, 10),
 				new Vector2(200, 100));
 		powerBar.setScale(0, 0);
 		this.controls.setPowerBar(powerBar);
@@ -232,5 +232,10 @@ public class WorldController {
 
 	public ControlsLayer getControls() {
 		return this.controls;
+	}
+	
+	public void shot(){
+		float power = this.controls.getPowerBar().getPower();
+		Vector2 charCentre = this.jungleWorld.getCurrentPlayer().getCharacter().getCentre();
 	}
 }
