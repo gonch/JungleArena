@@ -50,7 +50,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public void show() {
-		pauseGame(); //START PAUSED FOR TESTING PURPOSES
+//		pauseGame(); //START PAUSED FOR TESTING PURPOSES
 		this.world = new JungleWorld();
 		this.mapController = new MapController("jungle");
 		this.mapController.generateMap();
@@ -100,11 +100,14 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 //            pauseGame();
 //        }
 
+		/**
+		 * 
+		 * **/
         //if (gamestatus == GAME_PAUSED) {
-        if(gamestatus == GAME_PAUSED){    
-        	PauseScreen pause = new PauseScreen(game,this);
-            pause.render(Gdx.graphics.getDeltaTime());
-        }
+//        if(gamestatus == GAME_PAUSED){    
+//        	PauseScreen pause = new PauseScreen(game,this);
+//            pause.render(dt);
+//        }
 	}
 	
 	public void pauseGame() {
@@ -193,6 +196,12 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		GameButton target = controls.getTarget();
 		if (target.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
 			target.setSelected(true);
+			target.setReleased(false);
+		}
+		GameButton fireButton = this.controls.getFireButton();
+		if(fireButton.checkSelected(screenX, Gdx.graphics.getHeight()-screenY)){
+			fireButton.setSelected(true);
+			fireButton.setReleased(false);
 		}
 		return true;
 	}
@@ -202,6 +211,11 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		if (this.worldController.getControls().getTarget().isSelected()) {
 			this.worldController.getControls().getTarget().setSelected(false);
 		}
+		if(this.worldController.getControls().getFireButton().isSelected()){
+//			shot();
+			this.worldController.getControls().getFireButton().setSelected(false);
+			this.worldController.getControls().getPowerBar().setSelected(false);
+		}
 		return true;
 	}
 
@@ -209,6 +223,8 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		if (this.worldController.getControls().getTarget().isSelected()) {
 			this.worldController.angleTouched(screenX, Gdx.graphics.getHeight() - screenY);
+		}if(this.worldController.getControls().getFireButton().isSelected()){
+			this.worldController.getControls().getPowerBar().setSelected(true);
 		}
 		return true;
 	}
