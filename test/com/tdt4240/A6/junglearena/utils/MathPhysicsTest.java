@@ -12,13 +12,13 @@ public class MathPhysicsTest {
 
 	@Test
 	public void testCalculateXCircleInterpolation() {
-		Vector3 result = MathPhysicsUtils.calculateXCircleInterpolationGivenY(0, 0, 100, 100, 1);
+		Vector3 result = MathPhysicsUtils.calculateXCircleInterpolationWithAngle(0, 0, 0, 100, 1);
 		System.out.println(result);
-		result = MathPhysicsUtils.calculateXCircleInterpolationGivenY(0, 0, 100, -100, 1);
+		result = MathPhysicsUtils.calculateXCircleInterpolationWithAngle(0, 0, 100, 0, 1);
 		System.out.println(result);
-		result = MathPhysicsUtils.calculateXCircleInterpolationGivenY(0, 0, -100, 100, 1);
+		result = MathPhysicsUtils.calculateXCircleInterpolationWithAngle(0, 0, -100, 0, 1);
 		System.out.println(result);
-		result = MathPhysicsUtils.calculateXCircleInterpolationGivenY(0, 0, -100, -100, 1);
+		result = MathPhysicsUtils.calculateXCircleInterpolationWithAngle(0, 0, 0, -100, 1);
 		System.out.println(result);
 	}
 
