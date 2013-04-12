@@ -7,6 +7,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
@@ -37,6 +38,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	private TweenManager tweenManager;
 	private int width, height;
 	private Context context;
+	private Music music;
 
 	public static final int GAME_RUNNING = 0;
     public static final int GAME_PAUSED = 1;
@@ -50,7 +52,10 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public void show() {
-		pauseGame(); //START PAUSED FOR TESTING PURPOSES
+		music =  Gdx.audio.newMusic(Gdx.files.internal("music/gameMusic.mp3"));
+		music.setLooping(true);
+		music.play();
+		//pauseGame(); //START PAUSED FOR TESTING PURPOSES
 		this.world = new JungleWorld();
 		this.mapController = new MapController("jungle");
 		this.mapController.generateMap();
@@ -73,6 +78,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 
 	@Override
 	public void dispose() {
+		music.dispose();
 	}
 
 	@Override
@@ -108,10 +114,12 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	}
 	
 	public void pauseGame() {
+		music.pause();
         gamestatus = GAME_PAUSED;
     }
 
 	public void resumeGame() {
+		music.play();
 		gamestatus = GAME_RUNNING;
 	}
 
