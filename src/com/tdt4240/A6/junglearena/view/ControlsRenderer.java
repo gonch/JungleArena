@@ -18,12 +18,11 @@ public class ControlsRenderer {
 	private OrthographicCamera cam;
 
 	private ShapeRenderer shapeRenderer;
-	private Box2DDebugRenderer debugRenderer;
-	
+	private Box2DDebugRenderer debugRenderer;	
 
 	/** Textures **/
 	
-	private Texture targetTexture;
+	private Texture targetTexture, powerBarTexture, fireButtonTexture;
 	
 	private SpriteBatch spriteBatch;
 	private int width;
@@ -56,6 +55,9 @@ public class ControlsRenderer {
 
 	private void loadTextures() {
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
+		this.powerBarTexture = new Texture(Gdx.files.internal("crosshair.png"));
+		this.fireButtonTexture = new Texture(Gdx.files.internal("crosshair.png"));
+
 	}
 
 	public void render() {
@@ -66,7 +68,11 @@ public class ControlsRenderer {
 	
 	private void drawControls(){
 		GameButton target = this.controls.getTarget();
+		GameButton powerBar = this.controls.getPowerBar();
+		GameButton fireButton = this.controls.getFireButton();
 		spriteBatch.draw(targetTexture, target.getPosition().x,target.getPosition().y,target.getSize().x,target.getSize().y);
+		spriteBatch.draw(targetTexture, powerBar.getPosition().x,powerBar.getPosition().y,powerBar.getScaleX()*powerBar.getSize().x/100f,powerBar.getSize().y);
+		spriteBatch.draw(fireButtonTexture,fireButton.getPosition().x,fireButton.getPosition().y,fireButton.getSize().x,fireButton.getSize().y);
 	}
 
 }
