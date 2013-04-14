@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.tdt4240.A6.junglearena.model.characters.Character;
+import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 import com.tdt4240.A6.junglearena.model.Player;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 
@@ -72,8 +72,8 @@ public class WorldRenderer {
 	private void drawTanks() {
 		Player player1 = jungleWorld.getPlayer1();
 		Player player2 = jungleWorld.getPlayer2();
-		Character ch1 = player1.getCharacter();
-		Character ch2 = player2.getCharacter();
+		GameCharacter ch1 = player1.getCharacter();
+		GameCharacter ch2 = player2.getCharacter();
 
 		Sprite leftSprite = new Sprite(tankTexture); 
 		leftSprite.flip(true, false);//now the second tank faces to the left

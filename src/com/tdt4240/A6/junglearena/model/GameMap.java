@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.tdt4240.A6.junglearena.model.entities.Entity;
 
 public class GameMap extends Entity{
 	private String background;

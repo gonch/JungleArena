@@ -1,6 +1,6 @@
 package com.tdt4240.A6.junglearena.model.Weapons;
 
-import com.tdt4240.A6.junglearena.model.Entity;
+import com.tdt4240.A6.junglearena.model.entities.Entity;
 
 public class Weapon extends Entity{
 	private int damage;
@@ -14,7 +14,6 @@ public class Weapon extends Entity{
 	private boolean isExploded;
 	private boolean isCollided;
 	private float timeBeforeExplosion;//seconds before the weapon explodes, after the collision. Set to zero for explosion right after the collision
-
 	public Weapon(int damage, String name, String skin, int areaOfEffect) {
 		super();
 		this.damage = damage;

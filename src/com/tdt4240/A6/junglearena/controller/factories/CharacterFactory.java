@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.model.characters.*;
-import com.tdt4240.A6.junglearena.model.characters.Character;
+import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 public class CharacterFactory {
 	private static List<String> characters;
@@ -27,14 +27,14 @@ public class CharacterFactory {
 		return copyOfCharacters;
 	}
 
-	public Character createCharacter(String type, int health, String name, Vector2 pos, String skin) {
+	public GameCharacter createCharacter(String type, int health, String name, Vector2 pos, String skin) {
 		String className = pkgPath +"."+ type;
 		for (String s : characters) {
 			if (s.equals(type)) {
 				try {
 					@SuppressWarnings("unchecked")
-					Class<Character> weapon = (Class<Character>) Class.forName(className);
-					Character newInstanceOfCharacter = weapon.getConstructor(Integer.TYPE, String.class, Vector2.class,
+					Class<GameCharacter> weapon = (Class<GameCharacter>) Class.forName(className);
+					GameCharacter newInstanceOfCharacter = weapon.getConstructor(Integer.TYPE, String.class, Vector2.class,
 							String.class).newInstance(health, name, pos, skin);
 					return newInstanceOfCharacter;
 				} catch (Exception e) {

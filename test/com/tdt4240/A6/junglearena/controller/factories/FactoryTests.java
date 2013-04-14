@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
-import com.tdt4240.A6.junglearena.model.characters.Character;
+import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 public class FactoryTests {
 
@@ -34,7 +34,7 @@ public class FactoryTests {
 			for (String s: ss){
 				System.out.println(s);
 			}
-			Character c = cf.createCharacter("Elephant", 50, "Dumbo", new Vector2(0,0), "skin");
+			GameCharacter c = cf.createCharacter("Elephant", 50, "Dumbo", new Vector2(0,0), "skin");
 			System.out.print(c.toString());
 	}
 

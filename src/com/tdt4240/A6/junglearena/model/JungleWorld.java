@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
 import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
-import com.tdt4240.A6.junglearena.model.characters.Character;
+import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 
 public class JungleWorld{
@@ -19,8 +19,8 @@ public class JungleWorld{
 	
 	public JungleWorld() {
 		CharacterFactory characterFactory=new CharacterFactory();
-		Character lion = characterFactory.createCharacter("monkey",100, "lion", new Vector2(30, 30), "lion");
-		Character lion2 = new Character(100, "lion", new Vector2(300, 300), "lion");
+		GameCharacter lion = characterFactory.createCharacter("monkey",100, "lion", new Vector2(30, 30), "lion");
+		GameCharacter lion2 = new GameCharacter(100, "lion", new Vector2(300, 300), "lion");
 		this.player1 = new Player("alessio", 1, lion);
 		this.player2 = new Player("gonzalo", 2, lion2);
 		this.players = new ArrayList<Player>();

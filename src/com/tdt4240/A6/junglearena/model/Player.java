@@ -1,11 +1,11 @@
 package com.tdt4240.A6.junglearena.model;
 
-import com.tdt4240.A6.junglearena.model.characters.Character;
+import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 public class Player {
 	private String name;
 	private int id;
-	private Character character;
+	private GameCharacter character;
 
 	public String getName() {
 		return name;
@@ -23,15 +23,15 @@ public class Player {
 		this.id = id;
 	}
 
-	public Character getCharacter() {
+	public GameCharacter getCharacter() {
 		return character;
 	}
 
-	public void setCharacter(Character character) {
+	public void setCharacter(GameCharacter character) {
 		this.character = character;
 	}
 
-	public Player(String name, int id, Character lion) {
+	public Player(String name, int id, GameCharacter lion) {
 		super();
 		this.name = name;
 		this.id = id;

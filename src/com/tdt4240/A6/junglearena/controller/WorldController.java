@@ -18,7 +18,7 @@ import com.tdt4240.A6.junglearena.listeners.CollisionListener;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 import com.tdt4240.A6.junglearena.model.Player;
 import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
-import com.tdt4240.A6.junglearena.model.characters.Character;
+import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
 import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
 import com.tdt4240.A6.junglearena.model.gameControls.PowerBar;
@@ -39,7 +39,7 @@ public class WorldController {
 	}
 
 	public void screenTouched(float x, float y) {
-		Character tank1 = this.jungleWorld.getPlayer1().getCharacter();
+		GameCharacter tank1 = this.jungleWorld.getPlayer1().getCharacter();
 		// tank1.setPosition(new Vector2(x, y));
 		// setCharacterStartingPositions();
 		World world = this.jungleWorld.getWorld();
@@ -108,8 +108,8 @@ public class WorldController {
 	 * */
 	public void setCharacterStartingPositions() {
 		// TODO: center the images
-		Character leftChar = this.jungleWorld.getPlayer1().getCharacter();
-		Character rightChar = this.jungleWorld.getPlayer2().getCharacter();
+		GameCharacter leftChar = this.jungleWorld.getPlayer1().getCharacter();
+		GameCharacter rightChar = this.jungleWorld.getPlayer2().getCharacter();
 		Random random = new Random();
 		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3 + 50);// 50
 																		// for
@@ -134,22 +134,23 @@ public class WorldController {
 
 	}
 
-	private void generateBox2DCharacter(Character character) {
+	private void generateBox2DCharacter(GameCharacter character) {
 		World world = this.jungleWorld.getWorld();
 		// First we create a body definition
 		BodyDef bodyDef = new BodyDef();
 		// We set our body to static
 		bodyDef.type = BodyType.StaticBody;
+		bodyDef.gravityScale = 0;
 		// Set our body's starting position in the world
-		bodyDef.position.set(character.getPosition().x
-				/ Constants.pixelsInAMeter, character.getPosition().y
-				/ Constants.pixelsInAMeter);
+//		bodyDef.position.set(character.getPosition().x
+//				/ Constants.pixelsInAMeter, character.getPosition().y
+//				/ Constants.pixelsInAMeter);
 		bodyDef.position.set(character.getCentre().x,
 				character.getCentre().y);
 
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
-
+		body.setUserData(character);
 		character.setBody(body);
 
 		// Define the shape
@@ -195,6 +196,7 @@ public class WorldController {
 		BodyDef mapBodyDef = new BodyDef();
 		mapBodyDef.position.set(0, 0);
 		Body mapBody = world.createBody(mapBodyDef);
+		mapBody.setUserData(this.jungleWorld.getMap());
 		mapBody.createFixture(chainShape, 0.0f);
 		this.jungleWorld.getMap().setBody(mapBody);
 		this.jungleWorld.setWorld(world);
@@ -234,9 +236,9 @@ public class WorldController {
 
 	private void initializeControls() {
 		Player currentPlayer = this.jungleWorld.getCurrentPlayer();
-		Character currentCharacter = currentPlayer.getCharacter();
+		GameCharacter currentCharacter = currentPlayer.getCharacter();
 		Vector2 characterCentre = currentCharacter.getCentre();
-		GameButton target = new GameButton("target", characterCentre.add(0, 0),
+		GameButton target = new GameButton("target", characterCentre.add(Constants.distanceFromTarget,0),
 				new Vector2(70, 70));
 		this.controls.addButton(target);
 		this.controls.setTarget(target);
@@ -262,7 +264,7 @@ public class WorldController {
 	 * */
 	public void shot() {
 		float power = this.controls.getPowerBar().getPower();
-		Character character = this.jungleWorld.getCurrentPlayer()
+		GameCharacter character = this.jungleWorld.getCurrentPlayer()
 				.getCharacter();
 		Vector2 charCentre = character.getCentre();
 		Vector2 targetCentre = this.controls.getTarget().getCentre();
@@ -278,9 +280,10 @@ public class WorldController {
 		bodyDef.type = BodyType.DynamicBody;
 		// Set our body's starting position in the world according
 		if (charCentre.x < targetCentre.x) {
-			bodyDef.position.set(charPosition.cpy().add(charSize));
+			//the second add is done in order to avoid collision before the shot
+			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f,5f));
 		} else {
-			bodyDef.position.set(charPosition.cpy().add(charSize));
+			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f,5f));
 
 			// bodyDef.position.set(charPosition.cpy().add(charSize));
 		}

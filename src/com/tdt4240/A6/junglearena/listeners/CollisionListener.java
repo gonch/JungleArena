@@ -6,7 +6,9 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.tdt4240.A6.junglearena.model.Entity;
+import com.tdt4240.A6.junglearena.controller.factories.CoupleOfEntitiesFactory;
+import com.tdt4240.A6.junglearena.model.entities.CoupleOfEntities;
+import com.tdt4240.A6.junglearena.model.entities.Entity;
 
 public class CollisionListener implements ContactListener {
 
@@ -21,17 +23,24 @@ public class CollisionListener implements ContactListener {
 		Fixture fixB = contact.getFixtureB();
 		Body bodyA = fixA.getBody();
 		Body bodyB = fixB.getBody();
-		Entity entity = null;
-		//checks if the userdata is a class that extends Entity. Is not really needed, is just for lazy programmers :)
-		if (bodyA.getUserData() != null && Entity.class.isAssignableFrom(bodyA.getUserData().getClass())) { 
-			entity = (Entity) bodyA.getUserData();
-			entity.collisionHappened();
-		}
-		if (bodyB.getUserData() != null && Entity.class.isAssignableFrom(bodyB.getUserData().getClass())) { //not really needed, is just for lazy programmers :)
-			entity = (Entity) bodyB.getUserData();
-			entity.collisionHappened();
-		}
+		Entity entityA = null;
+		Entity entityB = null;
+		if(bodyA.getUserData()!=null)
+		System.out.println(bodyA.getUserData().toString());
 		
+		//checks if the userdata is a class that extends Entity. Is not really needed, is just for lazy programmers :)
+		if (bodyA.getUserData() != null && Entity.class.isAssignableFrom(bodyA.getUserData().getClass()) && bodyB.getUserData() != null && Entity.class.isAssignableFrom(bodyB.getUserData().getClass())) { 
+			entityA = (Entity) bodyA.getUserData();
+			entityB = (Entity) bodyB.getUserData();
+			CoupleOfEntitiesFactory f = new CoupleOfEntitiesFactory();
+			CoupleOfEntities entities = f.createCoupleOfEntities(entityA, entityB);
+
+//			CoupleOfEntities entities = CoupleOfEntitiesFactory.getInstance().createCoupleOfEntities(entityA, entityB);
+			if(entities!=null){
+				entities.collisionHappened();
+			}
+		}
+
 	}
 
 	/**
