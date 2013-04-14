@@ -1,6 +1,5 @@
 package com.tdt4240.A6.junglearena.controller.factories;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.badlogic.gdx.math.Vector2;
@@ -9,33 +8,38 @@ import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 public class FactoryTests {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
 	@Test
 	public void WeaponFactory() {
 		WeaponFactory wf = new WeaponFactory();
-		String[]ss = wf.getWeapons();
-		for (String s: ss){
+		String[] ss = wf.getWeapons();
+		for (String s : ss) {
+			System.out.println("Weapon: " + s);
+		}
+
+		Weapon c = wf.createWeapon("Gun", 10, "Colt 45", "coltskin", 2);
+		System.out.println("created: " + c.toString());
+
+	}
+
+	@Test
+	public void ReadClasses() {
+		Class<?>[] classes = ClassReader.readFromPackage("com.tdt4240.A6.junglearena.controller.factories");
+		for (Class<?> c : classes) {
+			System.out.println(c.getName());
+		}
+	}
+
+	@Test
+	public void CharacterTest() {
+		// test driver
+		CharacterFactory cf = new CharacterFactory();
+		String[] ss = cf.getCharacters();
+		for (String s : ss) {
 			System.out.println(s);
 		}
-		
-		Weapon c = wf.createWeapon("Gun", 10, "Colt 45", "coltskin", 2);
+		GameCharacter c = cf.createCharacter("Elephant", 50, "Dumbo", new Vector2(0, 0), "skin");
 		System.out.print(c.toString());
-		
-	}
-	
-	@Test
-	public void CharacterTest(){
-			// test driver
-			CharacterFactory cf = new CharacterFactory();
-			String[]ss = cf.getCharacters();
-			for (String s: ss){
-				System.out.println(s);
-			}
-			GameCharacter c = cf.createCharacter("Elephant", 50, "Dumbo", new Vector2(0,0), "skin");
-			System.out.print(c.toString());
+
 	}
 
 }
