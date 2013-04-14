@@ -19,7 +19,7 @@ public class JungleWorld{
 	
 	public JungleWorld() {
 		CharacterFactory characterFactory=new CharacterFactory();
-		Character lion = characterFactory.createCharacter("monkey",100, "lion", new Vector2(10, 10), "lion");
+		Character lion = characterFactory.createCharacter("monkey",100, "lion", new Vector2(30, 30), "lion");
 		Character lion2 = new Character(100, "lion", new Vector2(300, 300), "lion");
 		this.player1 = new Player("alessio", 1, lion);
 		this.player2 = new Player("gonzalo", 2, lion2);
@@ -76,5 +76,13 @@ public class JungleWorld{
 	
 	public Player getCurrentPlayer(){
 		return this.players.get(0);
+	}
+	
+	public boolean isGameOver(){
+		return this.player1.getCharacter().getHealth() <= 0 || this.player2.getCharacter().getHealth() <= 0;
+	}
+	
+	public boolean isEndOfTurn(){
+		return false;//TODO
 	}
 }

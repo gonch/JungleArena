@@ -78,7 +78,7 @@ public class WorldRenderer {
 		Sprite leftSprite = new Sprite(tankTexture); 
 		leftSprite.flip(true, false);//now the second tank faces to the left
 		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
-		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y);
+		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
 	}	
 	
 	private void drawControls(){

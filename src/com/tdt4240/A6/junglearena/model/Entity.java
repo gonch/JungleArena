@@ -28,4 +28,9 @@ public abstract class Entity {
 	 * entity, this method can be kept empty.
 	 * **/
 	public abstract void collisionHappened();
+	
+	
+	public void update(float dt){
+		
+	}
 }

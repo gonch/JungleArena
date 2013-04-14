@@ -56,25 +56,28 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		music.setLooping(true);
 		music.play();
 		//pauseGame(); //START PAUSED FOR TESTING PURPOSES
+		startNewGame();	
 
+		/* For the tween engin */
+		Tween.registerAccessor(GameButton.class, new TargetAccessor());
+		this.tweenManager = new TweenManager();
+	}
+	
+	public void startNewGame(){
 		this.world = new JungleWorld();
-		this.mapController = new MapController("jungle");
+		this.mapController = new MapController("jungle");//TODO hardcoded
 		this.mapController.generateMap();
 		this.world.setMap(this.mapController.getMap());
 		this.worldController = new WorldController(this.world);
 		this.worldRenderer = new WorldRenderer(this.world);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
-		this.worldController.setCharacterStartingPositions();
 		this.worldController.generateBox2DWorld();
+		this.worldController.setCharacterStartingPositions();
 		this.gameInfoRenderer = new GameInfoRenderer(world);
 		Gdx.input.setInputProcessor(new GestureDetector(this));
 		Gdx.input.setInputProcessor(this);
 		this.controls = this.worldController.getControls();
 		this.controlsRenderer = new ControlsRenderer(controls);
-
-		/* For the tween engin */
-		Tween.registerAccessor(GameButton.class, new TargetAccessor());
-		this.tweenManager = new TweenManager();
 	}
 
 	@Override

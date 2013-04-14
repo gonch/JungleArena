@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
 import com.tdt4240.A6.junglearena.listeners.CollisionListener;
@@ -21,16 +22,20 @@ import com.tdt4240.A6.junglearena.model.characters.Character;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
 import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
 import com.tdt4240.A6.junglearena.model.gameControls.PowerBar;
+import com.tdt4240.A6.junglearena.utils.Constants;
 import com.tdt4240.A6.junglearena.utils.MathPhysicsUtils;
 
 public class WorldController {
 	private JungleWorld jungleWorld;
 	private ControlsLayer controls;
-	private World box2Dworld;
 
 	public WorldController(JungleWorld world) {
 		this.jungleWorld = world;
 		this.controls = new ControlsLayer();
+	}
+
+	public void startNewTurn() {
+
 	}
 
 	public void screenTouched(float x, float y) {
@@ -104,7 +109,7 @@ public class WorldController {
 	public void setCharacterStartingPositions() {
 		// TODO: center the images
 		Character leftChar = this.jungleWorld.getPlayer1().getCharacter();
-		Character rigthChar = this.jungleWorld.getPlayer2().getCharacter();
+		Character rightChar = this.jungleWorld.getPlayer2().getCharacter();
 		Random random = new Random();
 		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3 + 150);// 50
 																		// for
@@ -120,11 +125,66 @@ public class WorldController {
 		randomX = random.nextInt(Gdx.graphics.getWidth() / 3)
 				+ Gdx.graphics.getWidth() * 2 / 3 - 50;
 		y = this.jungleWorld.getMap().getMapY()[randomX];
-		rigthChar.setPosition(new Vector2(randomX, y));
+		rightChar.setPosition(new Vector2(randomX, y));
+
+		generateBox2DCharacter(leftChar);
+		generateBox2DCharacter(rightChar);
+		
+		initializeControls();// TODO to be called from a separate method
+
 	}
 
-	public void screenWithFling(float velocityX, float velocityY) {
+	private void generateBox2DCharacter(Character character) {
+		World world = this.jungleWorld.getWorld();
+		// First we create a body definition
+		BodyDef bodyDef = new BodyDef();
+		// We set our body to static
+		bodyDef.type = BodyType.StaticBody;
+		// Set our body's starting position in the world
+		bodyDef.position.set(character.getPosition().x
+				/ Constants.pixelsInAMeter, character.getPosition().y
+				/ Constants.pixelsInAMeter);
+		bodyDef.position.set(character.getPosition().x/2,
+				character.getPosition().y/2);
 
+		// Create our body in the world using our body definition
+		Body body = world.createBody(bodyDef);
+
+		character.setBody(body);
+
+		// Define the shape
+		PolygonShape polygonShape = new PolygonShape();
+		// polygonShape.setAsBox(hx, hy, center, angle)
+		ChainShape chainShape = new ChainShape();
+		Vector2[] vertices = new Vector2[4];
+		vertices[0] = new Vector2(character.getPosition().x,
+				character.getPosition().y);
+		vertices[1] = new Vector2(character.getPosition().x,
+				character.getPosition().y + character.getSize().y);
+		vertices[2] = new Vector2(character.getPosition().x
+				+ character.getSize().x, character.getPosition().y
+				+ character.getSize().y);
+		vertices[3] = new Vector2(character.getPosition().x
+				+ character.getSize().x, character.getPosition().y);
+		chainShape.createChain(vertices);
+		// polygonShape.set(vertices );
+		polygonShape.setAsBox(character.getSize().x / 2,
+				character.getSize().y / 2, character.getCentre().div(Constants.pixelsInAMeter), 0);
+//		polygonShape.setAsBox(character.getSize().x/2 ,
+//				character.getSize().y/2 );
+
+		// Fixture fixture = body.createFixture(polygonShape, 0);
+		CircleShape circleShape = new CircleShape();
+		circleShape.setPosition(character.getCentre());
+		circleShape.setRadius(character.getSize().x / 2);
+		FixtureDef fixDef = new FixtureDef();
+		fixDef.shape = polygonShape;
+		fixDef.friction = 1;
+		fixDef.restitution = 0;
+		fixDef.density = 0;
+		Fixture fixture = body.createFixture(fixDef);
+		// character.setPosition(body.getPosition());
+		polygonShape.dispose();
 	}
 
 	public World generateBox2DWorld() {
@@ -141,11 +201,8 @@ public class WorldController {
 		Body mapBody = world.createBody(mapBodyDef);
 		mapBody.createFixture(chainShape, 0.0f);
 		this.jungleWorld.getMap().setBody(mapBody);
-
+		this.jungleWorld.setWorld(world);
 		chainShape.dispose();
-		this.box2Dworld = world;
-		initializeControls();
-
 		return world;
 	}
 
@@ -161,8 +218,11 @@ public class WorldController {
 		this.controls.getTarget().update(dt);
 		this.controls.getPowerBar().update(dt);
 
-		 world.step(Gdx.graphics.getDeltaTime(), 5, 5);
-//		world.step(1 / 10f, 5, 5);
+		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
+//		this.jungleWorld.getPlayer1().getCharacter().update(dt);
+//		this.jungleWorld.getPlayer2().getCharacter().update(dt);
+
+		// world.step(1 / 10f, 5, 5);
 		world.clearForces();
 	}
 
@@ -190,8 +250,9 @@ public class WorldController {
 		powerBar.setScale(0, 0);
 		this.controls.setPowerBar(powerBar);
 		this.controls.addButton(powerBar);
-		
-		GameButton fireButton = new GameButton("fireButton", new Vector2(Gdx.graphics.getWidth()-50,50), new Vector2(50,50));
+
+		GameButton fireButton = new GameButton("fireButton", new Vector2(
+				Gdx.graphics.getWidth() - 50, 50), new Vector2(50, 50));
 		this.controls.setFireButton(fireButton);
 		this.controls.addButton(fireButton);
 	}
@@ -199,29 +260,34 @@ public class WorldController {
 	public ControlsLayer getControls() {
 		return this.controls;
 	}
-	
+
 	/**
 	 * CREATES A NEW WEAPON AND SHOTS IT
 	 * */
-	public void shot(){
+	public void shot() {
 		float power = this.controls.getPowerBar().getPower();
-		Character character = this.jungleWorld.getCurrentPlayer().getCharacter();
+		Character character = this.jungleWorld.getCurrentPlayer()
+				.getCharacter();
 		Vector2 charCentre = character.getCentre();
 		Vector2 targetCentre = this.controls.getTarget().getCentre();
 		Vector2 charPosition = character.getPosition();
 		Vector2 charSize = character.getSize();
-		double angle = Math.atan((charCentre.y-targetCentre.y)/(charCentre.x-targetCentre.x));
-		
-		World world = this.jungleWorld.getWorld();
-		world = this.box2Dworld;
-		// First we create a body definition
-		BodyDef bodyDef = new BodyDef();
-		// We set our body to dynamic, for something like ground which doesnt
-		// move we would set it to StaticBody
-		bodyDef.type = BodyType.DynamicBody;
-		// Set our body's starting position in the world
-		bodyDef.position.set(charPosition.cpy().add(charSize));
+		double angle = Math.atan((charCentre.y - targetCentre.y)
+				/ (charCentre.x - targetCentre.x));
 
+		World world = this.jungleWorld.getWorld();
+		// world = this.box2Dworld;
+
+		BodyDef bodyDef = new BodyDef();
+		bodyDef.type = BodyType.DynamicBody;
+		// Set our body's starting position in the world according
+		if (charCentre.x < targetCentre.x) {
+			bodyDef.position.set(charPosition.cpy().add(charSize));
+		} else {
+			bodyDef.position.set(charPosition.cpy().add(charSize));
+
+			// bodyDef.position.set(charPosition.cpy().add(charSize));
+		}
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
 		WeaponFactory weaponFactory = new WeaponFactory();
@@ -230,13 +296,12 @@ public class WorldController {
 		currentWeapon.setBody(body);
 		this.jungleWorld.setCurrentWeapon(currentWeapon);
 		body.setUserData(currentWeapon);
-//		angle = 3*Math.PI/4;
+		// angle = 3*Math.PI/4;
 		float scaleFactor = 100000000000000000000f;
-		float vx = (float) (power * Math.cos((float) angle)) * scaleFactor ;
+		float vx = (float) (power * Math.cos((float) angle)) * scaleFactor;
 		float vy = (float) (power * Math.sin((float) angle)) * scaleFactor;
-		body.applyLinearImpulse(new Vector2((vx), vy),
-				body.getLocalCenter());
-		
+		body.applyLinearImpulse(new Vector2((vx), vy), body.getLocalCenter());
+
 		// Create a circle shape and set its radius to 6
 		CircleShape circle = new CircleShape();
 		circle.setRadius(6f);
@@ -246,7 +311,7 @@ public class WorldController {
 		fixtureDef.shape = circle;
 		fixtureDef.density = 0.5f;
 		fixtureDef.friction = 0.4f;
-		fixtureDef.restitution = 1f; // Make it bounce a little bit
+		fixtureDef.restitution = 0.3f; // Make it bounce a little bit
 
 		// Create our fixture and attach it to the body
 		Fixture fixture = body.createFixture(fixtureDef);

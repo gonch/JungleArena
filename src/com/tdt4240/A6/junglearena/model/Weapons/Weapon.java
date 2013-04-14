@@ -23,7 +23,7 @@ public class Weapon extends Entity{
 		this.areaOfEffect = areaOfEffect;
 		this.setCollided(false);
 		this.setExploded(false);
-		this.timeBeforeExplosion = 10f;
+		this.timeBeforeExplosion = 3f;
 	}
 
 	public int getDamage() {

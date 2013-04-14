@@ -2,6 +2,7 @@ package com.tdt4240.A6.junglearena.model.characters;
 
 import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.model.Entity;
+import com.tdt4240.A6.junglearena.utils.Constants;
 
 public class Character extends Entity{
 	private int health;
@@ -69,5 +70,13 @@ public class Character extends Entity{
 	public void collisionHappened() {
 		
 	}
-
+	
+	@Override
+	public void update(float dt){
+		if(this.getBody()!=null){
+			this.position.x = this.getBody().getPosition().x * Constants.pixelsInAMeter;
+			this.position.y = this.getBody().getPosition().y * Constants.pixelsInAMeter;
+			this.centre = new Vector2(position.x + size.x/2f,position.y + size.y/2);
+		}
+	}
 }
