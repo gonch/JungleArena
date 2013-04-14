@@ -25,17 +25,12 @@ public class CollisionListener implements ContactListener {
 		Body bodyB = fixB.getBody();
 		Entity entityA = null;
 		Entity entityB = null;
-		if(bodyA.getUserData()!=null)
-		System.out.println(bodyA.getUserData().toString());
 		
 		//checks if the userdata is a class that extends Entity. Is not really needed, is just for lazy programmers :)
 		if (bodyA.getUserData() != null && Entity.class.isAssignableFrom(bodyA.getUserData().getClass()) && bodyB.getUserData() != null && Entity.class.isAssignableFrom(bodyB.getUserData().getClass())) { 
 			entityA = (Entity) bodyA.getUserData();
 			entityB = (Entity) bodyB.getUserData();
-			CoupleOfEntitiesFactory f = new CoupleOfEntitiesFactory();
-			CoupleOfEntities entities = f.createCoupleOfEntities(entityA, entityB);
-
-//			CoupleOfEntities entities = CoupleOfEntitiesFactory.getInstance().createCoupleOfEntities(entityA, entityB);
+			CoupleOfEntities entities = CoupleOfEntitiesFactory.getInstance().createCoupleOfEntities(entityA, entityB);
 			if(entities!=null){
 				entities.collisionHappened();
 			}

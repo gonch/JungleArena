@@ -28,7 +28,7 @@ public class JungleWorld{
 		this.players.add(player2);
 		this.map = null;
 		this.setWorld(new World(new Vector2(0,-10), true));		
-		this.currentWeapon = null;
+		this.currentWeapon = new Weapon();
 	}
 
 	public Player getPlayer1() {

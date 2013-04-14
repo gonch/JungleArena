@@ -105,6 +105,13 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		this.worldRenderer.render();
 		this.gameInfoRenderer.render();
 		this.controlsRenderer.render();
+		if(this.worldController.isGameOver()){
+			//TODO: go to game over screen
+		}
+		if(this.worldController.isEndOfTurn()){
+			this.worldController.startNewTurn();
+		}
+		
 		//TODO this code has to be run when the pause button is pressed
 //		if (pausebutton is pressed) {
 //            pauseGame();

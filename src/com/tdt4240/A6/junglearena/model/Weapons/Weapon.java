@@ -14,6 +14,13 @@ public class Weapon extends Entity{
 	private boolean isExploded;
 	private boolean isCollided;
 	private float timeBeforeExplosion;//seconds before the weapon explodes, after the collision. Set to zero for explosion right after the collision
+	
+	public Weapon(){
+		this.isCollided = false;
+		this.isExploded = false;
+		this.timeBeforeExplosion = 3f;
+	}
+	
 	public Weapon(int damage, String name, String skin, int areaOfEffect) {
 		super();
 		this.damage = damage;
