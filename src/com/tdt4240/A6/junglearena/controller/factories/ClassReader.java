@@ -7,7 +7,16 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ * @author hengsti
+ */
 class ClassReader {
+	
+	/**
+	 * Scans all classes accessible from the context class loader which belong to the given package and subpackages.
+	 * @param packageName
+	 * @return all Classes within the specified package.
+	 */
 	static Class<?>[] readFromPackage(String packageName) {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		assert classLoader != null;
@@ -33,11 +42,17 @@ class ClassReader {
 				e.printStackTrace();
 			}
 		}
-
 		return classes.toArray(new Class[classes.size()]);
 
 	}
 
+	/**
+	 * * Recursive method used to find all classes in a given directory and subdirs.
+	 * @param directory
+	 * @param packageName
+	 * @return all Classes within the specified directory
+	 * @throws ClassNotFoundException
+	 */
 	private static List<Class<?>> findClasses(File directory, String packageName) throws ClassNotFoundException {
 		List<Class<?>> classes = new ArrayList<Class<?>>();
 		if (!directory.exists()) {
