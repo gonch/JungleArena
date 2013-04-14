@@ -18,14 +18,21 @@ public class FactoryTests {
 		WeaponFactory wf = new WeaponFactory();
 		String[]ss = wf.getWeapons();
 		for (String s: ss){
-			System.out.println(s);
+			System.out.println("Weapon: "+s);
 		}
 		
-		Weapon c = wf.createWeapon("Gun", 10, "Colt 45", "coltskin", 2);
-		System.out.print(c.toString());
+	//	Weapon c = wf.createWeapon("Gun", 10, "Colt 45", "coltskin", 2);
+	//	System.out.println("created: " + c.toString());
 		
 	}
-	
+	@Test
+	public void WeaponFactoryReadClasses() {
+		WeaponFactory wf = new WeaponFactory();
+		Class[] classes = wf.ReadClassesFromPackage("com.tdt4240.A6.junglearena.controller.factories");
+		for(Class<?> c:classes){
+			System.out.println(c.getName());
+		}
+	}
 	@Test
 	public void CharacterTest(){
 			// test driver
