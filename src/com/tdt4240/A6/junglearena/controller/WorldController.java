@@ -111,7 +111,7 @@ public class WorldController {
 		Character leftChar = this.jungleWorld.getPlayer1().getCharacter();
 		Character rightChar = this.jungleWorld.getPlayer2().getCharacter();
 		Random random = new Random();
-		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3 + 150);// 50
+		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3 + 50);// 50
 																		// for
 																		// not
 																		// having
@@ -144,8 +144,8 @@ public class WorldController {
 		bodyDef.position.set(character.getPosition().x
 				/ Constants.pixelsInAMeter, character.getPosition().y
 				/ Constants.pixelsInAMeter);
-		bodyDef.position.set(character.getPosition().x/2,
-				character.getPosition().y/2);
+		bodyDef.position.set(character.getCentre().x,
+				character.getCentre().y);
 
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
@@ -155,23 +155,19 @@ public class WorldController {
 		// Define the shape
 		PolygonShape polygonShape = new PolygonShape();
 		// polygonShape.setAsBox(hx, hy, center, angle)
-		ChainShape chainShape = new ChainShape();
-		Vector2[] vertices = new Vector2[4];
-		vertices[0] = new Vector2(character.getPosition().x,
-				character.getPosition().y);
-		vertices[1] = new Vector2(character.getPosition().x,
-				character.getPosition().y + character.getSize().y);
-		vertices[2] = new Vector2(character.getPosition().x
-				+ character.getSize().x, character.getPosition().y
-				+ character.getSize().y);
-		vertices[3] = new Vector2(character.getPosition().x
-				+ character.getSize().x, character.getPosition().y);
-		chainShape.createChain(vertices);
+//		Vector2[] vertices = new Vector2[4];
+//		vertices[0] = new Vector2(character.getPosition().x,
+//				character.getPosition().y);
+//		vertices[1] = new Vector2(character.getPosition().x,
+//				character.getPosition().y + character.getSize().y);
+//		vertices[2] = new Vector2(character.getPosition().x
+//				+ character.getSize().x, character.getPosition().y
+//				+ character.getSize().y);
+//		vertices[3] = new Vector2(character.getPosition().x
+//				+ character.getSize().x, character.getPosition().y);
 		// polygonShape.set(vertices );
-		polygonShape.setAsBox(character.getSize().x / 2,
-				character.getSize().y / 2, character.getCentre().div(Constants.pixelsInAMeter), 0);
-//		polygonShape.setAsBox(character.getSize().x/2 ,
-//				character.getSize().y/2 );
+		polygonShape.setAsBox(character.getSize().x/2 ,
+				character.getSize().y/2 );
 
 		// Fixture fixture = body.createFixture(polygonShape, 0);
 		CircleShape circleShape = new CircleShape();
