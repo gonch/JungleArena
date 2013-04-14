@@ -16,6 +16,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
+import com.tdt4240.A6.junglearena.controller.players.PlayerController;
 import com.tdt4240.A6.junglearena.listeners.CollisionListener;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 import com.tdt4240.A6.junglearena.model.Player;
@@ -36,6 +37,7 @@ public class WorldController {
 		this.jungleWorld = world;
 		this.controls = new ControlsLayer();
 		this.playerControllers = new ArrayList<PlayerController>();
+		initializeControls();
 	}
 	
 	public void update(float dt) {
@@ -48,7 +50,10 @@ public class WorldController {
 		// updateWeapon(weapon, dt);
 		this.controls.getTarget().update(dt);
 		this.controls.getPowerBar().update(dt);
-		playerControllers.get(0).chooseShootingParameters(); //current Player
+		playerControllers.get(0).chooseShootingParameters(dt); //current Player
+		if(this.jungleWorld.getCurrentWeapon()!=null){
+			this.jungleWorld.getCurrentWeapon().update(dt);
+		}
 		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
 //		this.jungleWorld.getPlayer1().getCharacter().update(dt);
 //		this.jungleWorld.getPlayer2().getCharacter().update(dt);
@@ -72,10 +77,10 @@ public class WorldController {
 	 * */
 	public List<PlayerController> swapPlayerControllers() {
 		PlayerController tmp = this.playerControllers.get(0);
-		tmp.setIsMyTurn(false);
+		tmp.setMyTurn(true);
 		this.playerControllers.remove(0);
 		this.playerControllers.add(tmp);
-		this.playerControllers.get(0).setIsMyTurn(true);
+		this.playerControllers.get(0).setMyTurn(true);
 		return this.playerControllers;
 	}
 
@@ -213,7 +218,7 @@ public class WorldController {
 	/**
 	 * Called each turn
 	 * */
-	private void initializeControls() {
+	public void initializeControls() {
 		Player currentPlayer = this.jungleWorld.getCurrentPlayer();
 		GameCharacter currentCharacter = currentPlayer.getCharacter();
 		Vector2 characterCentre = currentCharacter.getCentre();
@@ -253,16 +258,13 @@ public class WorldController {
 	/**
 	 * CREATES A NEW WEAPON AND SHOTS IT
 	 * */
-	public void shot() {
-		float power = this.controls.getPowerBar().getPower();
+	public void shot(float power, double angle, Weapon weapon) {
 		GameCharacter character = this.jungleWorld.getCurrentPlayer()
 				.getCharacter();
 		Vector2 charCentre = character.getCentre();
 		Vector2 targetCentre = this.controls.getTarget().getCentre();
 		Vector2 charPosition = character.getPosition();
 		Vector2 charSize = character.getSize();
-		double angle = Math.atan((charCentre.y - targetCentre.y)
-				/ (charCentre.x - targetCentre.x));
 
 		World world = this.jungleWorld.getWorld();
 		// world = this.box2Dworld;

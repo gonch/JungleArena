@@ -19,7 +19,6 @@ public class ControlsLayer {
 		this.target = new GameButton();
 		this.powerBar = new PowerBar();
 		this.fireButton = new GameButton();
-//		this.target = new GameButton("target", new Vector2(50,50), new Vector2(30,30));
 	}
 
 	public GameButton getFireButton() {

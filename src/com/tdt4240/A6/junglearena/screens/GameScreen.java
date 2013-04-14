@@ -8,17 +8,14 @@ import aurelienribon.tweenengine.TweenManager;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
-import com.tdt4240.A6.junglearena.controller.HumanPlayerController;
 import com.tdt4240.A6.junglearena.controller.MapController;
-import com.tdt4240.A6.junglearena.controller.PlayerController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
+import com.tdt4240.A6.junglearena.controller.players.*;
 import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 import com.tdt4240.A6.junglearena.model.Player;
@@ -31,7 +28,7 @@ import com.tdt4240.A6.junglearena.view.GameInfoRenderer;
 import com.tdt4240.A6.junglearena.view.MapRenderer;
 import com.tdt4240.A6.junglearena.view.WorldRenderer;
 
-public class GameScreen implements Screen, GestureListener, InputProcessor {
+public class GameScreen implements Screen{
 
 	private JungleWorld jungleWorld;
 	private WorldController worldController;
@@ -87,15 +84,7 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		//initialize world controller
 		this.worldController = new WorldController(this.jungleWorld);
 
-		//initialize player controllers
-		
-		PlayerController playerController = new HumanPlayerController(player1, this.worldController);
-		playerController.setIsMyTurn(true);//for default player1 starts
-		playerControllers.add(playerController);
-		
-		playerController = new HumanPlayerController(player2, this.worldController);
-		playerControllers.add(playerController);
-		this.worldController.setPlayerControllers(playerControllers);
+	
 		
 		//initialize the map
 	
@@ -112,6 +101,15 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		// Gdx.input.setInputProcessor(this);
 		this.controls = this.worldController.getControls();
 		this.controlsRenderer = new ControlsRenderer(controls);
+		
+		//initialize player controllers
+		PlayerController playerController = new HumanPlayerController(player1, this.worldController);
+		playerController.setMyTurn(true);//for default player1 starts
+		playerControllers.add(playerController);
+		//TODO: factories for player
+		playerController = new EasyAIPlayerController(player2, this.worldController);
+		playerControllers.add(playerController);
+		this.worldController.setPlayerControllers(playerControllers);
 	}
 
 	@Override
@@ -184,116 +182,4 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 	@Override
 	public void resume() {
 	}
-
-	@Override
-	public boolean touchDown(float x, float y, int pointer, int button) {
-		// this.worldController.screenTouched(x,y);
-		return true;
-	}
-
-	@Override
-	public boolean tap(float x, float y, int count, int button) {
-		this.worldController.screenTouched(x, Gdx.graphics.getHeight() - y);
-		// this.worldController.angleTouched(x,Gdx.graphics.getHeight()-y);
-
-		// Tween.to(this.controls.getTarget(), TargetAccessor.POSITION_XY,
-		// 1.0f).target(x, Gdx.graphics.getHeight() - y)
-		// .start(tweenManager);
-
-		return false;
-	}
-
-	@Override
-	public boolean longPress(float x, float y) {
-		return false;
-	}
-
-	@Override
-	public boolean fling(float velocityX, float velocityY, int button) {
-		return false;
-	}
-
-	@Override
-	public boolean pan(float x, float y, float deltaX, float deltaY) {
-		return false;
-	}
-
-	@Override
-	public boolean zoom(float initialDistance, float distance) {
-		return false;
-	}
-
-	@Override
-	public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2, Vector2 pointer1, Vector2 pointer2) {
-		return false;
-	}
-
-	@Override
-	public boolean keyDown(int keycode) {
-		return false;
-	}
-
-	@Override
-	public boolean keyUp(int keycode) {
-		return false;
-	}
-
-	@Override
-	public boolean keyTyped(char character) {
-		return false;
-	}
-
-	@Override
-	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		ControlsLayer controls = this.worldController.getControls();
-		GameButton target = controls.getTarget();
-		if (target.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
-			target.setSelected(true);
-			target.setReleased(false);
-		}
-		GameButton fireButton = this.controls.getFireButton();
-		if (fireButton.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
-			fireButton.setSelected(true);
-			fireButton.setReleased(false);
-		}
-		return true;
-	}
-
-	@Override
-	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		if (this.worldController.getControls().getTarget().isSelected()) {
-			this.worldController.getControls().getTarget().setSelected(false);
-		}
-		if (this.worldController.getControls().getFireButton().isSelected()) {
-			this.worldController.shot();
-			this.worldController.getControls().getFireButton().setSelected(false);
-			this.worldController.getControls().getPowerBar().setSelected(false);
-		}
-		return true;
-	}
-
-	@Override
-	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		if (this.worldController.getControls().getTarget().isSelected()) {
-			this.worldController.angleTouched(screenX, Gdx.graphics.getHeight() - screenY);
-		}
-		if (this.worldController.getControls().getFireButton().isSelected()) {
-			this.worldController.getControls().getPowerBar().setSelected(true);
-		}
-		return true;
-	}
-
-	@Override
-	public boolean mouseMoved(int screenX, int screenY) {
-		if (this.worldController.getControls().getTarget().isSelected()) {
-			this.worldController.angleTouched(screenX, Gdx.graphics.getHeight() - screenY);
-		}
-		return true;
-	}
-
-	@Override
-	public boolean scrolled(int amount) {
-		return false;
-	}
-
 }

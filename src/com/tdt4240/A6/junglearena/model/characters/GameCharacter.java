@@ -87,11 +87,11 @@ public class GameCharacter extends Entity{
 	
 	@Override
 	public void update(float dt){
-		if(this.getBody()!=null){
-			this.centre.x = this.getBody().getPosition().x ;
+		if (this.getBody() != null) {
+			this.centre.x = this.getBody().getPosition().x;
 			this.centre.y = this.getBody().getPosition().y;
-			this.position.x = this.centre.x - this.size.x/2f;
-			this.position.y = this.centre.y - this.size.y/2f;
-}
+			this.position.x = this.centre.x - this.size.x / 2f;
+			this.position.y = this.centre.y - this.size.y / 2f;
+		}
 	}
 }
