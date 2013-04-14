@@ -67,7 +67,7 @@ public class WorldController {
 		Character leftChar = this.jungleWorld.getPlayer1().getCharacter();
 		Character rightChar = this.jungleWorld.getPlayer2().getCharacter();
 		Random random = new Random();
-		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3 + 150);// 50
+		int randomX = random.nextInt(Gdx.graphics.getWidth() / 3 + 50);// 50
 																		// for
 																		// not
 																		// having
@@ -77,26 +77,27 @@ public class WorldController {
 																		// the
 																		// borders
 		float y = this.jungleWorld.getMap().getMapY()[randomX];
-		generateBox2DCharacter(leftChar,randomX,y);
+		leftChar.setPosition(new Vector2(randomX,y));
+		generateBox2DCharacter(leftChar);
 		randomX = random.nextInt(Gdx.graphics.getWidth() / 3)
 				+ Gdx.graphics.getWidth() * 2 / 3 - 50;
 		y = this.jungleWorld.getMap().getMapY()[randomX];
 		rightChar.setPosition(new Vector2(randomX, y));
 
-		generateBox2DCharacter(rightChar,randomX,y);
+		generateBox2DCharacter(rightChar);
 		
 		initializeControls();// TODO to be called from a separate method
 
 	}
 
-	private void generateBox2DCharacter(Character character, float posX, float posY) {
+	private void generateBox2DCharacter(Character character) {
 		World world = this.jungleWorld.getWorld();
 		// First we create a body definition
 		BodyDef bodyDef = new BodyDef();
 		// We set our body to static
 		bodyDef.type = BodyType.DynamicBody;
 		// Set our body's starting position in the world
-		bodyDef.position.set(posX, posY);
+		bodyDef.position.set(character.getCentre().x, character.getCentre().y);
 	
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
@@ -106,36 +107,33 @@ public class WorldController {
 
 		// Define the shape
 		PolygonShape polygonShape = new PolygonShape();
-		// polygonShape.setAsBox(hx, hy, center, angle)
-		ChainShape chainShape = new ChainShape();
-		Vector2[] vertices = new Vector2[4];
-		vertices[0] = new Vector2(character.getPosition().x,
-				character.getPosition().y);
-		vertices[1] = new Vector2(character.getPosition().x,
-				character.getPosition().y + character.getSize().y);
-		vertices[2] = new Vector2(character.getPosition().x
-				+ character.getSize().x, character.getPosition().y
-				+ character.getSize().y);
-		vertices[3] = new Vector2(character.getPosition().x
-				+ character.getSize().x, character.getPosition().y);
-		chainShape.createChain(vertices);
-		// polygonShape.set(vertices );
-		polygonShape.setAsBox(character.getSize().x / 2,
-				character.getSize().y / 2, character.getCentre().div(Constants.pixelsInAMeter), 0);
+
+//		Vector2[] vertices = new Vector2[4];
+//		vertices[0] = new Vector2(character.getPosition().x,
+//				character.getPosition().y);
+//		vertices[1] = new Vector2(character.getPosition().x,
+//				character.getPosition().y + character.getSize().y);
+//		vertices[2] = new Vector2(character.getPosition().x
+//				+ character.getSize().x, character.getPosition().y
+//				+ character.getSize().y);
+//		vertices[3] = new Vector2(character.getPosition().x
+//				+ character.getSize().x, character.getPosition().y);
+//		 polygonShape.set(vertices );
+//		polygonShape.setAsBox(character.getSize().x / 2,
+//				character.getSize().y / 2, character.getCentre().div(Constants.pixelsInAMeter), 0);
 		polygonShape.setAsBox(character.getSize().x/2 ,
 				character.getSize().y/2 );
 
 		// Fixture fixture = body.createFixture(polygonShape, 0);
-		CircleShape circleShape = new CircleShape();
-		circleShape.setPosition(character.getCentre());
-		circleShape.setRadius(character.getSize().x / 2);
+//		CircleShape circleShape = new CircleShape();
+//		circleShape.setPosition(character.getCentre());
+//		circleShape.setRadius(character.getSize().x / 2);
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = polygonShape;
 		fixDef.friction = 1;
 		fixDef.restitution = 0;
 		fixDef.density = 0;
 		Fixture fixture = body.createFixture(fixDef);
-		// character.setPosition(body.getPosition());
 		polygonShape.dispose();
 		character.update(Gdx.graphics.getDeltaTime());
 	}
