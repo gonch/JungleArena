@@ -74,9 +74,11 @@ public class Character extends Entity{
 	@Override
 	public void update(float dt){
 		if(this.getBody()!=null){
-			this.position.x = this.getBody().getPosition().x * Constants.pixelsInAMeter;
-			this.position.y = this.getBody().getPosition().y * Constants.pixelsInAMeter;
-			this.centre = new Vector2(position.x + size.x/2f,position.y + size.y/2);
+			// in box2d the position is the given by the coordinate of the centre of the shape
+			this.centre.x = this.getBody().getPosition().x;
+			this.centre.y = this.getBody().getPosition().y;
+			this.position.x = this.centre.x - this.size.x/2f;
+			this.position.y = this.centre.y - this.size.y/2f;
 		}
 	}
 }
