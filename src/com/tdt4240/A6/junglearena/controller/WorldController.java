@@ -57,6 +57,7 @@ public class WorldController {
 
 	public void startNewTurn() {
 		this.jungleWorld.swapPlayers();
+		this.swapPlayerControllers();
 		this.jungleWorld.setCurrentWeapon(new Weapon());
 		this.initializeControls();
 	}
@@ -69,10 +70,12 @@ public class WorldController {
 	 * This method is used to swap players. In fact the player who is going to
 	 * play the round is the one at position 0
 	 * */
-	public List<PlayerController> swapPlayers() {
+	public List<PlayerController> swapPlayerControllers() {
 		PlayerController tmp = this.playerControllers.get(0);
+		tmp.setIsMyTurn(false);
 		this.playerControllers.remove(0);
 		this.playerControllers.add(tmp);
+		this.playerControllers.get(0).setIsMyTurn(true);
 		return this.playerControllers;
 	}
 

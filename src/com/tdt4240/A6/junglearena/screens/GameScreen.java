@@ -74,29 +74,39 @@ public class GameScreen implements Screen, GestureListener, InputProcessor {
 		List<PlayerController> playerControllers = new ArrayList<PlayerController>();
 
 		CharacterFactory characterFactory = new CharacterFactory();
-		GameCharacter gameCharacter = characterFactory.createCharacter(this.context.getNameChar1(), 100,
+		GameCharacter gameCharacter1 = characterFactory.createCharacter(this.context.getNameChar1(), 100,
 				this.context.getNameChar1(), new Vector2(0, 0), this.context.getNameChar1());
-		Player player1 = new Player(this.context.getNamePlayer1(), 1, gameCharacter);
-		PlayerController playerController = new HumanPlayerController(player1, this.worldController);
-		playerControllers.add(playerController);
+		Player player1 = new Player(this.context.getNamePlayer1(), 1, gameCharacter1);
 		
-		gameCharacter = characterFactory.createCharacter(this.context.getNameChar2(), 150,
+		GameCharacter gameCharacter2 = characterFactory.createCharacter(this.context.getNameChar2(), 150,
 				this.context.getNameChar2(), new Vector2(0, 0), this.context.getNameChar2());
-		Player player2 = new Player(this.context.getNamePlayer2(), 2, gameCharacter);
-		playerController = new HumanPlayerController(player2, this.worldController);
-		playerControllers.add(playerController);
-
+		Player player2 = new Player(this.context.getNamePlayer2(), 2, gameCharacter2);
+		
 		// Create a new jungle world
 		this.jungleWorld = new JungleWorld(player1, player2);
+		//initialize world controller
+		this.worldController = new WorldController(this.jungleWorld);
+
+		//initialize player controllers
+		
+		PlayerController playerController = new HumanPlayerController(player1, this.worldController);
+		playerController.setIsMyTurn(true);//for default player1 starts
+		playerControllers.add(playerController);
+		
+		playerController = new HumanPlayerController(player2, this.worldController);
+		playerControllers.add(playerController);
+		this.worldController.setPlayerControllers(playerControllers);
+		
+		//initialize the map
+	
 		this.mapController = new MapController("jungle");// TODO hardcoded
 		this.mapController.generateMap();
 		this.jungleWorld.setMap(this.mapController.getMap());
-		this.worldController = new WorldController(this.jungleWorld);
-		this.worldController.setPlayerControllers(playerControllers);
-		this.worldRenderer = new WorldRenderer(this.jungleWorld);
-		this.mapRenderer = new MapRenderer(this.mapController.getMap());
 		this.worldController.generateBox2DWorld();
 		this.worldController.setCharacterStartingPositions();
+		//initialize the renderers
+		this.worldRenderer = new WorldRenderer(this.jungleWorld);
+		this.mapRenderer = new MapRenderer(this.mapController.getMap());
 		this.gameInfoRenderer = new GameInfoRenderer(jungleWorld);
 		// Gdx.input.setInputProcessor(new GestureDetector(this));
 		// Gdx.input.setInputProcessor(this);

@@ -17,13 +17,8 @@ public class JungleWorld {
 	private Weapon currentWeapon; 
 
 	public JungleWorld(Player player1, Player player2) {
-		CharacterFactory characterFactory = new CharacterFactory();
-		GameCharacter lion = characterFactory.createCharacter("monkey", 100,
-				"lion", new Vector2(30, 30), "lion");
-		GameCharacter lion2 = new GameCharacter(100, "lion", new Vector2(300,
-				300), "lion");
-//		this.player1 = new Player("alessio", 1, lion);
-//		this.player2 = new Player("gonzalo", 2, lion2);
+		this.player1 = player1;
+		this.player2 = player2;
 		this.players = new ArrayList<Player>();
 		this.players.add(player1);
 		this.players.add(player2);

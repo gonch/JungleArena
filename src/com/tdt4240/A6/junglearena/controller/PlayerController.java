@@ -16,7 +16,7 @@ public abstract class PlayerController {
 	private boolean isMyTurn;
 	
 	public PlayerController(Player player){
-		this.isMyTurn = false;
+		this.isMyTurn = true;
 		this.player = player;
 	}
 	
