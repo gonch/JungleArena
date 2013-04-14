@@ -23,57 +23,53 @@ import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.MySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class TitleScreen implements Screen, InputProcessor {
-	protected static final String PLAYER1 = "Player 1";
-	protected static final String AUTO_PLAYER = "C_Player";
-	protected static final String PLAYER2 = "Player 2";
-	private final String SINGLE_PLAY = "Single Player";
-	private final String TWO_PLAY = "Two Player";
+public class MapSelectionScreen implements Screen, InputProcessor {
 
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
-	private TextButton singlePlayerButton;
-	private TextButton twoPlayerButton;
+	private Context context;
+	private TextButton buttonMaps[];
+	private String environments [];
 
-	public TitleScreen(final Game game) {
+	public MapSelectionScreen(final Game game, Context context) {
 		this.game = game;
+		this.context = context;
+		buttonMaps = new TextButton[2];
+		environments = new String []{"Jungle","Desert"};// TODO Hard coded, waiting for MARTIN
+		buttonMaps[0] = new TextButton(environments[0], MySkin.getHugeButtonSkin());
+		buttonMaps[1] = new TextButton(environments[1], MySkin.getHugeButtonSkin());
+	}
+
+	@Override
+	public void show() {
+		buttonMaps[0].addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				context.setEnvironment(((TextButton)event.getListenerActor()).getLabel().getText().toString());
+				game.setScreen(new GameScreen(game, context));
+			}
+		});
+		buttonMaps[1].addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				context.setEnvironment(((TextButton)event.getListenerActor()).getLabel().getText().toString());
+				game.setScreen(new GameScreen(game, context));
+			}
+		});
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
 
 		Table table = new Table();
 		table.setFillParent(true);
-		Skin skin = MySkin.getHugeButtonSkin();
 
-		// Create a button with the "default" TextButtonStyle. A 3rd parameter
-		// can be used to specify a name other than "default".
-		singlePlayerButton = new TextButton(SINGLE_PLAY, skin);
-		twoPlayerButton = new TextButton(TWO_PLAY, skin);
-
-		singlePlayerButton.pad(25);
-		twoPlayerButton.pad(25);
-		table.add(singlePlayerButton);
+		buttonMaps[0].pad(25);
+		buttonMaps[1].pad(25);
+		table.add(buttonMaps[0]);
 		table.row();
-		table.add(twoPlayerButton);
+		table.add(buttonMaps[1]);
 		table.row();
 		stage.addActor(table);
-
-		singlePlayerButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new SkillScreen(game, new Context(true,PLAYER1,AUTO_PLAYER)));
-			}
-		});
-		twoPlayerButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new CharacterScreen(game, new Context(false,PLAYER1,PLAYER2)));
-			}
-		});
-	}
-
-	@Override
-	public void show() {
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
 		// Gdx.input.setInputProcessor(this);

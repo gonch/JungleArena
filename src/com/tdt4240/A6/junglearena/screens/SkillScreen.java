@@ -4,16 +4,14 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Pixmap.Format;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -23,22 +21,21 @@ import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.MySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class TitleScreen implements Screen, InputProcessor {
-	protected static final String PLAYER1 = "Player 1";
-	protected static final String AUTO_PLAYER = "C_Player";
-	protected static final String PLAYER2 = "Player 2";
-	private final String SINGLE_PLAY = "Single Player";
-	private final String TWO_PLAY = "Two Player";
+public class SkillScreen implements Screen, InputProcessor {
 
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
-	private TextButton singlePlayerButton;
-	private TextButton twoPlayerButton;
+	private Context context;
+	private TextButton easyButton;
+	private TextButton hardButton;
+	private final String LAVEL_EASY ="Easy";
+	private final String LAVEL_HARD ="Hard";
 
-	public TitleScreen(final Game game) {
+	public SkillScreen(final Game game, Context context) {
 		this.game = game;
 		stage = new Stage();
+		this.context = context;
 		Gdx.input.setInputProcessor(stage);
 
 		Table table = new Table();
@@ -47,35 +44,36 @@ public class TitleScreen implements Screen, InputProcessor {
 
 		// Create a button with the "default" TextButtonStyle. A 3rd parameter
 		// can be used to specify a name other than "default".
-		singlePlayerButton = new TextButton(SINGLE_PLAY, skin);
-		twoPlayerButton = new TextButton(TWO_PLAY, skin);
+		easyButton = new TextButton(LAVEL_EASY, skin);
+		hardButton = new TextButton(LAVEL_HARD, skin);
 
-		singlePlayerButton.pad(25);
-		twoPlayerButton.pad(25);
-		table.add(singlePlayerButton);
+		easyButton.pad(25);
+		hardButton.pad(25);
+		table.add(easyButton);
 		table.row();
-		table.add(twoPlayerButton);
+		table.add(hardButton);
 		table.row();
 		stage.addActor(table);
-
-		singlePlayerButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new SkillScreen(game, new Context(true,PLAYER1,AUTO_PLAYER)));
-			}
-		});
-		twoPlayerButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new CharacterScreen(game, new Context(false,PLAYER1,PLAYER2)));
-			}
-		});
 	}
 
 	@Override
 	public void show() {
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
+		easyButton.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				context.setDifficulty(LAVEL_EASY);
+				game.setScreen(new CharacterScreen(game, context));
+			}
+		});
+		hardButton.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				context.setDifficulty(LAVEL_HARD);
+				game.setScreen(new CharacterScreen(game, context));
+			}
+		});
 		// Gdx.input.setInputProcessor(this);
 	}
 

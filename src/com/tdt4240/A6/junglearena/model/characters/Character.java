@@ -9,6 +9,7 @@ public class Character extends Entity{
 	private Vector2 position;
 	private String skin;
 	private Vector2 size;
+	private Vector2 centre;
 
 	public Character(int health, String name, Vector2 pos, String skin) {
 		super();
@@ -16,7 +17,8 @@ public class Character extends Entity{
 		this.name = name;
 		this.position = pos;
 		this.skin = skin;
-		this.setSize(new Vector2(50,50));
+		this.setSize(new Vector2(50f,50f));
+		this.centre = new Vector2(position.x + size.x/2f,position.y + size.y/2);
 	}
 
 	public int getHealth() {
@@ -57,6 +59,10 @@ public class Character extends Entity{
 
 	public void setSize(Vector2 size) {
 		this.size = size;
+	}
+	
+	public Vector2 getCentre(){
+		return new Vector2(position.x + size.x/2f,position.y + size.y/2);
 	}
 
 	@Override

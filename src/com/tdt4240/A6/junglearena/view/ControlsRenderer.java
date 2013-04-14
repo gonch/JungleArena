@@ -3,30 +3,26 @@ package com.tdt4240.A6.junglearena.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.tdt4240.A6.junglearena.model.characters.Character;
-import com.tdt4240.A6.junglearena.model.Player;
-import com.tdt4240.A6.junglearena.model.JungleWorld;
+import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
+import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
 
-public class WorldRenderer {
+public class ControlsRenderer {
 
-	//TODO be
 	private static final float CAMERA_WIDTH = Gdx.graphics.getWidth();
 	private static final float CAMERA_HEIGHT = Gdx.graphics.getHeight();
 
-	private JungleWorld jungleWorld;
+	private ControlsLayer controls;
 	private OrthographicCamera cam;
 
 	private ShapeRenderer shapeRenderer;
-	private Box2DDebugRenderer debugRenderer;
-	
+	private Box2DDebugRenderer debugRenderer;	
 
 	/** Textures **/
-	private Texture tankTexture;
-	private Texture targetTexture;
+	
+	private Texture targetTexture, powerBarTexture, fireButtonTexture;
 	
 	private SpriteBatch spriteBatch;
 	private int width;
@@ -34,8 +30,8 @@ public class WorldRenderer {
 	private float ppuX; // pixels per unit on the X axis
 	private float ppuY; // pixels per unit on the Y axis
 
-	public WorldRenderer(JungleWorld world) {
-		this.jungleWorld = world;
+	public ControlsRenderer(ControlsLayer controls) {
+		this.controls = controls;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		this.cam.position.set(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f, 0);
 		this.cam.update();
@@ -58,31 +54,25 @@ public class WorldRenderer {
 	}
 
 	private void loadTextures() {
-		tankTexture = new Texture(Gdx.files.internal("models/elephant.png"));
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
+		this.powerBarTexture = new Texture(Gdx.files.internal("crosshair.png"));
+		this.fireButtonTexture = new Texture(Gdx.files.internal("crosshair.png"));
+
 	}
 
 	public void render() {
-		debugRenderer.render(jungleWorld.getWorld(), cam.combined);
 		spriteBatch.begin();
-		drawTanks();
+		drawControls();
 		spriteBatch.end();
 	}
-
-	private void drawTanks() {
-		Player player1 = jungleWorld.getPlayer1();
-		Player player2 = jungleWorld.getPlayer2();
-		Character ch1 = player1.getCharacter();
-		Character ch2 = player2.getCharacter();
-
-		Sprite leftSprite = new Sprite(tankTexture); 
-		leftSprite.flip(true, false);//now the second tank faces to the left
-		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
-		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y);
-	}	
 	
 	private void drawControls(){
-//		spriteBatch.draw(targetTexture, );
+		GameButton target = this.controls.getTarget();
+		GameButton powerBar = this.controls.getPowerBar();
+		GameButton fireButton = this.controls.getFireButton();
+		spriteBatch.draw(targetTexture, target.getPosition().x,target.getPosition().y,target.getSize().x,target.getSize().y);
+		spriteBatch.draw(targetTexture, powerBar.getPosition().x,powerBar.getPosition().y,powerBar.getScaleX()*powerBar.getSize().x/100f,powerBar.getSize().y);
+		spriteBatch.draw(fireButtonTexture,fireButton.getPosition().x,fireButton.getPosition().y,fireButton.getSize().x,fireButton.getSize().y);
 	}
 
 }
