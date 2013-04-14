@@ -1,5 +1,7 @@
 package com.tdt4240.A6.junglearena.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
@@ -28,10 +30,12 @@ import com.tdt4240.A6.junglearena.utils.MathPhysicsUtils;
 public class WorldController {
 	private JungleWorld jungleWorld;
 	private ControlsLayer controls;
+	private List<PlayerController> playerControllers;
 
 	public WorldController(JungleWorld world) {
 		this.jungleWorld = world;
 		this.controls = new ControlsLayer();
+		this.playerControllers = new ArrayList<PlayerController>();
 	}
 	
 	public void update(float dt) {
@@ -44,7 +48,7 @@ public class WorldController {
 		// updateWeapon(weapon, dt);
 		this.controls.getTarget().update(dt);
 		this.controls.getPowerBar().update(dt);
-
+		playerControllers.get(0).chooseShootingParameters(); //current Player
 		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
 //		this.jungleWorld.getPlayer1().getCharacter().update(dt);
 //		this.jungleWorld.getPlayer2().getCharacter().update(dt);
@@ -60,6 +64,18 @@ public class WorldController {
 	public void screenTouched(float x, float y) {
 	
 	}
+	
+	/**
+	 * This method is used to swap players. In fact the player who is going to
+	 * play the round is the one at position 0
+	 * */
+	public List<PlayerController> swapPlayers() {
+		PlayerController tmp = this.playerControllers.get(0);
+		this.playerControllers.remove(0);
+		this.playerControllers.add(tmp);
+		return this.playerControllers;
+	}
+
 
 	public void angleTouched(float screenX, float screenY) {
 		Vector2 origin = this.jungleWorld.getCurrentPlayer().getCharacter()
@@ -215,6 +231,18 @@ public class WorldController {
 		this.controls.addButton(fireButton);
 	}
 
+	public JungleWorld getJungleWorld() {
+		return jungleWorld;
+	}
+
+	public void setJungleWorld(JungleWorld jungleWorld) {
+		this.jungleWorld = jungleWorld;
+	}
+
+	public void setControls(ControlsLayer controls) {
+		this.controls = controls;
+	}
+
 	public ControlsLayer getControls() {
 		return this.controls;
 	}
@@ -285,6 +313,14 @@ public class WorldController {
 	}
 	
 	public boolean isEndOfTurn(){
-		return this.jungleWorld.getCurrentWeapon().isExploded();
+		return this.jungleWorld.isEndOfTurn();
+	}
+	
+	public List<PlayerController> getPlayerControllers() {
+		return playerControllers;
+	}
+
+	public void setPlayerControllers(List<PlayerController> playerControllers) {
+		this.playerControllers = playerControllers;
 	}
 }

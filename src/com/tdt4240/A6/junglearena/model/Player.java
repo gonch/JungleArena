@@ -6,6 +6,14 @@ public class Player {
 	private String name;
 	private int id;
 	private GameCharacter character;
+	
+
+	public Player(String name, int id, GameCharacter lion) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.character = lion;
+	}
 
 	public String getName() {
 		return name;
@@ -29,12 +37,5 @@ public class Player {
 
 	public void setCharacter(GameCharacter character) {
 		this.character = character;
-	}
-
-	public Player(String name, int id, GameCharacter lion) {
-		super();
-		this.name = name;
-		this.id = id;
-		this.character = lion;
 	}
 }
