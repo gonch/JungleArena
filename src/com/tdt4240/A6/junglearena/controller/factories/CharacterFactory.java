@@ -20,7 +20,8 @@ public class CharacterFactory {
 	}
 
 	/**
-	 * Load all characters from the according package. 
+	 * Load all characters from the according package.
+	 * 
 	 * @param pkgPath
 	 */
 	private void loadCharacters(String pkgPath) {
@@ -46,7 +47,8 @@ public class CharacterFactory {
 	}
 
 	/**
-	 * @param type of character; Use getCharacters() and chose one.
+	 * @param type
+	 *            of character; Use getCharacters() and chose one.
 	 * @param health
 	 * @param name
 	 * @param pos

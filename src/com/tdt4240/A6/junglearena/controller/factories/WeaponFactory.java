@@ -18,7 +18,8 @@ public class WeaponFactory {
 	}
 
 	/**
-	 * Load all weapons from the according package. 
+	 * Load all weapons from the according package.
+	 * 
 	 * @param pkgPath
 	 */
 	private void loadWeapons(String pkgPath) {
@@ -43,9 +44,9 @@ public class WeaponFactory {
 		return copyOfWeapons;
 	}
 
-	
 	/**
-	 * @param type of weapon; Use getWeapons() and chose one.
+	 * @param type
+	 *            of weapon; Use getWeapons() and chose one.
 	 * @param damage
 	 * @param name
 	 * @param skin
