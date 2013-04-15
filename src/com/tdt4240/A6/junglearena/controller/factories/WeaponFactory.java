@@ -10,11 +10,20 @@ import com.tdt4240.A6.junglearena.model.Weapons.*;
  */
 public class WeaponFactory {
 	private static List<String> weapons;
-	private final String pkgPath = "com.tdt4240.A6.junglearena.model.Weapons";
+	private final static String pkgPath = "com.tdt4240.A6.junglearena.model.Weapons";
+	private static final WeaponFactory instance = new WeaponFactory();
 
-	public WeaponFactory() {
+	private WeaponFactory() {
+
+	}
+
+	/**
+	 * @return the instance of this Class (Singelton)
+	 */
+	public static WeaponFactory getInstance() {
 		weapons = new ArrayList<String>();
 		loadWeapons(pkgPath);
+		return instance;
 	}
 
 	/**
@@ -22,7 +31,7 @@ public class WeaponFactory {
 	 * 
 	 * @param pkgPath
 	 */
-	private void loadWeapons(String pkgPath) {
+	private static void loadWeapons(String pkgPath) {
 		Class<?>[] classes = ClassReader.readFromPackage(pkgPath);
 		for (Class<?> c : classes) {
 			String[] fullClassName = c.getName().split("\\.");

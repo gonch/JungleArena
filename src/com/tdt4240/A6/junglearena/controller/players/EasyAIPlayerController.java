@@ -34,7 +34,7 @@ public class EasyAIPlayerController extends PlayerController {
 			// choose random values for power
 			float power = (float)Math.random()*2000f;
 			float angle = (float)Math.PI/2f*3f;
-			WeaponFactory weaponFactory = new WeaponFactory();
+			WeaponFactory weaponFactory = WeaponFactory.getInstance();
 			Weapon weapon = weaponFactory.createWeapon("bomb", 100,"bomb", "bomb", 10);//TODO
 			// shot
 			this.getWorldController().shot(power, angle, weapon);

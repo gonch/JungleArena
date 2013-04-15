@@ -70,7 +70,7 @@ public class GameScreen implements Screen{
 		// initialize players and characters
 		List<PlayerController> playerControllers = new ArrayList<PlayerController>();
 
-		CharacterFactory characterFactory = new CharacterFactory();
+		CharacterFactory characterFactory = CharacterFactory.getInstance();
 		GameCharacter gameCharacter1 = characterFactory.createCharacter(this.context.getNameChar1(), 100,
 				this.context.getNameChar1(), new Vector2(0, 0), this.context.getNameChar1());
 		Player player1 = new Player(this.context.getNamePlayer1(), 1, gameCharacter1);
