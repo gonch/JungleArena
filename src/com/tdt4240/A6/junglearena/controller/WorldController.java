@@ -282,7 +282,7 @@ public class WorldController {
 		}
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
-		WeaponFactory weaponFactory = new WeaponFactory();
+		WeaponFactory weaponFactory = WeaponFactory.getInstance();
 		Weapon currentWeapon = weaponFactory.createWeapon("bomb", 10,
 				"The Bombz", "bombskin", 1);
 		currentWeapon.setBody(body);
