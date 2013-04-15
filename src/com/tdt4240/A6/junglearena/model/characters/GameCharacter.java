@@ -1,17 +1,19 @@
 package com.tdt4240.A6.junglearena.model.characters;
 
 import com.badlogic.gdx.math.Vector2;
-import com.tdt4240.A6.junglearena.model.Entity;
+import com.tdt4240.A6.junglearena.model.entities.Entity;
+import com.tdt4240.A6.junglearena.utils.Constants;
 
-public class Character extends Entity{
-	private int health;
+public class GameCharacter extends Entity{
+	private float health;
 	private String name;
 	private Vector2 position;
 	private String skin;
 	private Vector2 size;
 	private Vector2 centre;
+	private boolean collided;
 
-	public Character(int health, String name, Vector2 pos, String skin) {
+	public GameCharacter(float health, String name, Vector2 pos, String skin) {
 		super();
 		this.health = health;
 		this.name = name;
@@ -19,13 +21,14 @@ public class Character extends Entity{
 		this.skin = skin;
 		this.setSize(new Vector2(50f,50f));
 		this.centre = new Vector2(position.x + size.x/2f,position.y + size.y/2);
+		this.collided = false;
 	}
 
-	public int getHealth() {
+	public float getHealth() {
 		return health;
 	}
 
-	public void setHealth(int health) {
+	public void setHealth(float health) {
 		this.health = health;
 	}
 
@@ -64,10 +67,31 @@ public class Character extends Entity{
 	public Vector2 getCentre(){
 		return new Vector2(position.x + size.x/2f,position.y + size.y/2);
 	}
+	
+	public void setCentre(Vector2 centre) {
+		this.centre = centre;
+	}
+
+	public boolean isCollided() {
+		return collided;
+	}
+
+	public void setCollided(boolean collided) {
+		this.collided = collided;
+	}
 
 	@Override
 	public void collisionHappened() {
-		
+		this.setCollided(true);
 	}
-
+	
+	@Override
+	public void update(float dt){
+		if (this.getBody() != null) {
+			this.centre.x = this.getBody().getPosition().x;
+			this.centre.y = this.getBody().getPosition().y;
+			this.position.x = this.centre.x - this.size.x / 2f;
+			this.position.y = this.centre.y - this.size.y / 2f;
+		}
+	}
 }
