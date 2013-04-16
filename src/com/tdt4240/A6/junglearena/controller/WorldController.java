@@ -154,18 +154,6 @@ public class WorldController {
 
 		// Define the shape
 		PolygonShape polygonShape = new PolygonShape();
-		// polygonShape.setAsBox(hx, hy, center, angle)
-//		Vector2[] vertices = new Vector2[4];
-//		vertices[0] = new Vector2(character.getPosition().x,
-//				character.getPosition().y);
-//		vertices[1] = new Vector2(character.getPosition().x,
-//				character.getPosition().y + character.getSize().y);
-//		vertices[2] = new Vector2(character.getPosition().x
-//				+ character.getSize().x, character.getPosition().y
-//				+ character.getSize().y);
-//		vertices[3] = new Vector2(character.getPosition().x
-//				+ character.getSize().x, character.getPosition().y);
-		// polygonShape.set(vertices );
 		polygonShape.setAsBox(character.getSize().x/2 ,
 				character.getSize().y/2 );
 
@@ -277,8 +265,6 @@ public class WorldController {
 			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f,5f));
 		} else {
 			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f,5f));
-
-			// bodyDef.position.set(charPosition.cpy().add(charSize));
 		}
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
@@ -288,7 +274,6 @@ public class WorldController {
 		currentWeapon.setBody(body);
 		this.jungleWorld.setCurrentWeapon(currentWeapon);
 		body.setUserData(currentWeapon);
-		// angle = 3*Math.PI/4;
 		float scaleFactor = 100000000000000000000f;
 		float vx = (float) (power * Math.cos((float) angle)) * scaleFactor;
 		float vy = (float) (power * Math.sin((float) angle)) * scaleFactor;

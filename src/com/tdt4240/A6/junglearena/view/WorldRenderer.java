@@ -25,7 +25,7 @@ public class WorldRenderer {
 	
 
 	/** Textures **/
-	private Texture tankTexture;
+	private Texture tank1Texture,tank2Texture;
 	private Texture targetTexture;
 	
 	private SpriteBatch spriteBatch;
@@ -58,7 +58,9 @@ public class WorldRenderer {
 	}
 
 	private void loadTextures() {
-		tankTexture = new Texture(Gdx.files.internal("models/elephant.png"));
+		tank1Texture = new Texture(Gdx.files.internal("models/"+jungleWorld.getPlayer1().getCharacter().getName().toLowerCase()+".png"));
+		tank2Texture = new Texture(Gdx.files.internal("models/"+jungleWorld.getPlayer2().getCharacter().getName().toLowerCase()+".png"));
+
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
 	}
 
@@ -75,10 +77,10 @@ public class WorldRenderer {
 		GameCharacter ch1 = player1.getCharacter();
 		GameCharacter ch2 = player2.getCharacter();
 
-		Sprite leftSprite = new Sprite(tankTexture); 
-		leftSprite.flip(true, false);//now the second tank faces to the left
-		spriteBatch.draw(tankTexture, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
-		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
+		Sprite rightSprite = new Sprite(tank2Texture); 
+		rightSprite.flip(true, false);//now the second tank faces to the left
+		spriteBatch.draw(tank1Texture, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
+		spriteBatch.draw(rightSprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
 	}	
 	
 	private void drawControls(){

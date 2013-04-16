@@ -22,7 +22,7 @@ public class HardAIPlayerController extends PlayerController{
 
 	@Override
 	public void chooseShootingParameters(float dt) {
-		
+		//to implement a clever logic
 	}
 
 }

@@ -2,6 +2,7 @@ package com.tdt4240.A6.junglearena.controller.players;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -51,7 +52,9 @@ public class HumanPlayerController extends PlayerController implements InputProc
 		Vector2 targetCentre = controls.getTarget().getCentre();
 		Vector2 charPosition = character.getPosition();
 		Vector2 charSize = character.getSize();
-		double angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
+		double angle = MathUtils.atan2((charCentre.y - targetCentre.y) , (charCentre.x - targetCentre.x));
+		 angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
+
 		this.worldController.shot(power, angle, null);// TODO
 	}
 
@@ -93,15 +96,13 @@ public class HumanPlayerController extends PlayerController implements InputProc
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		if (this.isMyTurn()) {
 			if (this.worldController.getControls().getTarget().isSelected()) {
-				this.worldController.getControls().getTarget()
-						.setSelected(false);
+				this.worldController.getControls().getTarget().setSelected(false);
 			}
 			if (this.worldController.getControls().getFireButton().isSelected()) {
-				this.worldController.getControls().getFireButton()
-						.setSelected(false);
-				this.worldController.getControls().getPowerBar()
-						.setSelected(false);
+				this.worldController.getControls().getFireButton().setSelected(false);
+				this.worldController.getControls().getPowerBar().setSelected(false);
 				this.readyToshot();
+//				this.setMyTurn(false);
 			}
 		}
 		return true;

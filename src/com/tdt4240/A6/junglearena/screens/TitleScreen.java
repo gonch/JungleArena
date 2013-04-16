@@ -28,7 +28,7 @@ public class TitleScreen implements Screen, InputProcessor {
 	protected static final String AUTO_PLAYER = "C_Player";
 	protected static final String PLAYER2 = "Player 2";
 	private final String SINGLE_PLAY = "Single Player";
-	private final String TWO_PLAY = "Two Player";
+	private final String TWO_PLAY = "Two Players";
 
 	private ScreenRenderer screenRenderer;
 	private Game game;

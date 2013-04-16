@@ -31,7 +31,6 @@ public class CoupleOfEntitiesFactory {
 	public CoupleOfEntities createCoupleOfEntities(Entity e1, Entity e2) {
 		Class<? extends Entity> e1Clazz = e1.getClass();
 		Class<? extends Entity> e2Clazz = e2.getClass();
-		System.out.println(e1.toString() + "," + e2.toString());
 		CoupleOfEntities entities = null;
 		if (Weapon.class.isAssignableFrom(e1Clazz)) {
 			if (GameCharacter.class.isAssignableFrom(e2Clazz)) {

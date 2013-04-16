@@ -15,6 +15,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
+import com.tdt4240.A6.junglearena.controller.factories.PlayerControllerFactory;
 import com.tdt4240.A6.junglearena.controller.players.*;
 import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
@@ -97,17 +98,16 @@ public class GameScreen implements Screen{
 		this.worldRenderer = new WorldRenderer(this.jungleWorld);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
 		this.gameInfoRenderer = new GameInfoRenderer(jungleWorld);
-		// Gdx.input.setInputProcessor(new GestureDetector(this));
-		// Gdx.input.setInputProcessor(this);
 		this.controls = this.worldController.getControls();
 		this.controlsRenderer = new ControlsRenderer(controls);
 		
 		//initialize player controllers
-		PlayerController playerController = new HumanPlayerController(player1, this.worldController);
+		//player1 is always a human
+		PlayerController playerController = PlayerControllerFactory.getInstance().createPlayerController("human",player1, worldController);
 		playerController.setMyTurn(true);//for default player1 starts
 		playerControllers.add(playerController);
-		//TODO: factories for player
-		playerController = new EasyAIPlayerController(player2, this.worldController);
+		//player2 depends on the user selection in the previous screens
+		playerController = PlayerControllerFactory.getInstance().createPlayerController(this.context.getDifficulty(),player2, worldController);
 		playerControllers.add(playerController);
 		this.worldController.setPlayerControllers(playerControllers);
 	}

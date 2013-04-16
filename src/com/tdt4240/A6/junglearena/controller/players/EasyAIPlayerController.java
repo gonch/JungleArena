@@ -1,5 +1,6 @@
 package com.tdt4240.A6.junglearena.controller.players;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
 import com.tdt4240.A6.junglearena.model.Player;
@@ -32,8 +33,9 @@ public class EasyAIPlayerController extends PlayerController {
 		this.thinkingTime += dt;
 		if (thinkingTime >= Constants.AIThinkingTime) {
 			// choose random values for power
-			float power = (float)Math.random()*2000f;
-			float angle = (float)Math.PI/2f*3f;
+			float power = MathUtils.random(1000000000000000f, 100000000000000000f);
+			double angle = MathUtils.random(0, 360);
+			angle = Math.PI;
 			WeaponFactory weaponFactory = WeaponFactory.getInstance();
 			Weapon weapon = weaponFactory.createWeapon("bomb", 100,"bomb", "bomb", 10);//TODO
 			// shot
