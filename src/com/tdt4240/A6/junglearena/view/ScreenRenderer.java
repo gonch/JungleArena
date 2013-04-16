@@ -18,7 +18,7 @@ public class ScreenRenderer {
 		this.spriteBatch = new SpriteBatch();
 		this.font = new BitmapFont();
 		this.welcomeText = "Welcome to Jungle Arena";
-		backgroundTexture = new Texture(Gdx.files.internal("desert.jpeg"));
+		//backgroundTexture = new Texture(Gdx.files.internal("desert.jpeg"));
 	}
 
 	public void render(Stage stage) {
