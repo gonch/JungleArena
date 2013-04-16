@@ -67,7 +67,9 @@ public class TitleScreen implements Screen, InputProcessor {
 		twoPlayerButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new CharacterScreen(game, new Context(false,PLAYER1,PLAYER2)));
+				Context context = new Context(false,PLAYER1,PLAYER2);
+				context.setDifficulty("human");
+				game.setScreen(new CharacterScreen(game, context));
 			}
 		});
 	}
