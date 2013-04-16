@@ -36,7 +36,7 @@ public class CharacterScreen implements Screen, InputProcessor {
 		this.context = context;
 		next = new TextButton("NEXT", MySkin.getMediumButtonSkin());
 		next.align(Align.right);// TODO why is the opposite
-		CharacterFactory f = CharacterFactory.getInstance(); 
+		CharacterFactory f = CharacterFactory.getInstance();
 		charactersNames = f.getCharacters();
 		buttonsP1 = new TextButton[charactersNames.length];
 		buttonsP2 = new TextButton[charactersNames.length];
@@ -45,7 +45,7 @@ public class CharacterScreen implements Screen, InputProcessor {
 
 	public Table generateTable() {
 		Table table = new Table();
-		//table.setFillParent(true);
+		// table.setFillParent(true);
 		table.pad(0);
 		// table.setWidth(500);// TODO HARD CODED
 		TextButton player1 = new TextButton(context.getNamePlayer1(), MySkin.getMediumButtonSkin());
@@ -82,11 +82,9 @@ public class CharacterScreen implements Screen, InputProcessor {
 		for (int i = 0; i < charactersNames.length; i++) {
 
 			if (i == 0) {
-				buttonsP1[i] = new TextButton(charactersNames[i],
-						MySkin.getHugeRedButtonSkin());
+				buttonsP1[i] = new TextButton(charactersNames[i], MySkin.getHugeRedButtonSkin());
 			} else {
-				buttonsP1[i] = new TextButton(charactersNames[i],
-						MySkin.getHugeButtonSkin());
+				buttonsP1[i] = new TextButton(charactersNames[i], MySkin.getHugeButtonSkin());
 			}
 			buttonsP1[i].addListener(new ClickListener() {
 				@Override
@@ -96,13 +94,11 @@ public class CharacterScreen implements Screen, InputProcessor {
 																	// selected
 						if (event.getListenerActor().equals(buttonsP1[j])) {
 							selected1 = j;
-							buttonsP1[j].setStyle(MySkin.getHugeRedButtonSkin()
-									.get("default", TextButtonStyle.class));
+							buttonsP1[j].setStyle(MySkin.getHugeRedButtonSkin().get("default", TextButtonStyle.class));
 							buttonsP1[j].padRight(25);
 						} else// is not the buttons !select
 						{
-							buttonsP1[j].setStyle(MySkin.getHugeButtonSkin()
-									.get("default", TextButtonStyle.class));
+							buttonsP1[j].setStyle(MySkin.getHugeButtonSkin().get("default", TextButtonStyle.class));
 							buttonsP1[j].padRight(25);
 						}
 					}
@@ -112,11 +108,9 @@ public class CharacterScreen implements Screen, InputProcessor {
 
 		for (int i = 0; i < charactersNames.length; i++) {
 			if (i == 0) {
-				buttonsP2[i] = new TextButton(charactersNames[i],
-						MySkin.getHugeRedButtonSkin());
+				buttonsP2[i] = new TextButton(charactersNames[i], MySkin.getHugeRedButtonSkin());
 			} else {
-				buttonsP2[i] = new TextButton(charactersNames[i],
-						MySkin.getHugeButtonSkin());
+				buttonsP2[i] = new TextButton(charactersNames[i], MySkin.getHugeButtonSkin());
 			}
 			buttonsP2[i].addListener(new ClickListener() {
 				@Override
@@ -126,13 +120,11 @@ public class CharacterScreen implements Screen, InputProcessor {
 						// the button selected
 						if (event.getListenerActor().equals(buttonsP2[i])) {
 							selected2 = i;
-							buttonsP2[i].setStyle(MySkin.getHugeRedButtonSkin()
-									.get("default", TextButtonStyle.class));
+							buttonsP2[i].setStyle(MySkin.getHugeRedButtonSkin().get("default", TextButtonStyle.class));
 							buttonsP2[i].padLeft(25);
 						} else// is not the buttons !select
 						{
-							buttonsP2[i].setStyle(MySkin.getHugeButtonSkin()
-									.get("default", TextButtonStyle.class));
+							buttonsP2[i].setStyle(MySkin.getHugeButtonSkin().get("default", TextButtonStyle.class));
 							buttonsP2[i].padLeft(25);
 						}
 					}

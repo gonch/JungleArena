@@ -33,6 +33,7 @@ public class FactoryTests {
 	public void CharacterTest() {
 		// test driver
 		CharacterFactory cf = CharacterFactory.getInstance();
+//		CharacterFactory cf = new CharacterFactory();
 		String[] ss = cf.getCharacters();
 		for (String s : ss) {
 			System.out.println(s);
