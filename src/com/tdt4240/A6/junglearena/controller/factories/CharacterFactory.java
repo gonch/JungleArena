@@ -91,7 +91,7 @@ public class CharacterFactory {
 		characters = new ArrayList<String>();
 		characters.add("Elephant");
 		characters.add("Monkey");
-		characters.add("Turtle");
+		characters.add("Lion");
 	}
 
 
