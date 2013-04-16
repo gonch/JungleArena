@@ -61,8 +61,8 @@ public class WorldRenderer {
 
 
 	private void loadTextures(Context context) {
-		texturePlayerOne = new Texture(Gdx.files.internal("models/"+context.getNameChar1()+".png"));
-		texturePlayerTwo = new Texture(Gdx.files.internal("models/"+context.getNameChar2()+".png"));
+		texturePlayerOne = new Texture(Gdx.files.internal("models/"+context.getNameChar1().toLowerCase()+".png"));
+		texturePlayerTwo = new Texture(Gdx.files.internal("models/"+context.getNameChar2().toLowerCase()+".png"));
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
 	}
 
@@ -80,10 +80,10 @@ public class WorldRenderer {
 		GameCharacter ch2 = player2.getCharacter();
 
 
-		Sprite leftSprite = new Sprite(texturePlayerTwo); 
-		leftSprite.flip(true, false);//now the second tank faces to the left
+		Sprite rightprite = new Sprite(texturePlayerTwo); 
+		rightprite.flip(true, false);//now the second tank faces to the left
 		spriteBatch.draw(texturePlayerOne, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
-		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
+		spriteBatch.draw(rightprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
 	}	
 	
 	private void drawControls(){
