@@ -94,7 +94,7 @@ public class GameScreen implements Screen{
 		this.worldController.generateBox2DWorld();
 		this.worldController.setCharacterStartingPositions();
 		//initialize the renderers
-		this.worldRenderer = new WorldRenderer(this.jungleWorld);
+		this.worldRenderer = new WorldRenderer(this.jungleWorld, this.context);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
 		this.gameInfoRenderer = new GameInfoRenderer(jungleWorld);
 		// Gdx.input.setInputProcessor(new GestureDetector(this));
