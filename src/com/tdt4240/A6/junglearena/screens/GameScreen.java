@@ -89,13 +89,13 @@ public class GameScreen implements Screen{
 		
 		//initialize the map
 	
-		this.mapController = new MapController("jungle");// TODO hardcoded
+		this.mapController = new MapController(context.getEnvironment());// TODO hardcoded
 		this.mapController.generateMap();
 		this.jungleWorld.setMap(this.mapController.getMap());
 		this.worldController.generateBox2DWorld();
 		this.worldController.setCharacterStartingPositions();
 		//initialize the renderers
-		this.worldRenderer = new WorldRenderer(this.jungleWorld);
+		this.worldRenderer = new WorldRenderer(this.jungleWorld, this.context);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
 		this.gameInfoRenderer = new GameInfoRenderer(jungleWorld);
 		this.controls = this.worldController.getControls();

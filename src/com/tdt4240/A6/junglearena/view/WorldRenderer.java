@@ -7,9 +7,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
-import com.tdt4240.A6.junglearena.model.Player;
+import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
+import com.tdt4240.A6.junglearena.model.Player;
+import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 public class WorldRenderer {
 
@@ -25,7 +26,8 @@ public class WorldRenderer {
 	
 
 	/** Textures **/
-	private Texture tank1Texture,tank2Texture;
+	private Texture texturePlayerOne;
+	private Texture texturePlayerTwo;
 	private Texture targetTexture;
 	
 	private SpriteBatch spriteBatch;
@@ -34,7 +36,7 @@ public class WorldRenderer {
 	private float ppuX; // pixels per unit on the X axis
 	private float ppuY; // pixels per unit on the Y axis
 
-	public WorldRenderer(JungleWorld world) {
+	public WorldRenderer(JungleWorld world, Context context) {
 		this.jungleWorld = world;
 		this.cam = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		this.cam.position.set(CAMERA_WIDTH / 2f, CAMERA_HEIGHT / 2f, 0);
@@ -43,7 +45,7 @@ public class WorldRenderer {
 		this.ppuY = 10 / CAMERA_WIDTH;
 		spriteBatch = new SpriteBatch();
 		this.shapeRenderer = new ShapeRenderer();
-		loadTextures();
+		loadTextures(context);
 		this.debugRenderer = new Box2DDebugRenderer();
 	}
 
@@ -57,10 +59,10 @@ public class WorldRenderer {
 		ppuY = height / CAMERA_HEIGHT;
 	}
 
-	private void loadTextures() {
-		tank1Texture = new Texture(Gdx.files.internal("models/"+jungleWorld.getPlayer1().getCharacter().getName().toLowerCase()+".png"));
-		tank2Texture = new Texture(Gdx.files.internal("models/"+jungleWorld.getPlayer2().getCharacter().getName().toLowerCase()+".png"));
 
+	private void loadTextures(Context context) {
+		texturePlayerOne = new Texture(Gdx.files.internal("models/"+context.getNameChar1()+".png"));
+		texturePlayerTwo = new Texture(Gdx.files.internal("models/"+context.getNameChar2()+".png"));
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
 	}
 
@@ -77,10 +79,11 @@ public class WorldRenderer {
 		GameCharacter ch1 = player1.getCharacter();
 		GameCharacter ch2 = player2.getCharacter();
 
-		Sprite rightSprite = new Sprite(tank2Texture); 
-		rightSprite.flip(true, false);//now the second tank faces to the left
-		spriteBatch.draw(tank1Texture, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
-		spriteBatch.draw(rightSprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
+
+		Sprite leftSprite = new Sprite(texturePlayerTwo); 
+		leftSprite.flip(true, false);//now the second tank faces to the left
+		spriteBatch.draw(texturePlayerOne, ch1.getPosition().x, ch1.getPosition().y,ch1.getSize().x,ch1.getSize().y);
+		spriteBatch.draw(leftSprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
 	}	
 	
 	private void drawControls(){
