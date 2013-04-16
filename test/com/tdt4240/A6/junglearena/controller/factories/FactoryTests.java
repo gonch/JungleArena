@@ -10,7 +10,7 @@ public class FactoryTests {
 
 	@Test
 	public void WeaponFactory() {
-		WeaponFactory wf = new WeaponFactory();
+		WeaponFactory wf = WeaponFactory.getInstance();
 		String[] ss = wf.getWeapons();
 		for (String s : ss) {
 			System.out.println("Weapon: " + s);
@@ -32,7 +32,7 @@ public class FactoryTests {
 	@Test
 	public void CharacterTest() {
 		// test driver
-		CharacterFactory cf = new CharacterFactory();
+		CharacterFactory cf = CharacterFactory.getInstance();
 		String[] ss = cf.getCharacters();
 		for (String s : ss) {
 			System.out.println(s);

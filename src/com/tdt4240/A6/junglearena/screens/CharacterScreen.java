@@ -36,8 +36,7 @@ public class CharacterScreen implements Screen, InputProcessor {
 		this.context = context;
 		next = new TextButton("NEXT", MySkin.getMediumButtonSkin());
 		next.align(Align.right);// TODO why is the opposite
-		CharacterFactory f = new CharacterFactory(); // TODO implementation of
-														// singleton
+		CharacterFactory f = CharacterFactory.getInstance(); 
 		charactersNames = f.getCharacters();
 		buttonsP1 = new TextButton[charactersNames.length];
 		buttonsP2 = new TextButton[charactersNames.length];
