@@ -22,7 +22,10 @@ public class WeaponFactory {
 	 */
 	public static WeaponFactory getInstance() {
 		weaponNames = new ArrayList<String>();
-		loadWeapons(pkgPath);
+		weaponNames.add("Bomb");
+		weaponNames.add("Rocket");
+		weaponNames.add("Gun");	
+//		loadWeapons(pkgPath);
 		return instance;
 	}
 
@@ -53,11 +56,8 @@ public class WeaponFactory {
 		return copyOfWeapons;
 	}
 	
-	public List<String> getWeaponNames(){
-		this.weaponNames.add("Bomb");
-		this.weaponNames.add("Rocket");
-		this.weaponNames.add("Gun");
-		return this.weaponNames;
+	public static List<String> getWeaponNames(){
+		return weaponNames;
 	}
 
 	/**
@@ -101,8 +101,7 @@ public class WeaponFactory {
 				try {
 					@SuppressWarnings("unchecked")
 					Class<Weapon> weapon = (Class<Weapon>) Class.forName(className);
-					Weapon newInstanceOfWeapon = weapon.getConstructor(Integer.TYPE, String.class, String.class,
-							Integer.TYPE).newInstance();
+					Weapon newInstanceOfWeapon = weapon.getConstructor().newInstance();
 					return newInstanceOfWeapon;
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -112,5 +111,4 @@ public class WeaponFactory {
 		System.err.print("Invalid Weapon! Can not create \"" + className + "\"! Created default instead.");
 		return new Bomb();
 	}
-
 }

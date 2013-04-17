@@ -20,6 +20,7 @@ import com.tdt4240.A6.junglearena.controller.players.PlayerController;
 import com.tdt4240.A6.junglearena.listeners.CollisionListener;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 import com.tdt4240.A6.junglearena.model.Player;
+import com.tdt4240.A6.junglearena.model.Weapons.Bomb;
 import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
 import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
@@ -47,9 +48,9 @@ public class WorldController {
 		this.controls.getTarget().update(dt);
 		this.controls.getPowerBar().update(dt);
 		playerControllers.get(0).chooseShootingParameters(dt); // current Player
-		if (this.jungleWorld.getCurrentWeapon() != null) {
-			this.jungleWorld.getCurrentWeapon().update(dt);
-		}
+//		if (this.jungleWorld.getCurrentWeapon() != null) {
+//			this.jungleWorld.getCurrentWeapon().update(dt);
+//		}
 		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
 		// this.jungleWorld.getPlayer1().getCharacter().update(dt);
 		// this.jungleWorld.getPlayer2().getCharacter().update(dt);
@@ -59,7 +60,7 @@ public class WorldController {
 	public void startNewTurn() {
 		this.jungleWorld.swapPlayers();
 		this.swapPlayerControllers();
-		this.jungleWorld.setCurrentWeapon(new Weapon());
+		this.jungleWorld.setCurrentWeapon(new Bomb());
 		this.initializeControls();
 	}
 
@@ -83,14 +84,7 @@ public class WorldController {
 	public void angleTouched(float screenX, float screenY) {
 		Vector2 origin = this.jungleWorld.getCurrentPlayer().getCharacter().getCentre();
 		float radius = Constants.distanceFromTarget;
-		// float targetCircleX =
-		// MathPhysicsUtils.calculateXCircleInterpolationGivenY(origin.x,
-		// origin.y, screenY, radius, screenX).x;
 		Vector2 pos = MathPhysicsUtils.calculateXCircleInterpolation(origin.x, origin.y, screenX, screenY, radius);
-
-		// if(origin.x >= screenX){
-		// targetCircleX *= -1;
-		// }
 		this.controls.getTarget().setPosition(pos);
 	}
 
@@ -120,9 +114,7 @@ public class WorldController {
 
 		generateBox2DCharacter(leftChar);
 		generateBox2DCharacter(rightChar);
-
-		initializeControls();// TODO to be called from a separate method
-
+		initializeControls();
 	}
 
 	/**
@@ -148,10 +140,6 @@ public class WorldController {
 		PolygonShape polygonShape = new PolygonShape();
 		polygonShape.setAsBox(character.getSize().x / 2, character.getSize().y / 2);
 
-		// Fixture fixture = body.createFixture(polygonShape, 0);
-		CircleShape circleShape = new CircleShape();
-		circleShape.setPosition(character.getCentre());
-		circleShape.setRadius(character.getSize().x / 2);
 		FixtureDef fixDef = new FixtureDef();
 		fixDef.shape = polygonShape;
 		fixDef.friction = 1;
@@ -159,6 +147,7 @@ public class WorldController {
 		fixDef.density = 0;
 		Fixture fixture = body.createFixture(fixDef);
 		polygonShape.dispose();
+		
 	}
 
 	/**
@@ -201,8 +190,14 @@ public class WorldController {
 		Player currentPlayer = this.jungleWorld.getCurrentPlayer();
 		GameCharacter currentCharacter = currentPlayer.getCharacter();
 		Vector2 characterCentre = currentCharacter.getCentre();
-		GameButton target = new GameButton("target", characterCentre.add(Constants.distanceFromTarget, 0), new Vector2(
+		GameButton target = null;
+		if(currentPlayer.getId() == 1){
+			target = new GameButton("target", characterCentre.add(Constants.distanceFromTarget, 0), new Vector2(
+					70, 70));
+		}else{
+			target = new GameButton("target", characterCentre.sub(Constants.distanceFromTarget, 0), new Vector2(
 				70, 70));
+		}
 		this.controls.addButton(target);
 		this.controls.setTarget(target);
 
@@ -211,8 +206,8 @@ public class WorldController {
 		this.controls.setPowerBar(powerBar);
 		this.controls.addButton(powerBar);
 
-		GameButton fireButton = new GameButton("fireButton", new Vector2(Gdx.graphics.getWidth() - 50, 50),
-				new Vector2(50, 50));
+		GameButton fireButton = new GameButton("fireButton", new Vector2(Gdx.graphics.getWidth() - 150, 30),
+				new Vector2(80, 80));
 		this.controls.setFireButton(fireButton);
 		this.controls.addButton(fireButton);
 
@@ -263,9 +258,9 @@ public class WorldController {
 		if (charCentre.x < targetCentre.x) {
 			// the second add is done in order to avoid collision before the
 			// shot
-			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f, 5f));
+			bodyDef.position.set(charPosition.cpy().add(charSize).add(10f, 10f));
 		} else {
-			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f, 5f));
+			bodyDef.position.set(charPosition.cpy().add(charSize).add(-10f, -10f));
 		}
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);

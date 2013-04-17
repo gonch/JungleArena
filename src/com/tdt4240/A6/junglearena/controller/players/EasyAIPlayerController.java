@@ -34,7 +34,7 @@ public class EasyAIPlayerController extends PlayerController {
 		if (thinkingTime >= Constants.AIThinkingTime) {
 			// choose random values for power
 			float power = MathUtils.random(1000000000000000f, 100000000000000000f);
-			double angle = MathUtils.random(0, 360);
+			double angle = MathUtils.random(0, MathUtils.PI*2f);
 			angle = Math.PI;
 			// shot
 			this.getWorldController().shot(power, angle, "Rocket");

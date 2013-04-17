@@ -7,7 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
-import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
+import com.tdt4240.A6.junglearena.model.Weapons.*;
 import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 public class JungleWorld {
@@ -26,7 +26,7 @@ public class JungleWorld {
 		this.players.add(player2);
 		this.map = null;
 		this.setWorld(new World(new Vector2(0, -10), true));
-		this.currentWeapon = new Weapon();
+		this.currentWeapon = new Bomb();
 		this.allAvailableWeaponNames = new ArrayList<String>();
 	}
 

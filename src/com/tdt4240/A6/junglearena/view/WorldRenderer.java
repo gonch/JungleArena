@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
@@ -32,8 +33,8 @@ public class WorldRenderer {
 	private Texture texturePlayerOne;
 	private Texture texturePlayerTwo;
 	private Texture targetTexture;
-	private Map<String,Texture> weaponName2textures;
-	
+	private Map<String, Texture> weaponName2textures;
+
 	private SpriteBatch spriteBatch;
 	private int width;
 	private int height;
@@ -68,8 +69,8 @@ public class WorldRenderer {
 		texturePlayerTwo = new Texture(Gdx.files.internal("models/" + context.getNameChar2().toLowerCase() + ".png"));
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
 		this.weaponName2textures = new HashMap<String, Texture>();
-		for(String weaponName : this.jungleWorld.getAllAvailableWeaponNames()){
-			String textureLocation = "weapons/"+weaponName.toLowerCase()+".png";
+		for (String weaponName : this.jungleWorld.getAllAvailableWeaponNames()) {
+			String textureLocation = "weapons/" + weaponName.toLowerCase() + ".png";
 			Texture weaponTexture = new Texture(Gdx.files.internal(textureLocation));
 			this.weaponName2textures.put(weaponName, weaponTexture);
 		}
@@ -98,8 +99,8 @@ public class WorldRenderer {
 	private void drawWeapon() {
 		Weapon currentWeapon = this.jungleWorld.getCurrentWeapon();
 		if (currentWeapon != null && currentWeapon.getBody() != null) {
-			Texture weaponTexture = this.weaponName2textures.get(currentWeapon.getName());
-			spriteBatch.draw(weaponTexture,currentWeapon.getX(),currentWeapon.getY(),10,10);
+			Texture weaponTexture = this.weaponName2textures.get(currentWeapon.getName());	
+			spriteBatch.draw(weaponTexture, currentWeapon.getX(), currentWeapon.getY(), 30, 30);
 		}
 	}
 }

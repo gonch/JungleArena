@@ -6,8 +6,8 @@ public class Gun extends Weapon {
 		super();
 		super.setName("Gun");
 		super.setSkin("Gun");
-		super.setDamage(75);
-		super.setTimeBeforeExplosion(0f);
+		super.setDamage(10);
+		super.setTimeBeforeExplosion(0.1f);
 	}
 	public Gun(int damage, String name, String skin, int areaOfEffect) {
 		super(damage, name, skin, areaOfEffect);
@@ -15,8 +15,18 @@ public class Gun extends Weapon {
 	}
 	
 	@Override
-	public void update(float dt){
-		super.update(dt);
+	public void update(float dt) {
+		if (this.isCollided()) {
+			float time = this.getTimeBeforeExplosion();
+			this.setTimeBeforeExplosion(time -= dt);
+		}
+		if (this.getTimeBeforeExplosion() < 0) {
+			this.setExploded(true);
+		}
+		if (this.getBody() != null) {
+			this.getCentre().x = this.getBody().getPosition().x;
+			this.getCentre().y = this.getBody().getPosition().y;
+			this.setPosition(this.getCentre().x - this.getSize().x / 2f, this.getCentre().y - this.getSize().y / 2f);
+		}
 	}
-
 }

@@ -4,30 +4,23 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.World;
 import com.tdt4240.A6.junglearena.controller.WorldController;
-import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
-import com.tdt4240.A6.junglearena.model.JungleWorld;
 import com.tdt4240.A6.junglearena.model.Player;
-import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
 import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
 import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
+import com.tdt4240.A6.junglearena.model.gameControls.WeaponButton;
 
 public class HumanPlayerController extends PlayerController implements InputProcessor {
 
 	private WorldController worldController;
+	private String weaponSelected;
 
 	public HumanPlayerController(Player player, WorldController worldController) {
 		super(player);
 		Gdx.input.setInputProcessor(this);
 		this.worldController = worldController;
+		this.weaponSelected = "Gun";
 	}
 
 	public WorldController getWorldController() {
@@ -40,6 +33,9 @@ public class HumanPlayerController extends PlayerController implements InputProc
 
 	@Override
 	public void chooseShootingParameters(float dt) {
+//		if (this.isMyTurn()) {
+//			this.worldController.initializeControls();
+//		}
 		// the game waits until a touch input arrives
 	}
 
@@ -52,10 +48,10 @@ public class HumanPlayerController extends PlayerController implements InputProc
 		Vector2 targetCentre = controls.getTarget().getCentre();
 		Vector2 charPosition = character.getPosition();
 		Vector2 charSize = character.getSize();
-		double angle = MathUtils.atan2((charCentre.y - targetCentre.y) , (charCentre.x - targetCentre.x));
-		 angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
+		double angle = MathUtils.atan2((charCentre.y - targetCentre.y), (charCentre.x - targetCentre.x));
+		angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
 
-		this.worldController.shot(power, angle, "Rocket");// TODO
+		this.worldController.shot(power, angle, this.weaponSelected);
 	}
 
 	@Override
@@ -88,6 +84,12 @@ public class HumanPlayerController extends PlayerController implements InputProc
 				fireButton.setSelected(true);
 				fireButton.setReleased(false);
 			}
+			for (WeaponButton weaponButton : controls.getWeaponButtons()) {
+				if (weaponButton.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
+					this.weaponSelected = weaponButton.getButtonName();
+					weaponButton.setSelected(true);
+				}
+			}
 		}
 		return true;
 	}
@@ -102,7 +104,7 @@ public class HumanPlayerController extends PlayerController implements InputProc
 				this.worldController.getControls().getFireButton().setSelected(false);
 				this.worldController.getControls().getPowerBar().setSelected(false);
 				this.readyToshot();
-//				this.setMyTurn(false);
+				// this.setMyTurn(false);
 			}
 		}
 		return true;
