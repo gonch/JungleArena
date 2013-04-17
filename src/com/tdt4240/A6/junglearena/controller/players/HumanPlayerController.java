@@ -55,7 +55,7 @@ public class HumanPlayerController extends PlayerController implements InputProc
 		double angle = MathUtils.atan2((charCentre.y - targetCentre.y) , (charCentre.x - targetCentre.x));
 		 angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
 
-		this.worldController.shot(power, angle, null);// TODO
+		this.worldController.shot(power, angle, "Rocket");// TODO
 	}
 
 	@Override

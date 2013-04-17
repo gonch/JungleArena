@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
 import com.tdt4240.A6.junglearena.model.Player;
+import com.tdt4240.A6.junglearena.model.Weapons.Weapon;
 import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 
 public class WorldRenderer {
@@ -70,6 +71,7 @@ public class WorldRenderer {
 		debugRenderer.render(jungleWorld.getWorld(), cam.combined);
 		spriteBatch.begin();
 		drawTanks();
+		drawWeapon();
 		spriteBatch.end();
 	}
 
@@ -86,8 +88,9 @@ public class WorldRenderer {
 		spriteBatch.draw(rightprite, ch2.getPosition().x, ch2.getPosition().y,ch2.getSize().x,ch2.getSize().y);
 	}	
 	
-	private void drawControls(){
-//		spriteBatch.draw(targetTexture, );
+	
+	private void drawWeapon(){
+		Weapon currentWeapon = this.jungleWorld.getCurrentWeapon();
+		//TODO
 	}
-
 }

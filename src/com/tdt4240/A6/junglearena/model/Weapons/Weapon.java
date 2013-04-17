@@ -22,7 +22,9 @@ public class Weapon extends Entity {
 	public Weapon() {
 		this.isCollided = false;
 		this.isExploded = false;
-		this.timeBeforeExplosion = 3f;
+//		this.timeBeforeExplosion = 3f;
+		this.size = new Vector2(10, 10);
+		this.centre = new Vector2(this.getX() + this.getSize().x / 2f, this.getY() + this.getSize().y / 2f);
 	}
 
 	public Weapon(int damage, String name, String skin, int areaOfEffect) {
@@ -34,8 +36,7 @@ public class Weapon extends Entity {
 		this.setCollided(false);
 		this.setExploded(false);
 		this.timeBeforeExplosion = 3f;
-		this.size = new Vector2(10, 10);
-		this.centre = new Vector2(this.getX() + this.getSize().x / 2f, this.getY() + this.getSize().y / 2f);
+		
 	}
 
 	public Vector2 getCentre() {

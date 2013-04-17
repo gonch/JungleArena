@@ -25,6 +25,7 @@ import com.tdt4240.A6.junglearena.model.characters.GameCharacter;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
 import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
 import com.tdt4240.A6.junglearena.model.gameControls.PowerBar;
+import com.tdt4240.A6.junglearena.model.gameControls.WeaponButton;
 import com.tdt4240.A6.junglearena.utils.Constants;
 import com.tdt4240.A6.junglearena.utils.MathPhysicsUtils;
 
@@ -43,11 +44,6 @@ public class WorldController {
 	public void update(float dt) {
 		World world = this.jungleWorld.getWorld();
 		handleWeaponExplosion(world, dt);
-		// Weapon weapon = this.jungleWorld.getCurrentWeapon();
-		// if (weapon != null) {
-		// updateWeapon(weapon, dt);
-		// }
-		// updateWeapon(weapon, dt);
 		this.controls.getTarget().update(dt);
 		this.controls.getPowerBar().update(dt);
 		playerControllers.get(0).chooseShootingParameters(dt); //current Player
@@ -225,6 +221,17 @@ public class WorldController {
 				Gdx.graphics.getWidth() - 50, 50), new Vector2(50, 50));
 		this.controls.setFireButton(fireButton);
 		this.controls.addButton(fireButton);
+		
+		int i = 0;
+		List<WeaponButton> weaponButtons = new ArrayList<WeaponButton>();
+		for(String weaponString : WeaponFactory.getInstance().getWeapons()){			
+			//add a new weapon button for each available weapon
+			float positionX = Gdx.graphics.getWidth()/2f-100+60*i;
+			WeaponButton weaponButton = new WeaponButton(weaponString, new Vector2(positionX,10), new Vector2(50,50));
+			this.controls.getWeaponButtons().add(weaponButton);
+			i++;
+		}
+		
 	}
 
 	public JungleWorld getJungleWorld() {
@@ -246,7 +253,7 @@ public class WorldController {
 	/**
 	 * CREATES A NEW WEAPON AND SHOTS IT
 	 * */
-	public void shot(float power, double angle, Weapon weapon) {
+	public void shot(float power, double angle, String weaponString) {
 		GameCharacter character = this.jungleWorld.getCurrentPlayer()
 				.getCharacter();
 		Vector2 charCentre = character.getCentre();
@@ -269,8 +276,7 @@ public class WorldController {
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
 		WeaponFactory weaponFactory = WeaponFactory.getInstance();
-		Weapon currentWeapon = weaponFactory.createWeapon("bomb", 10,
-				"The Bombz", "bombskin", 1);
+		Weapon currentWeapon = weaponFactory.createWeapon(weaponString);
 		currentWeapon.setBody(body);
 		this.jungleWorld.setCurrentWeapon(currentWeapon);
 		body.setUserData(currentWeapon);

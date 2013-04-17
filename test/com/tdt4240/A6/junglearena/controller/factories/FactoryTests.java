@@ -11,7 +11,7 @@ public class FactoryTests {
 	@Test
 	public void WeaponFactory() {
 		WeaponFactory wf = WeaponFactory.getInstance();
-		String[] ss = wf.getWeapons();
+		String[] ss = wf.getWeaponsArray();
 		for (String s : ss) {
 			System.out.println("Weapon: " + s);
 		}

@@ -45,12 +45,19 @@ public class WeaponFactory {
 	/**
 	 * @return a deep copied list of the weapons available
 	 */
-	public String[] getWeapons() {
+	public String[] getWeaponsArray() {
 		String[] copyOfWeapons = new String[weapons.size()];
 		for (int i = 0; i < weapons.size(); i++) {
 			copyOfWeapons[i] = new String(weapons.get(i));
 		}
 		return copyOfWeapons;
+	}
+	
+	public List<String> getWeapons(){
+		this.weapons.add("Bomb");
+		this.weapons.add("Rocket");
+		this.weapons.add("Gun");
+		return this.weapons;
 	}
 
 	/**
@@ -79,6 +86,31 @@ public class WeaponFactory {
 		}
 		System.err.print("Invalid Weapon! Can not create \"" + className + "\"! Created default instead.");
 		return new Bomb(damage, name, skin, areaOfEffect);
+	}
+
+	/**
+	 * @param type
+	 *            of weapon; Use getWeapons() and chose one.
+	 * 
+	 * @return a new instance of the specified weapon
+	 */
+	public Weapon createWeapon(String type) {
+		String className = pkgPath + "." + type;
+		for (String s : weapons) {
+			if (s.equals(type)) {
+				try {
+					@SuppressWarnings("unchecked")
+					Class<Weapon> weapon = (Class<Weapon>) Class.forName(className);
+					Weapon newInstanceOfWeapon = weapon.getConstructor(Integer.TYPE, String.class, String.class,
+							Integer.TYPE).newInstance();
+					return newInstanceOfWeapon;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		System.err.print("Invalid Weapon! Can not create \"" + className + "\"! Created default instead.");
+		return new Bomb();
 	}
 
 }

@@ -36,10 +36,8 @@ public class EasyAIPlayerController extends PlayerController {
 			float power = MathUtils.random(1000000000000000f, 100000000000000000f);
 			double angle = MathUtils.random(0, 360);
 			angle = Math.PI;
-			WeaponFactory weaponFactory = WeaponFactory.getInstance();
-			Weapon weapon = weaponFactory.createWeapon("bomb", 100,"bomb", "bomb", 10);//TODO
 			// shot
-			this.getWorldController().shot(power, angle, weapon);
+			this.getWorldController().shot(power, angle, "Rocket");
 			// reset thinking time value
 			this.thinkingTime = 0f;
 		}

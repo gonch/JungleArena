@@ -12,6 +12,7 @@ public class ControlsLayer {
 	private GameButton target;
 	private PowerBar powerBar;
 	private GameButton fireButton;
+	private List<WeaponButton> weaponButtons;
 	
 	public ControlsLayer() {
 		super();
@@ -19,6 +20,15 @@ public class ControlsLayer {
 		this.target = new GameButton();
 		this.powerBar = new PowerBar();
 		this.fireButton = new GameButton();
+		this.weaponButtons = new ArrayList<WeaponButton>();
+	}
+
+	public List<WeaponButton> getWeaponButtons() {
+		return weaponButtons;
+	}
+
+	public void setWeaponButtons(List<WeaponButton> weaponButtons) {
+		this.weaponButtons = weaponButtons;
 	}
 
 	public GameButton getFireButton() {
