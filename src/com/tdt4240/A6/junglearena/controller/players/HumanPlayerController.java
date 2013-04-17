@@ -49,8 +49,9 @@ public class HumanPlayerController extends PlayerController implements InputProc
 		Vector2 targetCentre = controls.getTarget().getCentre();
 		Vector2 charPosition = character.getPosition();
 		Vector2 charSize = character.getSize();
-		double angle = MathUtils.atan2((charCentre.y - targetCentre.y), (charCentre.x - targetCentre.x));
-		angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
+//		double angle = MathUtils.atan2((charCentre.y - targetCentre.y), (charCentre.x - targetCentre.x));
+//double		angle = MathUtils.atan2((charCentre.x - targetCentre.x), (charCentre.y - targetCentre.y));
+		double angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
 
 		this.worldController.shot(power, angle, this.weaponSelected);
 		this.setMyTurn(false);

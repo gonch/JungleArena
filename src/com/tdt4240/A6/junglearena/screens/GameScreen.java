@@ -109,10 +109,10 @@ public class GameScreen implements Screen{
 		playerController1.setMyTurn(true);//for default player1 starts
 		//player2 depends on the user selection in the previous screens
 		PlayerController playerController2 = PlayerControllerFactory.getInstance().createPlayerController(this.context.getDifficulty(),player2, worldController);
-		playerControllers.add(playerController2);
 		playerControllers.add(playerController1);
+		playerControllers.add(playerController2);
 		this.worldController.setPlayerControllers(playerControllers);
-		this.worldController.startNewTurn();
+//		this.worldController.startNewTurn();
 	}
 
 	@Override

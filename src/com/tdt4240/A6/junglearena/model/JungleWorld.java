@@ -22,8 +22,8 @@ public class JungleWorld {
 		this.player1 = player1;
 		this.player2 = player2;
 		this.players = new ArrayList<Player>();
-		this.players.add(player2);
 		this.players.add(player1);
+		this.players.add(player2);
 		this.map = null;
 		this.setWorld(new World(new Vector2(0, -10), true));
 		this.currentWeapon = new Bomb();
@@ -82,13 +82,13 @@ public class JungleWorld {
 	}
 
 	public boolean isEndOfTurn() {
-		// boolean outOfBoundscondition = false;
-		// if(this.currentWeapon!=null&&this.currentWeapon.getBody()!=null){
-		// outOfBoundscondition = this.currentWeapon.getCentre().x < 0
-		// || this.currentWeapon.getCentre().x > Gdx.graphics.getWidth();
-		// }
-		// return this.currentWeapon.isExploded() || outOfBoundscondition;
-		return this.currentWeapon.isExploded();
+		 boolean outOfBoundscondition = false;
+		 if(this.currentWeapon!=null&&this.currentWeapon.getBody()!=null){
+		 outOfBoundscondition = this.currentWeapon.getCentre().x < 0
+		 || this.currentWeapon.getCentre().x > Gdx.graphics.getWidth();
+		 }
+		 return this.currentWeapon.isExploded() || outOfBoundscondition;
+//		return this.currentWeapon.isExploded();
 	}
 
 	public List<Player> getPlayers() {

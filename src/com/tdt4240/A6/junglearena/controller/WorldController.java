@@ -74,10 +74,11 @@ public class WorldController {
 	 * */
 	public List<PlayerController> swapPlayerControllers() {
 		PlayerController tmp = this.playerControllers.get(0);
+//		tmp.setMyTurn(false);
 		this.playerControllers.remove(0);
 		this.playerControllers.add(tmp);
 //		this.playerControllers.get(0).setMyTurn(true);//TODO this system is not really wor
-//		this.playerControllers.get(1).setMyTurn(true);
+//		this.playerControllers.get(1).setMyTurn(false);
 		return this.playerControllers;
 	}
 
@@ -114,7 +115,7 @@ public class WorldController {
 
 		generateBox2DCharacter(leftChar);
 		generateBox2DCharacter(rightChar);
-		initializeControls();
+//		initializeControls();
 	}
 
 	/**
@@ -192,12 +193,13 @@ public class WorldController {
 		Vector2 characterCentre = currentCharacter.getCentre();
 		GameButton target = null;
 		if(currentPlayer.getId() == 1){
-			target = new GameButton("target", characterCentre.add(Constants.distanceFromTarget, 0), new Vector2(
+			target = new GameButton("target", characterCentre.cpy().add(Constants.distanceFromTarget, 0), new Vector2(
 					70, 70));
 		}else{
-			target = new GameButton("target", characterCentre.sub(Constants.distanceFromTarget, 0), new Vector2(
+			target = new GameButton("target", characterCentre.cpy().sub(Constants.distanceFromTarget, 0), new Vector2(
 				70, 70));
 		}
+
 		this.controls.addButton(target);
 		this.controls.setTarget(target);
 
@@ -260,7 +262,7 @@ public class WorldController {
 			// shot
 			bodyDef.position.set(charPosition.cpy().add(charSize).add(10f, 10f));
 		} else {
-			bodyDef.position.set(charPosition.cpy().add(charSize).add(-10f, -10f));
+			bodyDef.position.set(charPosition.cpy().add(charSize).add(10f, 10f));
 		}
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);

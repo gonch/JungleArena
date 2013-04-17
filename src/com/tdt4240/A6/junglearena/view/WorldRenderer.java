@@ -77,7 +77,7 @@ public class WorldRenderer {
 	}
 
 	public void render() {
-		debugRenderer.render(jungleWorld.getWorld(), cam.combined);
+//		debugRenderer.render(jungleWorld.getWorld(), cam.combined);//uncomment if you want to debug box2d objects
 		spriteBatch.begin();
 		drawTanks();
 		drawWeapon();
