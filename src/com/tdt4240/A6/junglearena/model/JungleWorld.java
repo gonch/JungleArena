@@ -22,8 +22,8 @@ public class JungleWorld {
 		this.player1 = player1;
 		this.player2 = player2;
 		this.players = new ArrayList<Player>();
-		this.players.add(player1);
 		this.players.add(player2);
+		this.players.add(player1);
 		this.map = null;
 		this.setWorld(new World(new Vector2(0, -10), true));
 		this.currentWeapon = new Bomb();

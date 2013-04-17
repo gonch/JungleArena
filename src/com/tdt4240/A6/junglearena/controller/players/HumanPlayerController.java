@@ -37,6 +37,7 @@ public class HumanPlayerController extends PlayerController implements InputProc
 //			this.worldController.initializeControls();
 //		}
 		// the game waits until a touch input arrives
+		this.setMyTurn(true);
 	}
 
 	public void readyToshot() {
@@ -52,6 +53,7 @@ public class HumanPlayerController extends PlayerController implements InputProc
 		angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
 
 		this.worldController.shot(power, angle, this.weaponSelected);
+		this.setMyTurn(false);
 	}
 
 	@Override
@@ -87,6 +89,7 @@ public class HumanPlayerController extends PlayerController implements InputProc
 			for (WeaponButton weaponButton : controls.getWeaponButtons()) {
 				if (weaponButton.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
 					this.weaponSelected = weaponButton.getButtonName();
+					Gdx.input.vibrate(100);
 					weaponButton.setSelected(true);
 				}
 			}

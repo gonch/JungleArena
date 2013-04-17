@@ -39,7 +39,7 @@ public class WorldController {
 		this.jungleWorld = world;
 		this.controls = new ControlsLayer();
 		this.playerControllers = new ArrayList<PlayerController>();
-		initializeControls();
+		initializeControls();//TODO check if we need it or later
 	}
 
 	public void update(float dt) {
@@ -74,10 +74,10 @@ public class WorldController {
 	 * */
 	public List<PlayerController> swapPlayerControllers() {
 		PlayerController tmp = this.playerControllers.get(0);
-		tmp.setMyTurn(true);
 		this.playerControllers.remove(0);
 		this.playerControllers.add(tmp);
-		this.playerControllers.get(0).setMyTurn(true);
+//		this.playerControllers.get(0).setMyTurn(true);//TODO this system is not really wor
+//		this.playerControllers.get(1).setMyTurn(true);
 		return this.playerControllers;
 	}
 
@@ -206,7 +206,7 @@ public class WorldController {
 		this.controls.setPowerBar(powerBar);
 		this.controls.addButton(powerBar);
 
-		GameButton fireButton = new GameButton("fireButton", new Vector2(Gdx.graphics.getWidth() - 150, 30),
+		GameButton fireButton = new GameButton("fireButton", new Vector2(Gdx.graphics.getWidth() - 150, 20),
 				new Vector2(80, 80));
 		this.controls.setFireButton(fireButton);
 		this.controls.addButton(fireButton);
