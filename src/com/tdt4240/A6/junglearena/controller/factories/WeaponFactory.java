@@ -9,7 +9,7 @@ import com.tdt4240.A6.junglearena.model.Weapons.*;
  * @author hengsti
  */
 public class WeaponFactory {
-	private static List<String> weapons;
+	private static List<String> weaponNames;
 	private final static String pkgPath = "com.tdt4240.A6.junglearena.model.Weapons";
 	private static final WeaponFactory instance = new WeaponFactory();
 
@@ -21,8 +21,11 @@ public class WeaponFactory {
 	 * @return the instance of this Class (Singelton)
 	 */
 	public static WeaponFactory getInstance() {
-		weapons = new ArrayList<String>();
-		loadWeapons(pkgPath);
+		weaponNames = new ArrayList<String>();
+		weaponNames.add("Bomb");
+		weaponNames.add("Rocket");
+		weaponNames.add("Gun");	
+//		loadWeapons(pkgPath);
 		return instance;
 	}
 
@@ -37,7 +40,7 @@ public class WeaponFactory {
 			String[] fullClassName = c.getName().split("\\.");
 			String className = fullClassName[fullClassName.length - 1];
 			if (!className.equals("Weapon")) {
-				weapons.add(className);
+				weaponNames.add(className);
 			}
 		}
 	}
@@ -45,12 +48,16 @@ public class WeaponFactory {
 	/**
 	 * @return a deep copied list of the weapons available
 	 */
-	public String[] getWeapons() {
-		String[] copyOfWeapons = new String[weapons.size()];
-		for (int i = 0; i < weapons.size(); i++) {
-			copyOfWeapons[i] = new String(weapons.get(i));
+	public String[] getWeaponsArray() {
+		String[] copyOfWeapons = new String[weaponNames.size()];
+		for (int i = 0; i < weaponNames.size(); i++) {
+			copyOfWeapons[i] = new String(weaponNames.get(i));
 		}
 		return copyOfWeapons;
+	}
+	
+	public static List<String> getWeaponNames(){
+		return weaponNames;
 	}
 
 	/**
@@ -64,7 +71,7 @@ public class WeaponFactory {
 	 */
 	public Weapon createWeapon(String type, int damage, String name, String skin, int areaOfEffect) {
 		String className = pkgPath + "." + type;
-		for (String s : weapons) {
+		for (String s : weaponNames) {
 			if (s.equals(type)) {
 				try {
 					@SuppressWarnings("unchecked")
@@ -81,4 +88,27 @@ public class WeaponFactory {
 		return new Bomb(damage, name, skin, areaOfEffect);
 	}
 
+	/**
+	 * @param type
+	 *            of weapon; Use getWeapons() and chose one.
+	 * 
+	 * @return a new instance of the specified weapon
+	 */
+	public Weapon createWeapon(String type) {
+		String className = pkgPath + "." + type;
+		for (String s : weaponNames) {
+			if (s.equals(type)) {
+				try {
+					@SuppressWarnings("unchecked")
+					Class<Weapon> weapon = (Class<Weapon>) Class.forName(className);
+					Weapon newInstanceOfWeapon = weapon.getConstructor().newInstance();
+					return newInstanceOfWeapon;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		System.err.print("Invalid Weapon! Can not create \"" + className + "\"! Created default instead.");
+		return new Bomb();
+	}
 }

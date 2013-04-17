@@ -19,7 +19,7 @@ public class MapRenderer {
 		this.spriteBatch = new SpriteBatch();
 		this.shapeRenderer = new ShapeRenderer();
 		String backgroundString = map.getBackground();	
-		this.backgroundTexture = new Texture(Gdx.files.internal(backgroundString + ".jpeg"));
+		this.backgroundTexture = new Texture(Gdx.files.internal(backgroundString.toLowerCase() + ".jpeg"));
 	}
 
 	public void render(){

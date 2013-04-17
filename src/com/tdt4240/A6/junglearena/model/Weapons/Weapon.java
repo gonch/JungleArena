@@ -1,9 +1,10 @@
 package com.tdt4240.A6.junglearena.model.Weapons;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.model.entities.Entity;
 
-public class Weapon extends Entity {
+public abstract class Weapon extends Entity {
 	private int damage;
 	private String name;
 	private String skin;
@@ -22,7 +23,9 @@ public class Weapon extends Entity {
 	public Weapon() {
 		this.isCollided = false;
 		this.isExploded = false;
-		this.timeBeforeExplosion = 3f;
+//		this.timeBeforeExplosion = 3f;
+		this.size = new Vector2(10, 10);
+		this.centre = new Vector2(this.getX() + this.getSize().x / 2f, this.getY() + this.getSize().y / 2f);
 	}
 
 	public Weapon(int damage, String name, String skin, int areaOfEffect) {
@@ -34,8 +37,7 @@ public class Weapon extends Entity {
 		this.setCollided(false);
 		this.setExploded(false);
 		this.timeBeforeExplosion = 3f;
-		this.size = new Vector2(10, 10);
-		this.centre = new Vector2(this.getX() + this.getSize().x / 2f, this.getY() + this.getSize().y / 2f);
+		
 	}
 
 	public Vector2 getCentre() {
@@ -113,19 +115,7 @@ public class Weapon extends Entity {
 	/**
 	 * For explosions
 	 * **/
-	public void update(float dt) {
-		if (this.isCollided) {
-			this.timeBeforeExplosion -= dt;
-		}
-		if (timeBeforeExplosion < 0) {
-			this.isExploded = true;
-		}
-		if (this.getBody() != null) {
-			this.centre.x = this.getBody().getPosition().x;
-			this.centre.y = this.getBody().getPosition().y;
-			this.setPosition(this.centre.x - this.size.x / 2f, this.centre.y - this.size.y / 2f);
-		}
-	}
+	public abstract void update(float dt);
 
 	@Override
 	public void collisionHappened() {
