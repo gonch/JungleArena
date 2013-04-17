@@ -40,19 +40,19 @@ public class WorldController {
 		this.playerControllers = new ArrayList<PlayerController>();
 		initializeControls();
 	}
-	
+
 	public void update(float dt) {
 		World world = this.jungleWorld.getWorld();
 		handleWeaponExplosion(world, dt);
 		this.controls.getTarget().update(dt);
 		this.controls.getPowerBar().update(dt);
-		playerControllers.get(0).chooseShootingParameters(dt); //current Player
-		if(this.jungleWorld.getCurrentWeapon()!=null){
+		playerControllers.get(0).chooseShootingParameters(dt); // current Player
+		if (this.jungleWorld.getCurrentWeapon() != null) {
 			this.jungleWorld.getCurrentWeapon().update(dt);
 		}
 		world.step(Gdx.graphics.getDeltaTime(), 5, 5);
-//		this.jungleWorld.getPlayer1().getCharacter().update(dt);
-//		this.jungleWorld.getPlayer2().getCharacter().update(dt);
+		// this.jungleWorld.getPlayer1().getCharacter().update(dt);
+		// this.jungleWorld.getPlayer2().getCharacter().update(dt);
 		world.clearForces();
 	}
 
@@ -64,9 +64,9 @@ public class WorldController {
 	}
 
 	public void screenTouched(float x, float y) {
-	
+
 	}
-	
+
 	/**
 	 * This method is used to swap players. In fact the player who is going to
 	 * play the round is the one at position 0
@@ -80,16 +80,13 @@ public class WorldController {
 		return this.playerControllers;
 	}
 
-
 	public void angleTouched(float screenX, float screenY) {
-		Vector2 origin = this.jungleWorld.getCurrentPlayer().getCharacter()
-				.getCentre();
+		Vector2 origin = this.jungleWorld.getCurrentPlayer().getCharacter().getCentre();
 		float radius = Constants.distanceFromTarget;
 		// float targetCircleX =
 		// MathPhysicsUtils.calculateXCircleInterpolationGivenY(origin.x,
 		// origin.y, screenY, radius, screenX).x;
-		Vector2 pos = MathPhysicsUtils.calculateXCircleInterpolation(origin.x,
-				origin.y, screenX, screenY, radius);
+		Vector2 pos = MathPhysicsUtils.calculateXCircleInterpolation(origin.x, origin.y, screenX, screenY, radius);
 
 		// if(origin.x >= screenX){
 		// targetCircleX *= -1;
@@ -117,14 +114,13 @@ public class WorldController {
 																		// borders
 		float y = this.jungleWorld.getMap().getMapY()[randomX];
 		leftChar.setPosition(new Vector2(randomX, y));
-		randomX = random.nextInt(Gdx.graphics.getWidth() / 3)
-				+ Gdx.graphics.getWidth() * 2 / 3 - 50;
+		randomX = random.nextInt(Gdx.graphics.getWidth() / 3) + Gdx.graphics.getWidth() * 2 / 3 - 50;
 		y = this.jungleWorld.getMap().getMapY()[randomX];
 		rightChar.setPosition(new Vector2(randomX, y));
 
 		generateBox2DCharacter(leftChar);
 		generateBox2DCharacter(rightChar);
-		
+
 		initializeControls();// TODO to be called from a separate method
 
 	}
@@ -138,10 +134,10 @@ public class WorldController {
 		BodyDef bodyDef = new BodyDef();
 		// We set our body to static
 		bodyDef.type = BodyType.StaticBody;
-		bodyDef.gravityScale = 0;		// Set our body's starting position in the world
+		bodyDef.gravityScale = 0; // Set our body's starting position in the
+									// world
 
-		bodyDef.position.set(character.getCentre().x,
-				character.getCentre().y);
+		bodyDef.position.set(character.getCentre().x, character.getCentre().y);
 
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
@@ -150,8 +146,7 @@ public class WorldController {
 
 		// Define the shape
 		PolygonShape polygonShape = new PolygonShape();
-		polygonShape.setAsBox(character.getSize().x/2 ,
-				character.getSize().y/2 );
+		polygonShape.setAsBox(character.getSize().x / 2, character.getSize().y / 2);
 
 		// Fixture fixture = body.createFixture(polygonShape, 0);
 		CircleShape circleShape = new CircleShape();
@@ -206,32 +201,31 @@ public class WorldController {
 		Player currentPlayer = this.jungleWorld.getCurrentPlayer();
 		GameCharacter currentCharacter = currentPlayer.getCharacter();
 		Vector2 characterCentre = currentCharacter.getCentre();
-		GameButton target = new GameButton("target", characterCentre.add(Constants.distanceFromTarget,0),
-				new Vector2(70, 70));
+		GameButton target = new GameButton("target", characterCentre.add(Constants.distanceFromTarget, 0), new Vector2(
+				70, 70));
 		this.controls.addButton(target);
 		this.controls.setTarget(target);
 
-		PowerBar powerBar = new PowerBar("powerBar", new Vector2(10, 10),
-				new Vector2(200, 100));
+		PowerBar powerBar = new PowerBar("powerBar", new Vector2(10, 10), new Vector2(200, 100));
 		powerBar.setScale(0, 0);
 		this.controls.setPowerBar(powerBar);
 		this.controls.addButton(powerBar);
 
-		GameButton fireButton = new GameButton("fireButton", new Vector2(
-				Gdx.graphics.getWidth() - 50, 50), new Vector2(50, 50));
+		GameButton fireButton = new GameButton("fireButton", new Vector2(Gdx.graphics.getWidth() - 50, 50),
+				new Vector2(50, 50));
 		this.controls.setFireButton(fireButton);
 		this.controls.addButton(fireButton);
-		
+
 		int i = 0;
 		List<WeaponButton> weaponButtons = new ArrayList<WeaponButton>();
-		for(String weaponString : WeaponFactory.getInstance().getWeapons()){			
-			//add a new weapon button for each available weapon
-			float positionX = Gdx.graphics.getWidth()/2f-100+60*i;
-			WeaponButton weaponButton = new WeaponButton(weaponString, new Vector2(positionX,10), new Vector2(50,50));
+		for (String weaponString : this.jungleWorld.getAllAvailableWeaponNames()) {
+			// add a new weapon button for each available weapon
+			float positionX = Gdx.graphics.getWidth() / 2f - 100 + 100 * i;
+			WeaponButton weaponButton = new WeaponButton(weaponString, new Vector2(positionX, 30), new Vector2(50, 50));
 			this.controls.getWeaponButtons().add(weaponButton);
 			i++;
 		}
-		
+
 	}
 
 	public JungleWorld getJungleWorld() {
@@ -254,8 +248,7 @@ public class WorldController {
 	 * CREATES A NEW WEAPON AND SHOTS IT
 	 * */
 	public void shot(float power, double angle, String weaponString) {
-		GameCharacter character = this.jungleWorld.getCurrentPlayer()
-				.getCharacter();
+		GameCharacter character = this.jungleWorld.getCurrentPlayer().getCharacter();
 		Vector2 charCentre = character.getCentre();
 		Vector2 targetCentre = this.controls.getTarget().getCentre();
 		Vector2 charPosition = character.getPosition();
@@ -268,10 +261,11 @@ public class WorldController {
 		bodyDef.type = BodyType.DynamicBody;
 		// Set our body's starting position in the world according
 		if (charCentre.x < targetCentre.x) {
-			//the second add is done in order to avoid collision before the shot
-			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f,5f));
+			// the second add is done in order to avoid collision before the
+			// shot
+			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f, 5f));
 		} else {
-			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f,5f));
+			bodyDef.position.set(charPosition.cpy().add(charSize).add(5f, 5f));
 		}
 		// Create our body in the world using our body definition
 		Body body = world.createBody(bodyDef);
@@ -303,15 +297,15 @@ public class WorldController {
 		circle.dispose();
 		this.jungleWorld.setWorld(world);
 	}
-	
-	public boolean isGameOver(){
+
+	public boolean isGameOver() {
 		return this.jungleWorld.isGameOver();
 	}
-	
-	public boolean isEndOfTurn(){
+
+	public boolean isEndOfTurn() {
 		return this.jungleWorld.isEndOfTurn();
 	}
-	
+
 	public List<PlayerController> getPlayerControllers() {
 		return playerControllers;
 	}

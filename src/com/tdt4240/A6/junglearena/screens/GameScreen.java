@@ -16,6 +16,7 @@ import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
 import com.tdt4240.A6.junglearena.controller.factories.PlayerControllerFactory;
+import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
 import com.tdt4240.A6.junglearena.controller.players.*;
 import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
@@ -82,6 +83,7 @@ public class GameScreen implements Screen{
 		
 		// Create a new jungle world
 		this.jungleWorld = new JungleWorld(player1, player2);
+		this.jungleWorld.setAllAvailableWeaponNames(WeaponFactory.getInstance().getWeaponNames());
 		//initialize world controller
 		this.worldController = new WorldController(this.jungleWorld);
 

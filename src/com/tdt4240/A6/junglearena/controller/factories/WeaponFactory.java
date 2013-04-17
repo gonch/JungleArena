@@ -9,7 +9,7 @@ import com.tdt4240.A6.junglearena.model.Weapons.*;
  * @author hengsti
  */
 public class WeaponFactory {
-	private static List<String> weapons;
+	private static List<String> weaponNames;
 	private final static String pkgPath = "com.tdt4240.A6.junglearena.model.Weapons";
 	private static final WeaponFactory instance = new WeaponFactory();
 
@@ -21,7 +21,7 @@ public class WeaponFactory {
 	 * @return the instance of this Class (Singelton)
 	 */
 	public static WeaponFactory getInstance() {
-		weapons = new ArrayList<String>();
+		weaponNames = new ArrayList<String>();
 		loadWeapons(pkgPath);
 		return instance;
 	}
@@ -37,7 +37,7 @@ public class WeaponFactory {
 			String[] fullClassName = c.getName().split("\\.");
 			String className = fullClassName[fullClassName.length - 1];
 			if (!className.equals("Weapon")) {
-				weapons.add(className);
+				weaponNames.add(className);
 			}
 		}
 	}
@@ -46,18 +46,18 @@ public class WeaponFactory {
 	 * @return a deep copied list of the weapons available
 	 */
 	public String[] getWeaponsArray() {
-		String[] copyOfWeapons = new String[weapons.size()];
-		for (int i = 0; i < weapons.size(); i++) {
-			copyOfWeapons[i] = new String(weapons.get(i));
+		String[] copyOfWeapons = new String[weaponNames.size()];
+		for (int i = 0; i < weaponNames.size(); i++) {
+			copyOfWeapons[i] = new String(weaponNames.get(i));
 		}
 		return copyOfWeapons;
 	}
 	
-	public List<String> getWeapons(){
-		this.weapons.add("Bomb");
-		this.weapons.add("Rocket");
-		this.weapons.add("Gun");
-		return this.weapons;
+	public List<String> getWeaponNames(){
+		this.weaponNames.add("Bomb");
+		this.weaponNames.add("Rocket");
+		this.weaponNames.add("Gun");
+		return this.weaponNames;
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class WeaponFactory {
 	 */
 	public Weapon createWeapon(String type, int damage, String name, String skin, int areaOfEffect) {
 		String className = pkgPath + "." + type;
-		for (String s : weapons) {
+		for (String s : weaponNames) {
 			if (s.equals(type)) {
 				try {
 					@SuppressWarnings("unchecked")
@@ -96,7 +96,7 @@ public class WeaponFactory {
 	 */
 	public Weapon createWeapon(String type) {
 		String className = pkgPath + "." + type;
-		for (String s : weapons) {
+		for (String s : weaponNames) {
 			if (s.equals(type)) {
 				try {
 					@SuppressWarnings("unchecked")
