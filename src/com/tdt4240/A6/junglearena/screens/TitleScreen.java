@@ -28,7 +28,7 @@ public class TitleScreen implements Screen, InputProcessor {
 	protected static final String AUTO_PLAYER = "C_Player";
 	protected static final String PLAYER2 = "Player 2";
 	private final String SINGLE_PLAY = "Single Player";
-	private final String TWO_PLAY = "Two Player";
+	private final String TWO_PLAY = "Two Players";
 
 	private ScreenRenderer screenRenderer;
 	private Game game;
@@ -67,7 +67,9 @@ public class TitleScreen implements Screen, InputProcessor {
 		twoPlayerButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				game.setScreen(new CharacterScreen(game, new Context(false,PLAYER1,PLAYER2)));
+				Context context = new Context(false,PLAYER1,PLAYER2);
+				context.setDifficulty("human");
+				game.setScreen(new CharacterScreen(game, context));
 			}
 		});
 	}

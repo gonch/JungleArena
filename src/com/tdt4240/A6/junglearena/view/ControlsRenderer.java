@@ -1,13 +1,18 @@
 package com.tdt4240.A6.junglearena.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.tdt4240.A6.junglearena.model.gameControls.ControlsLayer;
 import com.tdt4240.A6.junglearena.model.gameControls.GameButton;
+import com.tdt4240.A6.junglearena.model.gameControls.WeaponButton;
 
 public class ControlsRenderer {
 
@@ -18,12 +23,12 @@ public class ControlsRenderer {
 	private OrthographicCamera cam;
 
 	private ShapeRenderer shapeRenderer;
-	private Box2DDebugRenderer debugRenderer;	
+	private Box2DDebugRenderer debugRenderer;
 
 	/** Textures **/
-	
+
 	private Texture targetTexture, powerBarTexture, fireButtonTexture;
-	
+	private List<Texture> weaponTextures;
 	private SpriteBatch spriteBatch;
 	private int width;
 	private int height;
@@ -55,8 +60,13 @@ public class ControlsRenderer {
 
 	private void loadTextures() {
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
-		this.powerBarTexture = new Texture(Gdx.files.internal("crosshair.png"));
-		this.fireButtonTexture = new Texture(Gdx.files.internal("crosshair.png"));
+		this.powerBarTexture = new Texture(Gdx.files.internal("interfaceItems/powerbar.png"));
+		this.fireButtonTexture = new Texture(Gdx.files.internal("interfaceItems/fireButtonUp.png"));
+		this.weaponTextures = new ArrayList<Texture>();
+		for (WeaponButton weaponButton : this.controls.getWeaponButtons()) {
+			String weaponString = "weapons/" + weaponButton.getButtonName().toLowerCase() + ".png";
+			this.weaponTextures.add(new Texture(Gdx.files.internal(weaponString)));
+		}
 
 	}
 
@@ -65,14 +75,24 @@ public class ControlsRenderer {
 		drawControls();
 		spriteBatch.end();
 	}
-	
-	private void drawControls(){
+
+	private void drawControls() {
 		GameButton target = this.controls.getTarget();
 		GameButton powerBar = this.controls.getPowerBar();
 		GameButton fireButton = this.controls.getFireButton();
-		spriteBatch.draw(targetTexture, target.getPosition().x,target.getPosition().y,target.getSize().x,target.getSize().y);
-		spriteBatch.draw(targetTexture, powerBar.getPosition().x,powerBar.getPosition().y,powerBar.getScaleX()*powerBar.getSize().x/100f,powerBar.getSize().y);
-		spriteBatch.draw(fireButtonTexture,fireButton.getPosition().x,fireButton.getPosition().y,fireButton.getSize().x,fireButton.getSize().y);
+		spriteBatch.draw(targetTexture, target.getPosition().x, target.getPosition().y, target.getSize().x,
+				target.getSize().y);
+		spriteBatch.draw(powerBarTexture, powerBar.getPosition().x, powerBar.getPosition().y, powerBar.getScaleX()
+				* powerBar.getSize().x / 100f, powerBar.getSize().y);
+		spriteBatch.draw(fireButtonTexture, fireButton.getPosition().x, fireButton.getPosition().y,
+				fireButton.getSize().x, fireButton.getSize().y);
+		for (int i = 0; i < this.weaponTextures.size(); i++) {
+			Texture weaponTexture = this.weaponTextures.get(i);
+			WeaponButton weaponButton = this.controls.getWeaponButtons().get(i);
+			spriteBatch.draw(weaponTexture, weaponButton.getPosition().x, weaponButton.getPosition().y,
+					weaponButton.getSize().x, weaponButton.getSize().y);
+
+		}
 	}
 
 }

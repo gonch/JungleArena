@@ -15,6 +15,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.tdt4240.A6.junglearena.controller.MapController;
 import com.tdt4240.A6.junglearena.controller.WorldController;
 import com.tdt4240.A6.junglearena.controller.factories.CharacterFactory;
+import com.tdt4240.A6.junglearena.controller.factories.PlayerControllerFactory;
+import com.tdt4240.A6.junglearena.controller.factories.WeaponFactory;
 import com.tdt4240.A6.junglearena.controller.players.*;
 import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.model.JungleWorld;
@@ -81,6 +83,7 @@ public class GameScreen implements Screen{
 		
 		// Create a new jungle world
 		this.jungleWorld = new JungleWorld(player1, player2);
+		this.jungleWorld.setAllAvailableWeaponNames(WeaponFactory.getInstance().getWeaponNames());
 		//initialize world controller
 		this.worldController = new WorldController(this.jungleWorld);
 
@@ -97,19 +100,19 @@ public class GameScreen implements Screen{
 		this.worldRenderer = new WorldRenderer(this.jungleWorld, this.context);
 		this.mapRenderer = new MapRenderer(this.mapController.getMap());
 		this.gameInfoRenderer = new GameInfoRenderer(jungleWorld);
-		// Gdx.input.setInputProcessor(new GestureDetector(this));
-		// Gdx.input.setInputProcessor(this);
 		this.controls = this.worldController.getControls();
 		this.controlsRenderer = new ControlsRenderer(controls);
 		
 		//initialize player controllers
-		PlayerController playerController = new HumanPlayerController(player1, this.worldController);
-		playerController.setMyTurn(true);//for default player1 starts
-		playerControllers.add(playerController);
-		//TODO: factories for player
-		playerController = new EasyAIPlayerController(player2, this.worldController);
-		playerControllers.add(playerController);
+		//player1 is always a human
+		PlayerController playerController1 = PlayerControllerFactory.getInstance().createPlayerController("human",player1, worldController);
+		playerController1.setMyTurn(true);//for default player1 starts
+		//player2 depends on the user selection in the previous screens
+		PlayerController playerController2 = PlayerControllerFactory.getInstance().createPlayerController(this.context.getDifficulty(),player2, worldController);
+		playerControllers.add(playerController1);
+		playerControllers.add(playerController2);
 		this.worldController.setPlayerControllers(playerControllers);
+//		this.worldController.startNewTurn();
 	}
 
 	@Override
