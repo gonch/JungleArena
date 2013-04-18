@@ -30,7 +30,7 @@ public class MapRenderer {
 		shapeRenderer.begin(ShapeType.Line);
 		float[] mapY = map.getMapY();
 		for(int i = 0; i < mapY.length; i+=1){
-			shapeRenderer.setColor(1, 0, 0, 1);
+			shapeRenderer.setColor(196/255f,131/255f, 1/255f, 1);
 			shapeRenderer.line(i, 0, i, mapY[i]);
 //			shapeRenderer.filledRect(i, 0, 3, mapY[i]);
 		}
