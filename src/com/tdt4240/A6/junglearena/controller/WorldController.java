@@ -222,7 +222,10 @@ public class WorldController {
 			this.controls.getWeaponButtons().add(weaponButton);
 			i++;
 		}
-
+		
+		GameButton pauseButton = new GameButton("pause", new Vector2(Gdx.graphics.getWidth()/2f, Gdx.graphics.getHeight()-100), new Vector2(50,50));//TODO find a better position
+		this.controls.setPauseButton(pauseButton);
+		this.controls.addButton(pauseButton);
 	}
 
 	public JungleWorld getJungleWorld() {

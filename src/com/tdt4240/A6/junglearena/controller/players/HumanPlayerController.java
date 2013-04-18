@@ -94,6 +94,10 @@ public class HumanPlayerController extends PlayerController implements InputProc
 					weaponButton.setSelected(true);
 				}
 			}
+			GameButton pauseButton = controls.getPauseButton();
+			if(pauseButton.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)){
+				
+			}
 		}
 		return true;
 	}
