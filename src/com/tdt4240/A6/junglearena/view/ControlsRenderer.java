@@ -27,7 +27,7 @@ public class ControlsRenderer {
 
 	/** Textures **/
 
-	private Texture targetTexture, powerBarTexture, fireButtonTexture;
+	private Texture targetTexture, powerBarTexture, fireButtonTexture, pauseButtonTexture;
 	private List<Texture> weaponTextures;
 	private SpriteBatch spriteBatch;
 	private int width;
@@ -62,6 +62,7 @@ public class ControlsRenderer {
 		this.targetTexture = new Texture(Gdx.files.internal("crosshair.png"));
 		this.powerBarTexture = new Texture(Gdx.files.internal("interfaceItems/powerbar.png"));
 		this.fireButtonTexture = new Texture(Gdx.files.internal("interfaceItems/fireButtonUp.png"));
+		this.pauseButtonTexture = new Texture(Gdx.files.internal("interfaceItems/pause.png"));
 		this.weaponTextures = new ArrayList<Texture>();
 		for (WeaponButton weaponButton : this.controls.getWeaponButtons()) {
 			String weaponString = "weapons/" + weaponButton.getButtonName().toLowerCase() + ".png";
@@ -80,12 +81,17 @@ public class ControlsRenderer {
 		GameButton target = this.controls.getTarget();
 		GameButton powerBar = this.controls.getPowerBar();
 		GameButton fireButton = this.controls.getFireButton();
+		GameButton pauseButton = this.controls.getPauseButton();
 		spriteBatch.draw(targetTexture, target.getPosition().x, target.getPosition().y, target.getSize().x,
 				target.getSize().y);
 		spriteBatch.draw(powerBarTexture, powerBar.getPosition().x, powerBar.getPosition().y, powerBar.getScaleX()
 				* powerBar.getSize().x / 100f, powerBar.getSize().y);
 		spriteBatch.draw(fireButtonTexture, fireButton.getPosition().x, fireButton.getPosition().y,
 				fireButton.getSize().x, fireButton.getSize().y);
+		if(pauseButton!=null){
+		spriteBatch.draw(pauseButtonTexture,pauseButton.getPosition().x,pauseButton.getPosition().y,pauseButton.getSize().x,pauseButton.getSize().y);
+		}
+		
 		for (int i = 0; i < this.weaponTextures.size(); i++) {
 			Texture weaponTexture = this.weaponTextures.get(i);
 			WeaponButton weaponButton = this.controls.getWeaponButtons().get(i);

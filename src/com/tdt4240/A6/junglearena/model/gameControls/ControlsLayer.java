@@ -13,7 +13,16 @@ public class ControlsLayer {
 	private PowerBar powerBar;
 	private GameButton fireButton;
 	private List<WeaponButton> weaponButtons;
+	private GameButton pauseButton;
 	
+	public GameButton getPauseButton() {
+		return pauseButton;
+	}
+
+	public void setPauseButton(GameButton pauseButton) {
+		this.pauseButton = pauseButton;
+	}
+
 	public ControlsLayer() {
 		super();
 		this.buttons = new ArrayList<GameButton>();
@@ -21,6 +30,7 @@ public class ControlsLayer {
 		this.powerBar = new PowerBar();
 		this.fireButton = new GameButton();
 		this.weaponButtons = new ArrayList<WeaponButton>();
+		this.pauseButton = new GameButton();
 	}
 
 	public List<WeaponButton> getWeaponButtons() {
