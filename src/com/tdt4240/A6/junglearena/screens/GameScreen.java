@@ -57,9 +57,9 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void show() {
-		music = Gdx.audio.newMusic(Gdx.files.internal("music/gameMusic.mp3"));
-		music.setLooping(true);
-		music.play();
+		//music = Gdx.audio.newMusic(Gdx.files.internal("music/gameMusic.mp3"));
+		//music.setLooping(true);
+		//music.play();
 		// pauseGame(); //START PAUSED FOR TESTING PURPOSES
 		startNewGame();
 
@@ -170,12 +170,12 @@ public class GameScreen implements Screen {
 	}
 
 	public void pauseGame() {
-		music.pause();
+		//music.pause();
 		gamestatus = GAME_PAUSED;
 	}
 
 	public void resumeGame() {
-		music.play();
+		//music.play();
 		gamestatus = GAME_RUNNING;
 	}
 

@@ -88,9 +88,9 @@ public class ControlsRenderer {
 				* powerBar.getSize().x / 100f, powerBar.getSize().y);
 		spriteBatch.draw(fireButtonTexture, fireButton.getPosition().x, fireButton.getPosition().y,
 				fireButton.getSize().x, fireButton.getSize().y);
-		if(pauseButton!=null){
+		//if(pauseButton!=null){
 		spriteBatch.draw(pauseButtonTexture,pauseButton.getPosition().x,pauseButton.getPosition().y,pauseButton.getSize().x,pauseButton.getSize().y);
-		}
+		//}
 		
 		for (int i = 0; i < this.weaponTextures.size(); i++) {
 			Texture weaponTexture = this.weaponTextures.get(i);
