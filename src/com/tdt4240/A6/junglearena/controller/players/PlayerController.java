@@ -9,6 +9,7 @@ public abstract class PlayerController {
 	private boolean isMyTurn;
 	
 	public PlayerController(Player player){
+//		System.out.println(player.getName()+" CHRISTIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 		this.isMyTurn = true;
 		this.player = player;
 	}
@@ -28,6 +29,7 @@ public abstract class PlayerController {
 	}	
 	
 	public boolean isMyTurn() {
+//		System.out.println(this.player.getName()+"IT'S MY TUUUUUUUUUUUUUUUURN");
 		return isMyTurn;
 	}
 

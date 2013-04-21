@@ -57,9 +57,9 @@ public class GameScreen implements Screen{
 
 	@Override
 	public void show() {
-		music = Gdx.audio.newMusic(Gdx.files.internal("music/gameMusic.mp3"));
-		music.setLooping(true);
-		music.play();
+		//		music = Gdx.audio.newMusic(Gdx.files.internal("music/gameMusic.mp3"));
+		//		music.setLooping(true);
+		//		music.play();
 		// pauseGame(); //START PAUSED FOR TESTING PURPOSES
 		startNewGame();
 
@@ -76,21 +76,21 @@ public class GameScreen implements Screen{
 		GameCharacter gameCharacter1 = characterFactory.createCharacter(this.context.getNameChar1(), 100,
 				this.context.getNameChar1(), new Vector2(0, 0), this.context.getNameChar1());
 		Player player1 = new Player(this.context.getNamePlayer1(), 1, gameCharacter1);
-		
+
 		GameCharacter gameCharacter2 = characterFactory.createCharacter(this.context.getNameChar2(), 150,
 				this.context.getNameChar2(), new Vector2(0, 0), this.context.getNameChar2());
 		Player player2 = new Player(this.context.getNamePlayer2(), 2, gameCharacter2);
-		
+
 		// Create a new jungle world
 		this.jungleWorld = new JungleWorld(player1, player2);
 		this.jungleWorld.setAllAvailableWeaponNames(WeaponFactory.getInstance().getWeaponNames());
 		//initialize world controller
 		this.worldController = new WorldController(this.jungleWorld);
 
-	
-		
+
+
 		//initialize the map
-	
+
 		this.mapController = new MapController(context.getEnvironment());// TODO hardcoded
 		this.mapController.generateMap();
 		this.jungleWorld.setMap(this.mapController.getMap());
@@ -102,17 +102,18 @@ public class GameScreen implements Screen{
 		this.gameInfoRenderer = new GameInfoRenderer(jungleWorld);
 		this.controls = this.worldController.getControls();
 		this.controlsRenderer = new ControlsRenderer(controls);
-		
+
 		//initialize player controllers
 		//player1 is always a human
 		PlayerController playerController1 = PlayerControllerFactory.getInstance().createPlayerController("human",player1, worldController);
 		playerController1.setMyTurn(true);//for default player1 starts
 		//player2 depends on the user selection in the previous screens
 		PlayerController playerController2 = PlayerControllerFactory.getInstance().createPlayerController(this.context.getDifficulty(),player2, worldController);
+		playerController2.setMyTurn(false);
 		playerControllers.add(playerController1);
 		playerControllers.add(playerController2);
 		this.worldController.setPlayerControllers(playerControllers);
-//		this.worldController.startNewTurn();
+		//		this.worldController.startNewTurn();
 	}
 
 	@Override
@@ -148,18 +149,24 @@ public class GameScreen implements Screen{
 		}
 
 		// TODO this code has to be run when the pause button is pressed
-		// if (pausebutton is pressed) {
-		// pauseGame();
-		// }
+		if (Gdx.input.isTouched()) {
+			GameButton pauseButton = this.worldController.getControls().getPauseButton();
+			float screenX = Gdx.input.getX();
+			float screenY = Gdx.graphics.getHeight() - Gdx.input.getY();
+			if (pauseButton != null && pauseButton.checkSelected(screenX, screenY)) {
+				pauseGame();
+			}
+		}
 
 		/**
 		 * 
 		 * **/
-		// if (gamestatus == GAME_PAUSED) {
-		// if(gamestatus == GAME_PAUSED){
-		// PauseScreen pause = new PauseScreen(game,this);
-		// pause.render(dt);
-		// }
+		if (gamestatus == GAME_PAUSED) {
+			if(gamestatus == GAME_PAUSED){
+				PauseScreen pause = new PauseScreen(game,this);
+				pause.render(dt);
+			}
+		}
 	}
 
 	public void pauseGame() {

@@ -33,9 +33,9 @@ public class HumanPlayerController extends PlayerController implements InputProc
 
 	@Override
 	public void chooseShootingParameters(float dt) {
-//		if (this.isMyTurn()) {
-//			this.worldController.initializeControls();
-//		}
+		if (this.isMyTurn()) {
+			this.worldController.initializeControls();
+		}
 		// the game waits until a touch input arrives
 		this.setMyTurn(true);
 	}
@@ -44,15 +44,21 @@ public class HumanPlayerController extends PlayerController implements InputProc
 		ControlsLayer controls = this.worldController.getControls();
 
 		float power = controls.getPowerBar().getPower();
-		GameCharacter character = this.getPlayer().getCharacter();
+		GameCharacter character = this.getPlayer().getCharacter(); //TODO getPlayer returns player 2 always
 		Vector2 charCentre = character.getCentre();
 		Vector2 targetCentre = controls.getTarget().getCentre();
 		Vector2 charPosition = character.getPosition();
 		Vector2 charSize = character.getSize();
 //		double angle = MathUtils.atan2((charCentre.y - targetCentre.y), (charCentre.x - targetCentre.x));
 //double		angle = MathUtils.atan2((charCentre.x - targetCentre.x), (charCentre.y - targetCentre.y));
-		double angle = Math.atan((charCentre.y - targetCentre.y) / (charCentre.x - targetCentre.x));
-
+		double angle;
+		if((targetCentre.x - charCentre.x)>=0) {
+			angle = Math.atan((targetCentre.y - charCentre.y) / (targetCentre.x - charCentre.x));
+		}
+		else angle = Math.PI + Math.atan((targetCentre.y - charCentre.y) / ((targetCentre.x - charCentre.x)));
+		System.out.println("X char = "+(charCentre.x));
+		System.out.println("X targ = "+(targetCentre.x));
+		System.out.println("angle = "+Math.toDegrees(angle));
 		this.worldController.shot(power, angle, this.weaponSelected);
 		this.setMyTurn(false);
 	}
@@ -93,6 +99,10 @@ public class HumanPlayerController extends PlayerController implements InputProc
 					Gdx.input.vibrate(100);
 					weaponButton.setSelected(true);
 				}
+			}
+			GameButton pauseButton = controls.getPauseButton();
+			if(pauseButton.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)){
+			 
 			}
 		}
 		return true;
