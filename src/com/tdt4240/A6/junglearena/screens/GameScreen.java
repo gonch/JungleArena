@@ -91,7 +91,7 @@ public class GameScreen implements Screen{
 
 		//initialize the map
 
-		this.mapController = new MapController(context.getEnvironment());// TODO hardcoded
+		this.mapController = new MapController(context.getEnvironment());
 		this.mapController.generateMap();
 		this.jungleWorld.setMap(this.mapController.getMap());
 		this.worldController.generateBox2DWorld();
@@ -113,12 +113,12 @@ public class GameScreen implements Screen{
 		playerControllers.add(playerController1);
 		playerControllers.add(playerController2);
 		this.worldController.setPlayerControllers(playerControllers);
-		//		this.worldController.startNewTurn();
+		this.worldController.startNewTurn();
 	}
 
 	@Override
 	public void dispose() {
-		music.dispose();
+//		music.dispose();
 	}
 
 	@Override
@@ -145,6 +145,7 @@ public class GameScreen implements Screen{
 			// TODO: go to game over screen
 		}
 		if (this.worldController.isEndOfTurn()) {
+			System.out.println("END OF TURN");
 			this.worldController.startNewTurn();
 		}
 
@@ -170,12 +171,12 @@ public class GameScreen implements Screen{
 	}
 
 	public void pauseGame() {
-		music.pause();
+		//music.pause();
 		gamestatus = GAME_PAUSED;
 	}
 
 	public void resumeGame() {
-		music.play();
+		//music.play();
 		gamestatus = GAME_RUNNING;
 	}
 

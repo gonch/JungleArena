@@ -5,11 +5,10 @@ import com.tdt4240.A6.junglearena.model.Player;
 
 public abstract class PlayerController {
 
-	private Player player;
+	protected Player player;
 	private boolean isMyTurn;
 	
 	public PlayerController(Player player){
-//		System.out.println(player.getName()+" CHRISTIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 		this.isMyTurn = true;
 		this.player = player;
 	}
@@ -25,11 +24,11 @@ public abstract class PlayerController {
 
 
 	public void setMyTurn(boolean isMyTurn) {
+		if(!isMyTurn)System.out.println(player.getName()+": My turn is "+isMyTurn);
 		this.isMyTurn = isMyTurn;
 	}	
 	
 	public boolean isMyTurn() {
-//		System.out.println(this.player.getName()+"IT'S MY TUUUUUUUUUUUUUUUURN");
 		return isMyTurn;
 	}
 
