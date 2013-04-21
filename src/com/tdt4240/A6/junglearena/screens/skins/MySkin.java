@@ -20,7 +20,7 @@ public class MySkin {
 		pixmap.setColor(Color.WHITE);
 		pixmap.fill();
 		skin.add("white", new Texture(pixmap));
-
+		
 		BitmapFont bitmap = new BitmapFont(
 				Gdx.files.internal("fonts/cracked-94.fnt"), false);
 		skin.add("default", bitmap);

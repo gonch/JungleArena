@@ -15,6 +15,7 @@ public class HumanPlayerController extends PlayerController implements InputProc
 
 	private WorldController worldController;
 	private String weaponSelected;
+	int turn = 1;
 
 	public HumanPlayerController(Player player, WorldController worldController) {
 		super(player);
@@ -47,6 +48,11 @@ public class HumanPlayerController extends PlayerController implements InputProc
 		GameCharacter character = this.getPlayer().getCharacter(); //TODO getPlayer returns player 2 always
 		Vector2 charCentre = character.getCentre();
 		Vector2 targetCentre = controls.getTarget().getCentre();
+		turn++;
+		if(turn%2!=0){
+			System.out.println("player one shooting");
+			charCentre.x-=500;
+		}
 		Vector2 charPosition = character.getPosition();
 		Vector2 charSize = character.getSize();
 //		double angle = MathUtils.atan2((charCentre.y - targetCentre.y), (charCentre.x - targetCentre.x));
@@ -80,24 +86,21 @@ public class HumanPlayerController extends PlayerController implements InputProc
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		System.out.println(this.player.getName()+" : "+isMyTurn());
+		System.out.println("TOUCH");
 		if (this.isMyTurn()) {
 			ControlsLayer controls = this.worldController.getControls();
 			GameButton target = controls.getTarget();
 			if (target.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
-				System.out.println("TARGET BUTTON PRESSED");
 				target.setSelected(true);
 				target.setReleased(false);
 			}
 			GameButton fireButton = controls.getFireButton();
 			if (fireButton.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
-				System.out.println("FIRE BUTTON PRESSED");
 				fireButton.setSelected(true);
 				fireButton.setReleased(false);
 			}
 			for (WeaponButton weaponButton : controls.getWeaponButtons()) {
 				if (weaponButton.checkSelected(screenX, Gdx.graphics.getHeight() - screenY)) {
-					System.out.println("WEAPON BUTTON PRESSED");
 					this.weaponSelected = weaponButton.getButtonName();
 					Gdx.input.vibrate(100);
 					weaponButton.setSelected(true);
@@ -115,11 +118,9 @@ public class HumanPlayerController extends PlayerController implements InputProc
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		if (this.isMyTurn()) {
 			if (this.worldController.getControls().getTarget().isSelected()) {
-				System.out.println("TARGET BUTTON RELEASED");
 				this.worldController.getControls().getTarget().setSelected(false);
 			}
 			if (this.worldController.getControls().getFireButton().isSelected()) {
-				System.out.println("FIRE BUTTON RELEASED");
 				this.worldController.getControls().getFireButton().setSelected(false);
 				this.worldController.getControls().getPowerBar().setSelected(false);
 				this.readyToshot();

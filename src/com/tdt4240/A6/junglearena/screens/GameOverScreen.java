@@ -23,50 +23,41 @@ import com.tdt4240.A6.junglearena.model.Context;
 import com.tdt4240.A6.junglearena.screens.skins.MySkin;
 import com.tdt4240.A6.junglearena.view.ScreenRenderer;
 
-public class PauseScreen implements Screen, InputProcessor {
+public class GameOverScreen implements Screen, InputProcessor {
+	protected static final String GAME_OVER = "GAME OVER";
+	protected static final String PLAY_AGAIN = "Play Again";
 
 	private ScreenRenderer screenRenderer;
 	private Game game;
 	private Stage stage;
-	private TextButton resumeButton;
-	private TextButton newGameButton;
-	private Boolean paused = true;
+	private TextButton gameOverButton;
+	private TextButton playAgainButton;
 
-	public PauseScreen(final Game game, final GameScreen gameScreen) {
-		this.screenRenderer = new ScreenRenderer();
-		paused = true;
+	public GameOverScreen(final Game game) {
 		this.game = game;
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
 
 		Table table = new Table();
 		table.setFillParent(true);
-		Skin skin = MySkin.getHugeButtonSkin();
-
+		Skin skin_green = MySkin.getBigButtonSkin();
+		Skin skin_red = MySkin.getHugeRedButtonSkin();
 		// Create a button with the "default" TextButtonStyle. A 3rd parameter
 		// can be used to specify a name other than "default".
-		resumeButton = new TextButton("Resume", skin);
-		newGameButton = new TextButton("New Game",skin);
+		gameOverButton = new TextButton(GAME_OVER, skin_red);
+		playAgainButton = new TextButton(PLAY_AGAIN, skin_green);
 
-		resumeButton.pad(25);
-		newGameButton.pad(25);
-		table.add(resumeButton);
+		gameOverButton.pad(25);
+		playAgainButton.pad(25);
+		table.add(gameOverButton);
 		table.row();
-		table.add(newGameButton);
+		table.add(playAgainButton);
+		table.row();
 		stage.addActor(table);
 
-		resumeButton.addListener(new ClickListener() {
+		playAgainButton.addListener(new ClickListener() {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				paused = false;
-				gameScreen.resumeGame();
-				game.setScreen(gameScreen);				
-			}
-		});
-		newGameButton.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				paused = false;
 				game.setScreen(new TitleScreen(game));
 			}
 		});
@@ -76,11 +67,15 @@ public class PauseScreen implements Screen, InputProcessor {
 	public void show() {
 		this.screenRenderer = new ScreenRenderer();
 		Gdx.input.setInputProcessor(stage);
+		// Gdx.input.setInputProcessor(this);
 	}
 
 	@Override
 	public void render(float delta) {
-		if(paused) this.screenRenderer.render(stage);
+		this.screenRenderer.render(stage);
+		// if(Gdx.input.justTouched()){
+		// game.setScreen(new GameScreen(game));
+		// }
 	}
 
 	@Override

@@ -59,7 +59,7 @@ public class GameScreen implements Screen{
 	public void show() {
 		//		music = Gdx.audio.newMusic(Gdx.files.internal("music/gameMusic.mp3"));
 		//		music.setLooping(true);
-		//		music.play();
+		//	music.play();
 		// pauseGame(); //START PAUSED FOR TESTING PURPOSES
 		startNewGame();
 
@@ -73,11 +73,12 @@ public class GameScreen implements Screen{
 		List<PlayerController> playerControllers = new ArrayList<PlayerController>();
 
 		CharacterFactory characterFactory = CharacterFactory.getInstance();
+
 		GameCharacter gameCharacter1 = characterFactory.createCharacter(this.context.getNameChar1(), 100,
 				this.context.getNameChar1(), new Vector2(0, 0), this.context.getNameChar1());
 		Player player1 = new Player(this.context.getNamePlayer1(), 1, gameCharacter1);
 
-		GameCharacter gameCharacter2 = characterFactory.createCharacter(this.context.getNameChar2(), 150,
+		GameCharacter gameCharacter2 = characterFactory.createCharacter(this.context.getNameChar2(), 100,
 				this.context.getNameChar2(), new Vector2(0, 0), this.context.getNameChar2());
 		Player player2 = new Player(this.context.getNamePlayer2(), 2, gameCharacter2);
 
@@ -118,7 +119,7 @@ public class GameScreen implements Screen{
 
 	@Override
 	public void dispose() {
-//		music.dispose();
+		//		music.dispose();
 	}
 
 	@Override
@@ -134,39 +135,33 @@ public class GameScreen implements Screen{
 	public void render(float dt) {
 		// Gdx.gl.glClearColor(0.56f, 0.165f, 0.1f, 1);// clear the screen with
 		// black
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		this.mapRenderer.render();
-		this.tweenManager.update(dt);
-		this.worldController.update(dt);
-		this.worldRenderer.render();
-		this.gameInfoRenderer.render();
-		this.controlsRenderer.render();
-		if (this.worldController.isGameOver()) {
-			// TODO: go to game over screen
-		}
-		if (this.worldController.isEndOfTurn()) {
-			System.out.println("END OF TURN");
-			this.worldController.startNewTurn();
-		}
-
-		// TODO this code has to be run when the pause button is pressed
-		if (Gdx.input.isTouched()) {
-			GameButton pauseButton = this.worldController.getControls().getPauseButton();
-			float screenX = Gdx.input.getX();
-			float screenY = Gdx.graphics.getHeight() - Gdx.input.getY();
-			if (pauseButton != null && pauseButton.checkSelected(screenX, screenY)) {
-				pauseGame();
+		if (gamestatus == GAME_RUNNING){
+			Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+			this.mapRenderer.render();
+			this.tweenManager.update(dt);
+			this.worldController.update(dt);
+			this.worldRenderer.render();
+			this.gameInfoRenderer.render();
+			this.controlsRenderer.render();
+			if (this.worldController.isGameOver()) {
+				game.setScreen(new GameOverScreen(game));
+			}
+			if (this.worldController.isEndOfTurn()) {
+				System.out.println("END OF TURN");
+				this.worldController.startNewTurn();
+			}
+			if (Gdx.input.isTouched()) {
+				GameButton pauseButton = this.worldController.getControls().getPauseButton();
+				float screenX = Gdx.input.getX();
+				float screenY = Gdx.graphics.getHeight() - Gdx.input.getY();
+				if (pauseButton != null && pauseButton.checkSelected(screenX, screenY)) {
+					pauseGame();
+				}
 			}
 		}
-
-		/**
-		 * 
-		 * **/
-		if (gamestatus == GAME_PAUSED) {
-			if(gamestatus == GAME_PAUSED){
-				PauseScreen pause = new PauseScreen(game,this);
-				pause.render(dt);
-			}
+		else if (gamestatus == GAME_PAUSED) {
+			PauseScreen pause = new PauseScreen(game,this);
+			pause.render(dt);
 		}
 	}
 
@@ -177,6 +172,7 @@ public class GameScreen implements Screen{
 
 	public void resumeGame() {
 		//music.play();
+
 		gamestatus = GAME_RUNNING;
 	}
 

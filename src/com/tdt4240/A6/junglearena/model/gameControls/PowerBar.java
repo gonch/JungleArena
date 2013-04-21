@@ -27,9 +27,10 @@ public class PowerBar extends GameButton {
 		if (this.isSelected()) {
 			float previousScaleX = this.getScaleX();
 			if (previousScaleX <= this.getSize().x) {
-				this.setScale(previousScaleX + 0.5f, this.getSize().y);// TODO
+				this.setScale(previousScaleX + 0.9f, this.getSize().y);// TODO
 																		// hardcode
 				this.power = this.getScaleX() / this.getSize().x;
+				this.power*=2;
 			}
 		}
 	}

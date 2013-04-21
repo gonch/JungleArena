@@ -203,7 +203,7 @@ public class WorldController {
 		this.controls.addButton(target);
 		this.controls.setTarget(target);
 
-		PowerBar powerBar = new PowerBar("powerBar", new Vector2(10, 10), new Vector2(200, 100));
+		PowerBar powerBar = new PowerBar("powerBar", new Vector2(10, 10), new Vector2(125, 50));
 		powerBar.setScale(0, 0);
 		this.controls.setPowerBar(powerBar);
 		this.controls.addButton(powerBar);
