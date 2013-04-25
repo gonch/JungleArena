@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_aJBSEKrZEeK0c6zbE5wWDw">
+  <modelElement href="JungleAre6.uml#_YYJxYKrZEeK0c6zbE5wWDw"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_kYDR4KrZEeK0c6zbE5wWDw" name="CollisionListener">
+    <modelElement href="JungleAre6.uml#_Yiy7IKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_kYDR4arZEeK0c6zbE5wWDw" position="50.0,50.0"/>
+    <visibility xmi:id="_kYDR4qrZEeK0c6zbE5wWDw" label="+"/>
+    <operations xmi:id="_kYDR46rZEeK0c6zbE5wWDw" name="beginContact">
+      <modelElement href="JungleAre6.uml#_ZEfS8KrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_kYDR5KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZEf6AarZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_kYDR5arZEeK0c6zbE5wWDw" name="Annotations">
+        <modelElement href="JungleAre6.uml#_ZEghEKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_kYDR5qrZEeK0c6zbE5wWDw" label="+"/>
+      <parameters xmi:id="_kYDR56rZEeK0c6zbE5wWDw" name="contact">
+        <modelElement href="JungleAre6.uml#_ZEf6AKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_kYDR6KrZEeK0c6zbE5wWDw" name="Contact">
+          <modelElement href="JungleAre6.uml#_ZAwpgKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_kYDR6arZEeK0c6zbE5wWDw" name="endContact">
+      <modelElement href="JungleAre6.uml#_ZEhIIKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_kYDR6qrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZEhvMKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_kYDR66rZEeK0c6zbE5wWDw" name="Annotations">
+        <modelElement href="JungleAre6.uml#_ZEhvMarZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_kYDR7KrZEeK0c6zbE5wWDw" label="+"/>
+      <parameters xmi:id="_kYDR7arZEeK0c6zbE5wWDw" name="contact">
+        <modelElement href="JungleAre6.uml#_ZEhIIarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_kYDR7qrZEeK0c6zbE5wWDw" name="Contact">
+          <modelElement href="JungleAre6.uml#_ZAwpgKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_kYDR76rZEeK0c6zbE5wWDw" name="preSolve">
+      <modelElement href="JungleAre6.uml#_ZEi9UKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_kYDR8KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZEjkYKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_kYDR8arZEeK0c6zbE5wWDw" name="Annotations">
+        <modelElement href="JungleAre6.uml#_ZEjkYarZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_kYDR8qrZEeK0c6zbE5wWDw" label="+"/>
+      <parameters xmi:id="_kYDR86rZEeK0c6zbE5wWDw" name="contact">
+        <modelElement href="JungleAre6.uml#_ZEi9UarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_kYDR9KrZEeK0c6zbE5wWDw" name="Contact">
+          <modelElement href="JungleAre6.uml#_ZAwpgKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_kYDR9arZEeK0c6zbE5wWDw" name="oldManifold">
+        <modelElement href="JungleAre6.uml#_ZEi9UqrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_kYDR9qrZEeK0c6zbE5wWDw" name="Manifold">
+          <modelElement href="JungleAre6.uml#_ZA068arZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_kYDR96rZEeK0c6zbE5wWDw" name="postSolve">
+      <modelElement href="JungleAre6.uml#_ZEkygKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_kYDR-KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZElZkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_kYDR-arZEeK0c6zbE5wWDw" name="Annotations">
+        <modelElement href="JungleAre6.uml#_ZElZkarZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_kYDR-qrZEeK0c6zbE5wWDw" label="+"/>
+      <parameters xmi:id="_kYD48KrZEeK0c6zbE5wWDw" name="contact">
+        <modelElement href="JungleAre6.uml#_ZEkygarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_kYD48arZEeK0c6zbE5wWDw" name="Contact">
+          <modelElement href="JungleAre6.uml#_ZAwpgKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_kYD48qrZEeK0c6zbE5wWDw" name="impulse">
+        <modelElement href="JungleAre6.uml#_ZEkygqrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_kYD486rZEeK0c6zbE5wWDw" name="ContactImpulse">
+          <modelElement href="JungleAre6.uml#_ZAx3oarZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

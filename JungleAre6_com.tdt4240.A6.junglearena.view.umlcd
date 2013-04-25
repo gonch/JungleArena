@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_aJPUgKrZEeK0c6zbE5wWDw">
+  <modelElement href="JungleAre6.uml#_YZWEMKrZEeK0c6zbE5wWDw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_mQrncarZEeK0c6zbE5wWDw" targetItem="_mRCNFarZEeK0c6zbE5wWDw" sourceItem="_mQrncKrZEeK0c6zbE5wWDw"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mQ2mkKrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQUIcKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTXIAKrZEeK0c6zbE5wWDw" position="150.0,150.0"/>
+    <stereotypes xmi:id="_mQ2mkarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQUvgKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mQ2mkqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mQ2mk6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQUIcarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ2mlKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mQ2mlarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mQ2mlqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="controls" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZIrPYKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ2ml6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mQ2mmKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mQ30sKrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQVWkKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTXvEKrZEeK0c6zbE5wWDw" position="170.0,170.0"/>
+    <stereotypes xmi:id="_mQ30sarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQV9oKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mQ30sqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mQ30s6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQVWkarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ30tKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mQ30tarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mQ30tqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="cam" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZIr2carZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ30t6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mQ30uKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mQ5p4KrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQaPEKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTYWIKrZEeK0c6zbE5wWDw" position="190.0,190.0"/>
+    <stereotypes xmi:id="_mQ5p4arZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQbdMKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mQ5p4qrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mQ5p46rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQaPEarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ5p5KrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mQ5p5arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mQ5p5qrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="shapeRenderer" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZItroKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ5p56rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mQ5p6KrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mQ64AKrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQcEQKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTY9MKrZEeK0c6zbE5wWDw" position="210.0,210.0"/>
+    <stereotypes xmi:id="_mQ64AarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQd5cKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mQ64AqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mQ64A6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQcEQarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ64BKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mQ64BarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mQ64BqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="debugRenderer" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZIu5wKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ64B6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mQ64CKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mQ8tMKrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQd5carZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTY9MarZEeK0c6zbE5wWDw" position="230.0,230.0"/>
+    <stereotypes xmi:id="_mQ8tMarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQfuoKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mQ8tMqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mQ8tM6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQd5cqrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ8tNKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mQ8tNarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mQ8tNqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="targetTexture" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZIwH4arZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ8tN6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mQ8tOKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mQ-iYKrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQfuoarZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTZkQKrZEeK0c6zbE5wWDw" position="250.0,250.0"/>
+    <stereotypes xmi:id="_mQ-iYarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQhj0KrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mQ-iYqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mQ-iY6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQfuoqrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ-iZKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mQ-iZarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mQ-iZqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="spriteBatch" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZIx9EKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ-iZ6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mQ-iaKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mQ_wgKrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ-PwarZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTj8UKrZEeK0c6zbE5wWDw" position="670.0,670.0"/>
+    <stereotypes xmi:id="_mQ_wgarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ_d4KrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mQ_wgqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mQ_wg6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ-PwqrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ_whKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mQ_wharZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mQ_whqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="powerBarTexture" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZMzhcKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mQ_wh6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mQ_wiKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRBlsKrZEeK0c6zbE5wWDw" source="_mRCMwKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ_d4arZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTj8UarZEeK0c6zbE5wWDw" position="690.0,690.0"/>
+    <stereotypes xmi:id="_mRBlsarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZRBTEKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRBlsqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRBls6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ_d4qrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRBltKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mRBltarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRBltqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="fireButtonTexture" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZM19sKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRBlt6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRBluKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRW84KrZEeK0c6zbE5wWDw" source="_mRjxNqrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQhj0arZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTaLUKrZEeK0c6zbE5wWDw" position="270.0,270.0"/>
+    <stereotypes xmi:id="_mRb1YarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQix8KrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRbOUKrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRbOUarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQhj0qrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRdqkKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mRdDgKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRb1YKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="spriteBatch" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZI5R0KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRdqkqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRdqkarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRYLAKrZEeK0c6zbE5wWDw" source="_mRjxNqrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQlOMKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTbZcKrZEeK0c6zbE5wWDw" position="310.0,310.0"/>
+    <stereotypes xmi:id="_mRcccqrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQmcUKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRb1YqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRcccKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQlOMarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mReRoqrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mReRoarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRcccarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="backgroundTexture" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZI7uEKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRe4sarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRe4sKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRh8AKrZEeK0c6zbE5wWDw" source="_mRjxNqrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQjZAKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTayYKrZEeK0c6zbE5wWDw" position="290.0,290.0"/>
+    <stereotypes xmi:id="_mRh8AarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQknIKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRh8AqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRh8A6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQjZAarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRh8BKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mRh8BarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRh8BqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="font" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZI6f8arZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRh8B6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRh8CKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRjKIKrZEeK0c6zbE5wWDw" source="_mRjxNqrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQnDYKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTcAgKrZEeK0c6zbE5wWDw" position="330.0,330.0"/>
+    <stereotypes xmi:id="_mRjKIarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQoRgKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRjKIqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRjxMKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQnDYarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRjxMarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mRjxMqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRjxM6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="world" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZI9jQarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRjxNKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRjxNarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRs7IKrZEeK0c6zbE5wWDw" source="_mR6WgKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQqtwKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTcnkKrZEeK0c6zbE5wWDw" position="370.0,370.0"/>
+    <stereotypes xmi:id="_mRxMkarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQrU0KrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRwlgKrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRwlgarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQqtwarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR0P4KrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mRzo0KrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRxMkKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="spriteBatch" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZI__garZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR0P4qrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR0P4arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRs7IarZEeK0c6zbE5wWDw" source="_mR6WgKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQr74KrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTdOoKrZEeK0c6zbE5wWDw" position="390.0,390.0"/>
+    <stereotypes xmi:id="_mRyasKrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQsi8KrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRxMkqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRxMk6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQr74arZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR028qrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mR028arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRxzoKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="shapeRenderer" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJBNoKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR1eAarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR1eAKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mRtiMKrZEeK0c6zbE5wWDw" source="_mR6WgKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQsi8arZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTd1sKrZEeK0c6zbE5wWDw" position="410.0,410.0"/>
+    <stereotypes xmi:id="_mRzBwarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQtxEKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mRyasarZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mRyasqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQsi8qrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR2FEarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mR2FEKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mRzBwKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="backgroundTexture" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJCbwKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR2sIKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR2FEqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mR5IYKrZEeK0c6zbE5wWDw" source="_mR6WgKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQo4kKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTcAgarZEeK0c6zbE5wWDw" position="350.0,350.0"/>
+    <stereotypes xmi:id="_mR5IYarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQqGsKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mR5IYqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mR5IY6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQo4karZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR5IZKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mR5IZarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mR5IZqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="map" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZI-xYKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR5IZ6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR5IaKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSFVoKrZEeK0c6zbE5wWDw" source="_mSWbYKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQuYIKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTecwKrZEeK0c6zbE5wWDw" position="430.0,430.0"/>
+    <stereotypes xmi:id="_mSK1MKrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQvmQKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSJnEKrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSKOIKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQuYIarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSNRcarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mSNRcKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSKOIarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="spriteBatch" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJDp4KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSN4gKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSNRcqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSF8sKrZEeK0c6zbE5wWDw" source="_mSWbYKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQwNUKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTfD0KrZEeK0c6zbE5wWDw" position="450.0,450.0"/>
+    <stereotypes xmi:id="_mSLcQarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQw0YKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSK1MarZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSK1MqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQwNUarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSOfkarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mSOfkKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSLcQKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="font" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJE4AarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSPGoKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSOfkqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSGjwKrZEeK0c6zbE5wWDw" source="_mSWbYKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQypkKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTfq4arZEeK0c6zbE5wWDw" position="490.0,490.0"/>
+    <stereotypes xmi:id="_mSMqYKrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQzQoKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSLcQqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSMDUKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQypkarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSRi4qrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mSRi4arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSMDUarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="backgroundTexture" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJHUQKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSSJ8arZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSSJ8KrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSV0UKrZEeK0c6zbE5wWDw" source="_mSWbYKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQxbcKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTfq4KrZEeK0c6zbE5wWDw" position="470.0,470.0"/>
+    <stereotypes xmi:id="_mSV0UarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQyCgKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSV0UqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSV0U6rZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQxbcarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSV0VKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mSV0VarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSV0VqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="welcomeText" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJGGIKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSV0V6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSV0WKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSiooKrZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQz3sKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTgR8KrZEeK0c6zbE5wWDw" position="510.0,510.0"/>
+    <stereotypes xmi:id="_mSwrEarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ0ewKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSwEAKrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSwEAarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQz3sarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS4m4arZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mS4m4KrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSwrEKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="jungleWorld" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJKXkKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS5N8arZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mS5N8KrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSjPsKrZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ1F0KrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTg5AKrZEeK0c6zbE5wWDw" position="530.0,530.0"/>
+    <stereotypes xmi:id="_mSx5MKrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ1s4KrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSwrEqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSxSIKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ1F0arZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS51AarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mS51AKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSxSIarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="cam" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJMMwKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS6cEarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mS6cEKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSj2wKrZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ1s4arZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTg5AarZEeK0c6zbE5wWDw" position="550.0,550.0"/>
+    <stereotypes xmi:id="_mSygQarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ27AKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSx5MarZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSx5MqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ1s4qrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS7DIarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mS7DIKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSygQKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="shapeRenderer" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJNa4KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS7qMKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mS7DIqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSj2warZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ27AarZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mThgEKrZEeK0c6zbE5wWDw" position="570.0,570.0"/>
+    <stereotypes xmi:id="_mSzHUqrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ3iEKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSygQqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSzHUKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ27AqrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS8RQKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mS7qMqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSzHUarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="debugRenderer" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJOB8arZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS8RQqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mS8RQarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSkd0KrZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ4JIKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTiHIKrZEeK0c6zbE5wWDw" position="590.0,590.0"/>
+    <stereotypes xmi:id="_mS0VcKrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ4wMKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mSzuYKrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mSzuYarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ4JIarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS84UqrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mS84UarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mSzuYqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="texturePlayerOne" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJPQEKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS9fYarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mS9fYKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSlE4KrZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ4wMarZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTiHIarZEeK0c6zbE5wWDw" position="610.0,610.0"/>
+    <stereotypes xmi:id="_mS08garZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ6lYKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mS0VcarZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mS0VcqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ4wMqrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS-GcarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mS-GcKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mS08gKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="texturePlayerTwo" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJRFQKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS-tgarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mS-tgKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSlr8KrZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ6lYarZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTiuMKrZEeK0c6zbE5wWDw" position="630.0,630.0"/>
+    <stereotypes xmi:id="_mS2KoKrZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ7zgKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mS08gqrZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mS1jkKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ6lYqrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS_UkqrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mS_UkarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mS1jkarZEeK0c6zbE5wWDw" aggregationKind="NONE" name="targetTexture" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJUvoKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mS_7oarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mS_7oKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_mSlr8arZEeK0c6zbE5wWDw" source="_mTE0IKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZQ8akKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTjVQKrZEeK0c6zbE5wWDw" position="650.0,650.0"/>
+    <stereotypes xmi:id="_mS2xsarZEeK0c6zbE5wWDw" name="Reference">
+      <modelElement href="JungleAre6.uml#_ZQ9BoKrZEeK0c6zbE5wWDw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_mS2KoarZEeK0c6zbE5wWDw" text=""/>
+    <sourceRole xmi:id="_mS2KoqrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="">
+      <modelElement href="JungleAre6.uml#_ZQ8akarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTAisarZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_mTAisKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_mS2xsKrZEeK0c6zbE5wWDw" aggregationKind="NONE" name="spriteBatch" navigable="true">
+      <modelElement href="JungleAre6.uml#_ZJV9wKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTBJwarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTBJwKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_mSm6EarZEeK0c6zbE5wWDw" targetItem="_mTFbYarZEeK0c6zbE5wWDw" sourceItem="_mSm6EKrZEeK0c6zbE5wWDw"/>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_mQrncKrZEeK0c6zbE5wWDw" sourceConnectionVisual="_mQrncarZEeK0c6zbE5wWDw" text="Converts from world coordinates to screen coordinates *" item="_mRCNFarZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZM3L0KrZEeK0c6zbE5wWDw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_mSm6EKrZEeK0c6zbE5wWDw" sourceConnectionVisual="_mSm6EarZEeK0c6zbE5wWDw" text="Converts from world coordinates to screen coordinates *" item="_mTFbYarZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_ZM3y4KrZEeK0c6zbE5wWDw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_mRCMwKrZEeK0c6zbE5wWDw" name="ControlsRenderer" associationsOut="_mQ2mkKrZEeK0c6zbE5wWDw _mQ30sKrZEeK0c6zbE5wWDw _mQ5p4KrZEeK0c6zbE5wWDw _mQ64AKrZEeK0c6zbE5wWDw _mQ8tMKrZEeK0c6zbE5wWDw _mQ-iYKrZEeK0c6zbE5wWDw _mQ_wgKrZEeK0c6zbE5wWDw _mRBlsKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_YuU1sKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mRCMwarZEeK0c6zbE5wWDw" position="50.0,50.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_mRCMwqrZEeK0c6zbE5wWDw" label="+"/>
+    <attributes xmi:id="_mRCMw6rZEeK0c6zbE5wWDw" defaultValue="Gdx.graphics.getWidth()" name="CAMERA_WIDTH" staticAttribute="true">
+      <modelElement href="JungleAre6.uml#_ZIpaMKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRCMxKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCMxarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCMxqrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCMx6rZEeK0c6zbE5wWDw" defaultValue="Gdx.graphics.getHeight()" name="CAMERA_HEIGHT" staticAttribute="true">
+      <modelElement href="JungleAre6.uml#_ZIqBQarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRCMyKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCMyarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCMyqrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCMy6rZEeK0c6zbE5wWDw" name="controls">
+      <modelElement href="JungleAre6.uml#_ZIrPYKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCMzKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIr2cKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCMzarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIr2cKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCMzqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCMz6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM0KrZEeK0c6zbE5wWDw" name="ControlsLayer">
+        <modelElement href="JungleAre6.uml#_Yl22MKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM0arZEeK0c6zbE5wWDw" name="cam">
+      <modelElement href="JungleAre6.uml#_ZIr2carZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM0qrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZItEkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCM06rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZItEkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM1KrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM1arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM1qrZEeK0c6zbE5wWDw" name="OrthographicCamera">
+        <modelElement href="JungleAre6.uml#_ZDP80KrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM16rZEeK0c6zbE5wWDw" name="shapeRenderer">
+      <modelElement href="JungleAre6.uml#_ZItroKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM2KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIuSsKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCM2arZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIuSsKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM2qrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM26rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM3KrZEeK0c6zbE5wWDw" name="ShapeRenderer">
+        <modelElement href="JungleAre6.uml#_ZDRyAKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM3arZEeK0c6zbE5wWDw" name="debugRenderer">
+      <modelElement href="JungleAre6.uml#_ZIu5wKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM3qrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIwH4KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCM36rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIwH4KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM4KrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM4arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM4qrZEeK0c6zbE5wWDw" name="Box2DDebugRenderer">
+        <modelElement href="JungleAre6.uml#_ZDSZEarZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM46rZEeK0c6zbE5wWDw" name="targetTexture">
+      <modelElement href="JungleAre6.uml#_ZIwH4arZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM5KrZEeK0c6zbE5wWDw" name="MultiDeclaration">
+        <modelElement href="JungleAre6.uml#_ZIwu8KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCM5arZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIxWAKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCM5qrZEeK0c6zbE5wWDw" name="MultiDeclaration">
+        <modelElement href="JungleAre6.uml#_ZIwu8KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCM56rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIxWAKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM6KrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM6arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM6qrZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM66rZEeK0c6zbE5wWDw" name="spriteBatch">
+      <modelElement href="JungleAre6.uml#_ZIx9EKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM7KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIzLMKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCM7arZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZIzLMKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM7qrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM76rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM8KrZEeK0c6zbE5wWDw" name="SpriteBatch">
+        <modelElement href="JungleAre6.uml#_ZDRK8KrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM8arZEeK0c6zbE5wWDw" name="width">
+      <modelElement href="JungleAre6.uml#_ZIzyQKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM8qrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI1AYKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM86rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM9KrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM9arZEeK0c6zbE5wWDw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM9qrZEeK0c6zbE5wWDw" name="height">
+      <modelElement href="JungleAre6.uml#_ZI1AYarZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM96rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI2OgKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM-KrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM-arZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM-qrZEeK0c6zbE5wWDw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCM-6rZEeK0c6zbE5wWDw" name="ppuX">
+      <modelElement href="JungleAre6.uml#_ZI2OgarZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCM_KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI3coKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCM_arZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCM_qrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCM_6rZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCNAKrZEeK0c6zbE5wWDw" name="ppuY">
+      <modelElement href="JungleAre6.uml#_ZI3coarZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCNAarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI4DsKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCNAqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCNA6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCNBKrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCNBarZEeK0c6zbE5wWDw" name="powerBarTexture">
+      <modelElement href="JungleAre6.uml#_ZMzhcKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCNBqrZEeK0c6zbE5wWDw" name="MultiDeclaration">
+        <modelElement href="JungleAre6.uml#_ZM0vkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCNB6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZM1WoKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCNCKrZEeK0c6zbE5wWDw" name="MultiDeclaration">
+        <modelElement href="JungleAre6.uml#_ZM0vkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCNCarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZM1WoKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCNCqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCNC6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCNDKrZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRCNDarZEeK0c6zbE5wWDw" name="fireButtonTexture">
+      <modelElement href="JungleAre6.uml#_ZM19sKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRCNDqrZEeK0c6zbE5wWDw" name="MultiDeclaration">
+        <modelElement href="JungleAre6.uml#_ZM2kwKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCND6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZM2kwarZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCNEKrZEeK0c6zbE5wWDw" name="MultiDeclaration">
+        <modelElement href="JungleAre6.uml#_ZM2kwKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRCNEarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZM2kwarZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRCNEqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRCNE6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRCNFKrZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_mRCNFarZEeK0c6zbE5wWDw" comments="_mQrncKrZEeK0c6zbE5wWDw" targetConnectionVisual="_mQrncarZEeK0c6zbE5wWDw" name="setSize">
+      <modelElement href="JungleAre6.uml#_YuZHIKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRCNFqrZEeK0c6zbE5wWDw" label="+"/>
+      <parameters xmi:id="_mRCNF6rZEeK0c6zbE5wWDw" name="w">
+        <modelElement href="JungleAre6.uml#_YuZHIarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mRCNGKrZEeK0c6zbE5wWDw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_mRCNGarZEeK0c6zbE5wWDw" name="h">
+        <modelElement href="JungleAre6.uml#_YuZuMKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mRCNGqrZEeK0c6zbE5wWDw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_mRCNG6rZEeK0c6zbE5wWDw" name="loadTextures">
+      <modelElement href="JungleAre6.uml#_YuaVQKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRCNHKrZEeK0c6zbE5wWDw" label="-"/>
+    </operations>
+    <operations xmi:id="_mRCNHarZEeK0c6zbE5wWDw" name="render">
+      <modelElement href="JungleAre6.uml#_YuaVQarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRCNHqrZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+    <operations xmi:id="_mRCNH6rZEeK0c6zbE5wWDw" name="drawControls">
+      <modelElement href="JungleAre6.uml#_Yua8UKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRCNIKrZEeK0c6zbE5wWDw" label="-"/>
+    </operations>
+    <operations xmi:id="_mRCNIarZEeK0c6zbE5wWDw" name="ControlsRenderer">
+      <modelElement href="JungleAre6.uml#_ZDU1UKrZEeK0c6zbE5wWDw"/>
+      <keywords xmi:id="_mRCNIqrZEeK0c6zbE5wWDw" keyword="create"/>
+      <visibility xmi:id="_mRCNI6rZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_mRCNJKrZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZDVcYKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mRCNJarZEeK0c6zbE5wWDw" name="ControlsRenderer">
+          <modelElement href="JungleAre6.uml#_YuU1sKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_mRCNJqrZEeK0c6zbE5wWDw" name="controls">
+        <modelElement href="JungleAre6.uml#_ZDU1UarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mRCNJ6rZEeK0c6zbE5wWDw" name="ControlsLayer">
+          <modelElement href="JungleAre6.uml#_Yl22MKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_mRjxNqrZEeK0c6zbE5wWDw" name="GameInfoRenderer" associationsOut="_mRW84KrZEeK0c6zbE5wWDw _mRYLAKrZEeK0c6zbE5wWDw _mRh8AKrZEeK0c6zbE5wWDw _mRjKIKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_Yui4IKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mRjxN6rZEeK0c6zbE5wWDw" position="503.0,278.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_mRjxOKrZEeK0c6zbE5wWDw" label="+"/>
+    <attributes xmi:id="_mRjxOarZEeK0c6zbE5wWDw" name="spriteBatch">
+      <modelElement href="JungleAre6.uml#_ZI5R0KrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRjxOqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI6f8KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mReRoKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI6f8KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRjxO6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRjxPKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRjxParZEeK0c6zbE5wWDw" name="SpriteBatch">
+        <modelElement href="JungleAre6.uml#_ZDRK8KrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRjxPqrZEeK0c6zbE5wWDw" name="font">
+      <modelElement href="JungleAre6.uml#_ZI6f8arZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRjxP6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI7HAKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRjxQKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI7HAKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRjxQarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRjxQqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRjxQ6rZEeK0c6zbE5wWDw" name="BitmapFont">
+        <modelElement href="JungleAre6.uml#_ZCiLIarZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRjxRKrZEeK0c6zbE5wWDw" name="backgroundTexture">
+      <modelElement href="JungleAre6.uml#_ZI7uEKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRjxRarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI9jQKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRffwKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI9jQKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRjxRqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRjxR6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRjxSKrZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mRjxSarZEeK0c6zbE5wWDw" name="world">
+      <modelElement href="JungleAre6.uml#_ZI9jQarZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mRjxSqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI-KUKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mRjxS6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI-KUKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mRjxTKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mRjxTarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mRjxTqrZEeK0c6zbE5wWDw" name="JungleWorld">
+        <modelElement href="JungleAre6.uml#_YjbNQKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_mRjxT6rZEeK0c6zbE5wWDw" name="render">
+      <modelElement href="JungleAre6.uml#_YulUYKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRjxUKrZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+    <operations xmi:id="_mRjxUarZEeK0c6zbE5wWDw" name="dispose">
+      <modelElement href="JungleAre6.uml#_YulUYarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mRjxUqrZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+    <operations xmi:id="_mRjxU6rZEeK0c6zbE5wWDw" name="GameInfoRenderer">
+      <modelElement href="JungleAre6.uml#_ZDaU4KrZEeK0c6zbE5wWDw"/>
+      <keywords xmi:id="_mRjxVKrZEeK0c6zbE5wWDw" keyword="create"/>
+      <visibility xmi:id="_mRjxVarZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_mRjxVqrZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZDa78qrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mRjxV6rZEeK0c6zbE5wWDw" name="GameInfoRenderer">
+          <modelElement href="JungleAre6.uml#_Yui4IKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_mRjxWKrZEeK0c6zbE5wWDw" name="world">
+        <modelElement href="JungleAre6.uml#_ZDaU4arZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mRjxWarZEeK0c6zbE5wWDw" name="JungleWorld">
+          <modelElement href="JungleAre6.uml#_YjbNQKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_mR6WgKrZEeK0c6zbE5wWDw" name="MapRenderer" associationsOut="_mRs7IKrZEeK0c6zbE5wWDw _mRs7IarZEeK0c6zbE5wWDw _mRtiMKrZEeK0c6zbE5wWDw _mR5IYKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_YuqM4KrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mR6WgarZEeK0c6zbE5wWDw" position="-342.0,297.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_mR6WgqrZEeK0c6zbE5wWDw" label="+"/>
+    <attributes xmi:id="_mR6Wg6rZEeK0c6zbE5wWDw" name="map">
+      <modelElement href="JungleAre6.uml#_ZI-xYKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mR6WhKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI__gKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mR6WharZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZI__gKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mR6WhqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR6Wh6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mR6WiKrZEeK0c6zbE5wWDw" name="GameMap">
+        <modelElement href="JungleAre6.uml#_YjQ1MKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mR6WiarZEeK0c6zbE5wWDw" name="spriteBatch">
+      <modelElement href="JungleAre6.uml#_ZI__garZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mR6WiqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJAmkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mR028KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJAmkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mR6Wi6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR6WjKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mR6WjarZEeK0c6zbE5wWDw" name="SpriteBatch">
+        <modelElement href="JungleAre6.uml#_ZDRK8KrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mR6WjqrZEeK0c6zbE5wWDw" name="shapeRenderer">
+      <modelElement href="JungleAre6.uml#_ZJBNoKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mR6Wj6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJB0sKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mR1eAqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJB0sKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mR6WkKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR6WkarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mR6WkqrZEeK0c6zbE5wWDw" name="ShapeRenderer">
+        <modelElement href="JungleAre6.uml#_ZDRyAKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mR6Wk6rZEeK0c6zbE5wWDw" name="backgroundTexture">
+      <modelElement href="JungleAre6.uml#_ZJCbwKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mR6WlKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJDC0KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mR2sIarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJDC0KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mR6WlarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mR6WlqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mR6Wl6rZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_mR6WmKrZEeK0c6zbE5wWDw" name="render">
+      <modelElement href="JungleAre6.uml#_YusCEKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mR6WmarZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+    <operations xmi:id="_mR6WmqrZEeK0c6zbE5wWDw" name="MapRenderer">
+      <modelElement href="JungleAre6.uml#_ZDf0cKrZEeK0c6zbE5wWDw"/>
+      <keywords xmi:id="_mR6Wm6rZEeK0c6zbE5wWDw" keyword="create"/>
+      <visibility xmi:id="_mR6WnKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_mR6WnarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZDgbgKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mR6WnqrZEeK0c6zbE5wWDw" name="MapRenderer">
+          <modelElement href="JungleAre6.uml#_YuqM4KrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_mR6Wn6rZEeK0c6zbE5wWDw" name="map">
+        <modelElement href="JungleAre6.uml#_ZDf0carZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mR6WoKrZEeK0c6zbE5wWDw" name="GameMap">
+          <modelElement href="JungleAre6.uml#_YjQ1MKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_mSWbYKrZEeK0c6zbE5wWDw" name="ScreenRenderer" associationsOut="_mSFVoKrZEeK0c6zbE5wWDw _mSF8sKrZEeK0c6zbE5wWDw _mSGjwKrZEeK0c6zbE5wWDw _mSV0UKrZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_YuxhoKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mSWbYarZEeK0c6zbE5wWDw" position="-683.0,278.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_mSWbYqrZEeK0c6zbE5wWDw" label="+"/>
+    <attributes xmi:id="_mSWbY6rZEeK0c6zbE5wWDw" name="spriteBatch">
+      <modelElement href="JungleAre6.uml#_ZJDp4KrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mSWbZKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJE4AKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mSN4garZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJE4AKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mSWbZarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSWbZqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mSWbZ6rZEeK0c6zbE5wWDw" name="SpriteBatch">
+        <modelElement href="JungleAre6.uml#_ZDRK8KrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mSWbaKrZEeK0c6zbE5wWDw" name="font">
+      <modelElement href="JungleAre6.uml#_ZJE4AarZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mSWbaarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJFfEKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mSRi4KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJFfEKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mSWbaqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSWba6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mSWbbKrZEeK0c6zbE5wWDw" name="BitmapFont">
+        <modelElement href="JungleAre6.uml#_ZCiLIarZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mSWbbarZEeK0c6zbE5wWDw" name="welcomeText">
+      <modelElement href="JungleAre6.uml#_ZJGGIKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mSWbbqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJGtMKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mSWbb6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJGtMKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mSWbcKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSWbcarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mSWbcqrZEeK0c6zbE5wWDw" name="CharSequence">
+        <modelElement href="JungleAre6.uml#_ZF3zAKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mSWbc6rZEeK0c6zbE5wWDw" name="backgroundTexture">
+      <modelElement href="JungleAre6.uml#_ZJHUQKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mSWbdKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJH7UKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mSSxAKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJH7UKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mSWbdarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mSWbdqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mSWbd6rZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_mSWbeKrZEeK0c6zbE5wWDw" name="ScreenRenderer">
+      <modelElement href="JungleAre6.uml#_YuzW0KrZEeK0c6zbE5wWDw"/>
+      <keywords xmi:id="_mSWbearZEeK0c6zbE5wWDw" keyword="create"/>
+      <visibility xmi:id="_mSWbeqrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_mSWbe6rZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_Yuz94arZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mSWbfKrZEeK0c6zbE5wWDw" name="ScreenRenderer">
+          <modelElement href="JungleAre6.uml#_YuxhoKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_mSWbfarZEeK0c6zbE5wWDw" name="dispose">
+      <modelElement href="JungleAre6.uml#_Yu0k8KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSWbfqrZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+    <operations xmi:id="_mSWbf6rZEeK0c6zbE5wWDw" name="render">
+      <modelElement href="JungleAre6.uml#_ZF5BIKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mSWbgKrZEeK0c6zbE5wWDw" label="+"/>
+      <parameters xmi:id="_mSWbgarZEeK0c6zbE5wWDw" name="stage">
+        <modelElement href="JungleAre6.uml#_ZF5BIarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mSWbgqrZEeK0c6zbE5wWDw" name="Stage">
+          <modelElement href="JungleAre6.uml#_ZB7uMKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_mTE0IKrZEeK0c6zbE5wWDw" name="WorldRenderer" associationsOut="_mSiooKrZEeK0c6zbE5wWDw _mSjPsKrZEeK0c6zbE5wWDw _mSj2wKrZEeK0c6zbE5wWDw _mSj2warZEeK0c6zbE5wWDw _mSkd0KrZEeK0c6zbE5wWDw _mSlE4KrZEeK0c6zbE5wWDw _mSlr8KrZEeK0c6zbE5wWDw _mSlr8arZEeK0c6zbE5wWDw">
+    <modelElement href="JungleAre6.uml#_Yu42YKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_mTE0IarZEeK0c6zbE5wWDw" position="993.0,31.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_mTE0IqrZEeK0c6zbE5wWDw" label="+"/>
+    <attributes xmi:id="_mTE0I6rZEeK0c6zbE5wWDw" defaultValue="Gdx.graphics.getWidth()" name="CAMERA_WIDTH" staticAttribute="true">
+      <modelElement href="JungleAre6.uml#_ZJIiYKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTE0JKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTE0JarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTE0JqrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTE0J6rZEeK0c6zbE5wWDw" defaultValue="Gdx.graphics.getHeight()" name="CAMERA_HEIGHT" staticAttribute="true">
+      <modelElement href="JungleAre6.uml#_ZJJwgKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTE0KKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTE0KarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTE0KqrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTE0K6rZEeK0c6zbE5wWDw" name="jungleWorld">
+      <modelElement href="JungleAre6.uml#_ZJKXkKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTE0LKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJK-oKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mS5N8qrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJK-oKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTE0LarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTE0LqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTE0L6rZEeK0c6zbE5wWDw" name="JungleWorld">
+        <modelElement href="JungleAre6.uml#_YjbNQKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTE0MKrZEeK0c6zbE5wWDw" name="cam">
+      <modelElement href="JungleAre6.uml#_ZJMMwKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTE0MarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJMz0KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mS6cEqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJMz0KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTE0MqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTE0M6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTE0NKrZEeK0c6zbE5wWDw" name="OrthographicCamera">
+        <modelElement href="JungleAre6.uml#_ZDP80KrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTE0NarZEeK0c6zbE5wWDw" name="shapeRenderer">
+      <modelElement href="JungleAre6.uml#_ZJNa4KrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbMKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJOB8KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mS7qMarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJOB8KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbMarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbMqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbM6rZEeK0c6zbE5wWDw" name="ShapeRenderer">
+        <modelElement href="JungleAre6.uml#_ZDRyAKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbNKrZEeK0c6zbE5wWDw" name="debugRenderer">
+      <modelElement href="JungleAre6.uml#_ZJOB8arZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbNarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJOpAKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mS84UKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJOpAKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbNqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbN6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbOKrZEeK0c6zbE5wWDw" name="Box2DDebugRenderer">
+        <modelElement href="JungleAre6.uml#_ZDSZEarZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbOarZEeK0c6zbE5wWDw" name="texturePlayerOne">
+      <modelElement href="JungleAre6.uml#_ZJPQEKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbOqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJP3IKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mS9fYqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJP3IKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbO6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbPKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbParZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbPqrZEeK0c6zbE5wWDw" name="texturePlayerTwo">
+      <modelElement href="JungleAre6.uml#_ZJRFQKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbP6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJS6cKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mS_UkKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJS6cKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbQKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbQarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbQqrZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbQ6rZEeK0c6zbE5wWDw" name="targetTexture">
+      <modelElement href="JungleAre6.uml#_ZJUvoKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbRKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJVWsKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mS_7oqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJVWsKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbRarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbRqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbR6rZEeK0c6zbE5wWDw" name="Texture">
+        <modelElement href="JungleAre6.uml#_ZChkEKrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbSKrZEeK0c6zbE5wWDw" name="spriteBatch">
+      <modelElement href="JungleAre6.uml#_ZJV9wKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbSarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJWk0KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_mTBJwqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJWk0KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbSqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbS6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbTKrZEeK0c6zbE5wWDw" name="SpriteBatch">
+        <modelElement href="JungleAre6.uml#_ZDRK8KrZEeK0c6zbE5wWDw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbTarZEeK0c6zbE5wWDw" name="width">
+      <modelElement href="JungleAre6.uml#_ZJXL4KrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbTqrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJXy8KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbT6rZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbUKrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbUarZEeK0c6zbE5wWDw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbUqrZEeK0c6zbE5wWDw" name="height">
+      <modelElement href="JungleAre6.uml#_ZJXy8arZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbU6rZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJZBEKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbVKrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbVarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbVqrZEeK0c6zbE5wWDw" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbV6rZEeK0c6zbE5wWDw" name="ppuX">
+      <modelElement href="JungleAre6.uml#_ZJZBEarZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbWKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJZoIKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbWarZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbWqrZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbW6rZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_mTFbXKrZEeK0c6zbE5wWDw" name="ppuY">
+      <modelElement href="JungleAre6.uml#_ZJaPMKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_mTFbXarZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_ZJbdUKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_mTFbXqrZEeK0c6zbE5wWDw" label="-"/>
+      <cardinality xmi:id="_mTFbX6rZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_mTFbYKrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_mTFbYarZEeK0c6zbE5wWDw" comments="_mSm6EKrZEeK0c6zbE5wWDw" targetConnectionVisual="_mSm6EarZEeK0c6zbE5wWDw" name="setSize">
+      <modelElement href="JungleAre6.uml#_Yu-V8KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTFbYqrZEeK0c6zbE5wWDw" label="+"/>
+      <parameters xmi:id="_mTFbY6rZEeK0c6zbE5wWDw" name="w">
+        <modelElement href="JungleAre6.uml#_Yu-V8arZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mTFbZKrZEeK0c6zbE5wWDw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_mTFbZarZEeK0c6zbE5wWDw" name="h">
+        <modelElement href="JungleAre6.uml#_Yu-V8qrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mTFbZqrZEeK0c6zbE5wWDw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_mTFbZ6rZEeK0c6zbE5wWDw" name="render">
+      <modelElement href="JungleAre6.uml#_Yu-9AKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTFbaKrZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+    <operations xmi:id="_mTFbaarZEeK0c6zbE5wWDw" name="drawTanks">
+      <modelElement href="JungleAre6.uml#_Yu_kEKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTFbaqrZEeK0c6zbE5wWDw" label="-"/>
+    </operations>
+    <operations xmi:id="_mTFba6rZEeK0c6zbE5wWDw" name="drawControls">
+      <modelElement href="JungleAre6.uml#_Yu_kEarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTFbbKrZEeK0c6zbE5wWDw" label="-"/>
+    </operations>
+    <operations xmi:id="_mTFbbarZEeK0c6zbE5wWDw" name="WorldRenderer">
+      <modelElement href="JungleAre6.uml#_ZDo-YKrZEeK0c6zbE5wWDw"/>
+      <keywords xmi:id="_mTFbbqrZEeK0c6zbE5wWDw" keyword="create"/>
+      <visibility xmi:id="_mTFbb6rZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_mTFbcKrZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZDqMgarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mTFbcarZEeK0c6zbE5wWDw" name="WorldRenderer">
+          <modelElement href="JungleAre6.uml#_Yu42YKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_mTFbcqrZEeK0c6zbE5wWDw" name="world">
+        <modelElement href="JungleAre6.uml#_ZDplcKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mTFbc6rZEeK0c6zbE5wWDw" name="JungleWorld">
+          <modelElement href="JungleAre6.uml#_YjbNQKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_mTFbdKrZEeK0c6zbE5wWDw" name="context">
+        <modelElement href="JungleAre6.uml#_ZDplcarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mTFbdarZEeK0c6zbE5wWDw" name="Context">
+          <modelElement href="JungleAre6.uml#_Yi8sIKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_mTFbdqrZEeK0c6zbE5wWDw" name="loadTextures">
+      <modelElement href="JungleAre6.uml#_ZDqzkKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_mTFbd6rZEeK0c6zbE5wWDw" label="-"/>
+      <parameters xmi:id="_mTFbeKrZEeK0c6zbE5wWDw" name="context">
+        <modelElement href="JungleAre6.uml#_ZDqzkarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_mTFbearZEeK0c6zbE5wWDw" name="Context">
+          <modelElement href="JungleAre6.uml#_Yi8sIKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

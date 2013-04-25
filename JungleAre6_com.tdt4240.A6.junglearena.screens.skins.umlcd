@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_aHBuAKrZEeK0c6zbE5wWDw">
+  <modelElement href="JungleAre6.uml#_YZVdIarZEeK0c6zbE5wWDw"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_ddprkKrZEeK0c6zbE5wWDw" name="MySkin">
+    <modelElement href="JungleAre6.uml#_Yt4JwKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_ddprkarZEeK0c6zbE5wWDw" position="50.0,50.0"/>
+    <visibility xmi:id="_ddprkqrZEeK0c6zbE5wWDw" label="+"/>
+    <operations xmi:id="_ddprk6rZEeK0c6zbE5wWDw" name="getHugeButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt4w0KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprlKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddprlarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFpwkKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprlqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddprl6rZEeK0c6zbE5wWDw" name="getHugeRedButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt5-8KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprmKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddprmarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFqXoKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprmqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddprm6rZEeK0c6zbE5wWDw" name="getBigRedButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt6mAKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprnKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddprnarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFq-sKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprnqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddprn6rZEeK0c6zbE5wWDw" name="getMediumRedButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt70IKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddproKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddproarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFq-sarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddproqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddpro6rZEeK0c6zbE5wWDw" name="getSmallRedButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt8bMKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprpKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddprparZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFrlwKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprpqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddprp6rZEeK0c6zbE5wWDw" name="getBigButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt9CQKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprqKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddprqarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFsM0KrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprqqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddprq6rZEeK0c6zbE5wWDw" name="getMediumButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt-QYKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprrKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddprrarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFta8KrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprrqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddprr6rZEeK0c6zbE5wWDw" name="getSmallButtonSkin" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_Yt-3cKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprsKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_ddprsarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFuCAKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprsqrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_ddprs6rZEeK0c6zbE5wWDw" name="createTextButtonStyle" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_ZFsz4KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_ddprtKrZEeK0c6zbE5wWDw" label="-"/>
+      <outParameters xmi:id="_ddprtarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFsz4qrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddprtqrZEeK0c6zbE5wWDw" name="TextButtonStyle">
+          <modelElement href="JungleAre6.uml#_ZB_YkarZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_ddprt6rZEeK0c6zbE5wWDw" name="skin">
+        <modelElement href="JungleAre6.uml#_ZFsz4arZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_ddpruKrZEeK0c6zbE5wWDw" name="Skin">
+          <modelElement href="JungleAre6.uml#_ZCkAUarZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_aJIm0KrZEeK0c6zbE5wWDw">
+  <modelElement href="JungleAre6.uml#_YYJxZKrZEeK0c6zbE5wWDw"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_lcDskKrZEeK0c6zbE5wWDw" name="Constants">
+    <modelElement href="JungleAre6.uml#_YuGMMKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_lcDskarZEeK0c6zbE5wWDw" position="50.0,50.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_lcDskqrZEeK0c6zbE5wWDw" label="+"/>
+    <attributes xmi:id="_lcDsk6rZEeK0c6zbE5wWDw" defaultValue="30f" name="pixelsInAMeter" staticAttribute="true">
+      <modelElement href="JungleAre6.uml#_ZIm98KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_lcDslKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_lcDslarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_lcDslqrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_lcDsl6rZEeK0c6zbE5wWDw" defaultValue="100f" name="distanceFromTarget" staticAttribute="true">
+      <modelElement href="JungleAre6.uml#_ZInlAarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_lcDsmKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_lcDsmarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_lcDsmqrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_lcDsm6rZEeK0c6zbE5wWDw" defaultValue="10f" name="AIThinkingTime" staticAttribute="true">
+      <modelElement href="JungleAre6.uml#_ZIoMEarZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_lcDsnKrZEeK0c6zbE5wWDw" label="+"/>
+      <cardinality xmi:id="_lcDsnarZEeK0c6zbE5wWDw" label="1" max="1" min="1"/>
+      <type xmi:id="_lcDsnqrZEeK0c6zbE5wWDw" name="float">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_lcQg4KrZEeK0c6zbE5wWDw" name="MathPhysicsUtils">
+    <modelElement href="JungleAre6.uml#_YuIocKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_lcQg4arZEeK0c6zbE5wWDw" position="357.0,31.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_lcQg4qrZEeK0c6zbE5wWDw" label="+"/>
+    <operations xmi:id="_lcQg46rZEeK0c6zbE5wWDw" name="calculateXCircleInterpolationGivenY" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_YuJ2kKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_lcQg5KrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_lcQg5arZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFupEKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg5qrZEeK0c6zbE5wWDw" name="Vector3">
+          <modelElement href="JungleAre6.uml#_ZBGAsKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_lcQg56rZEeK0c6zbE5wWDw" name="originX">
+        <modelElement href="JungleAre6.uml#_YuJ2karZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg6KrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg6arZEeK0c6zbE5wWDw" name="originY">
+        <modelElement href="JungleAre6.uml#_YuKdoKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg6qrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg66rZEeK0c6zbE5wWDw" name="screenX">
+        <modelElement href="JungleAre6.uml#_YuKdoarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg7KrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg7arZEeK0c6zbE5wWDw" name="pointY">
+        <modelElement href="JungleAre6.uml#_YuKdoqrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg7qrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg76rZEeK0c6zbE5wWDw" name="radius">
+        <modelElement href="JungleAre6.uml#_YuLEsKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg8KrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_lcQg8arZEeK0c6zbE5wWDw" name="calculateXCircleInterpolation" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_YuNg8KrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_lcQg8qrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_lcQg86rZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFweQKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg9KrZEeK0c6zbE5wWDw" name="Vector2">
+          <modelElement href="JungleAre6.uml#_Y_9_UKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_lcQg9arZEeK0c6zbE5wWDw" name="originX">
+        <modelElement href="JungleAre6.uml#_YuNg8arZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg9qrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg96rZEeK0c6zbE5wWDw" name="originY">
+        <modelElement href="JungleAre6.uml#_YuNg8qrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg-KrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg-arZEeK0c6zbE5wWDw" name="screenX">
+        <modelElement href="JungleAre6.uml#_YuNg86rZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg-qrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg-6rZEeK0c6zbE5wWDw" name="pointY">
+        <modelElement href="JungleAre6.uml#_YuOIAKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg_KrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcQg_arZEeK0c6zbE5wWDw" name="radius">
+        <modelElement href="JungleAre6.uml#_YuOIAarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQg_qrZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_lcQg_6rZEeK0c6zbE5wWDw" name="calculateXCircleInterpolationWithAngle" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_YuP9MKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_lcQhAKrZEeK0c6zbE5wWDw" label="+"/>
+      <outParameters xmi:id="_lcQhAarZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFxFUKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcQhAqrZEeK0c6zbE5wWDw" name="Vector3">
+          <modelElement href="JungleAre6.uml#_ZBGAsKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_lcRH8KrZEeK0c6zbE5wWDw" name="originX">
+        <modelElement href="JungleAre6.uml#_YuP9MarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRH8arZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcRH8qrZEeK0c6zbE5wWDw" name="originY">
+        <modelElement href="JungleAre6.uml#_YuP9MqrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRH86rZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcRH9KrZEeK0c6zbE5wWDw" name="screenX">
+        <modelElement href="JungleAre6.uml#_YuQkQKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRH9arZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcRH9qrZEeK0c6zbE5wWDw" name="pointY">
+        <modelElement href="JungleAre6.uml#_YuQkQarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRH96rZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcRH-KrZEeK0c6zbE5wWDw" name="radius">
+        <modelElement href="JungleAre6.uml#_YuQkQqrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRH-arZEeK0c6zbE5wWDw" name="float">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_lcRH-qrZEeK0c6zbE5wWDw" name="distance" staticOperation="true">
+      <modelElement href="JungleAre6.uml#_ZFvQIKrZEeK0c6zbE5wWDw"/>
+      <visibility xmi:id="_lcRH-6rZEeK0c6zbE5wWDw" label="-"/>
+      <outParameters xmi:id="_lcRH_KrZEeK0c6zbE5wWDw">
+        <modelElement href="JungleAre6.uml#_ZFv3MarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRH_arZEeK0c6zbE5wWDw" name="double">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_lcRH_qrZEeK0c6zbE5wWDw" name="positionMate">
+        <modelElement href="JungleAre6.uml#_ZFvQIarZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRH_6rZEeK0c6zbE5wWDw" name="Vector2">
+          <modelElement href="JungleAre6.uml#_Y_9_UKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_lcRIAKrZEeK0c6zbE5wWDw" name="position2">
+        <modelElement href="JungleAre6.uml#_ZFv3MKrZEeK0c6zbE5wWDw"/>
+        <type xmi:id="_lcRIAarZEeK0c6zbE5wWDw" name="Vector2">
+          <modelElement href="JungleAre6.uml#_Y_9_UKrZEeK0c6zbE5wWDw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_lca48KrZEeK0c6zbE5wWDw" name="MathPhysicsTest">
+    <modelElement href="JungleAre6.uml#_YvQCwarZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_lca48arZEeK0c6zbE5wWDw" position="-289.0,88.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_lca48qrZEeK0c6zbE5wWDw" label="+"/>
+    <operations xmi:id="_lca486rZEeK0c6zbE5wWDw" name="testCalculateXCircleInterpolation">
+      <modelElement href="JungleAre6.uml#_YvRQ46rZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_lca49KrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_YvR38KrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_lca49arZEeK0c6zbE5wWDw" name="Annotations">
+        <modelElement href="JungleAre6.uml#_YvSfAKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_lca49qrZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

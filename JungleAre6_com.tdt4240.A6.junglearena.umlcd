@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_aGxPUKrZEeK0c6zbE5wWDw">
+  <modelElement href="JungleAre6.uml#_YYDqwqrZEeK0c6zbE5wWDw"/>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_b9v_EKrZEeK0c6zbE5wWDw" name="JungleArena">
+    <modelElement href="JungleAre6.uml#_Yf70YKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_b9v_EarZEeK0c6zbE5wWDw" position="50.0,50.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_b9v_EqrZEeK0c6zbE5wWDw" label="+"/>
+    <operations xmi:id="_b9v_E6rZEeK0c6zbE5wWDw" name="create">
+      <modelElement href="JungleAre6.uml#_Yf9CgKrZEeK0c6zbE5wWDw"/>
+      <stereotypes xmi:id="_b9v_FKrZEeK0c6zbE5wWDw" name="LegacyStyledElement">
+        <modelElement href="JungleAre6.uml#_Yf9pkKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_b9v_FarZEeK0c6zbE5wWDw" name="Annotations">
+        <modelElement href="JungleAre6.uml#_Yf-3sKrZEeK0c6zbE5wWDw"/>
+      </stereotypes>
+      <visibility xmi:id="_b9v_FqrZEeK0c6zbE5wWDw" label="+"/>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_b9zpcKrZEeK0c6zbE5wWDw" name="screens">
+    <modelElement href="JungleAre6.uml#_YYDqw6rZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_b9zpcarZEeK0c6zbE5wWDw" position="-114.0,46.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_b92FsKrZEeK0c6zbE5wWDw" name="model">
+    <modelElement href="JungleAre6.uml#_YYER1arZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_b92FsarZEeK0c6zbE5wWDw" position="231.0,46.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_b94h8KrZEeK0c6zbE5wWDw" name="controller">
+    <modelElement href="JungleAre6.uml#_YYHVIKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_b94h8arZEeK0c6zbE5wWDw" position="381.0,46.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_b96-MKrZEeK0c6zbE5wWDw" name="listeners">
+    <modelElement href="JungleAre6.uml#_YYJxYKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_b96-MarZEeK0c6zbE5wWDw" position="-279.0,46.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_b98zYKrZEeK0c6zbE5wWDw" name="utils">
+    <modelElement href="JungleAre6.uml#_YYJxZKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_b98zYarZEeK0c6zbE5wWDw" position="531.0,46.0" size="-1.0,-1.0"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:PackageVisual" xmi:id="_b9-okKrZEeK0c6zbE5wWDw" name="view">
+    <modelElement href="JungleAre6.uml#_YZWEMKrZEeK0c6zbE5wWDw"/>
+    <visualProperties xmi:id="_b9-okarZEeK0c6zbE5wWDw" position="-444.0,46.0" size="-1.0,-1.0"/>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
